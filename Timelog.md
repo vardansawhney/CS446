@@ -13,6 +13,7 @@ Timelog file for time tracking.
 | 05-12-2023  | Idea discussion meeting.  | 1.0 | 1.0 |  | 1.0 | 1.0 | 1.0 |
 | 05-16-2023  | Created markdown table for recording tasks.  | 0.5  |   |   |   |   |   |
 | 05-17-2023  | Created project proposal brainstorm doc.  |  |  |  |  |  | 1.0 |
+| 05-17-2023  | Added thoughts to project proposal brainstorm doc.  |  |  |  |  | 0.5 | |
 | 05-19-2023  | Proposal discussion meeting.  | 2.5 | 2.5 | 2.5 | 2.5 |  | 2.5 |
 | 05-20-2023  | Creating proposal doc, title page, and filling in Page 1 of proposal  |   | 1.0 |   |   |   |   |
 | 05-22-2023  | Created two mock-ups for the team :)  |   | 2.0 |   |   |   |   |
