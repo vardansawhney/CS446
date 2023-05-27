@@ -19,8 +19,8 @@ Timelog file for time tracking.
 | 05-22-2023  | Created two mock-ups for the team :)  |   | 2.0 |   |   |   |   |
 | 05-23-2023  | Filled in page 3-5 of proposal  |   |  | 1.0 |   |   | 1.0 |
 | 05-23-2023  | Proposal discussion meeting #2 | 1.0  | 1.0 |  1.0 | 1.0  | 1.0  | 1.0 |
-|      |       |       |        |          |        |         |        |
-|      |       |       |        |          |        |         |        |
+| 05-27-2023  | Created iteration of mockup for Deliverable 1 |  |  |  | | 2.5  | |
+| 05-27-2023  | Made suggestions/edited D1 rough draft |   |  |  | | 0.5  | |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
