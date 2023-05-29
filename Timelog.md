@@ -23,7 +23,7 @@ Timelog file for time tracking.
 | 05-27-2023  | Made suggestions/edited D1 rough draft |   |  |  | | 0.5  | |
 | 05-29-2023  | Made suggestions/edited D1 rough draft |   | 1.0 |  | |  | | 
 | 05-29-2023  | Find slide deck templates for team |   | 0.25 |  | |  | | 
-| 05-29-2023  | Proposal discussion meeting #3 | 1.0  | 1.0 |  1.0 | 1.0  | 1.0  | 1.0 |
+| 05-29-2023  | Proposal discussion meeting #3 | 2.0  | 2.0 |  2.0 | 2.0  | 2.0  | 2.0 |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
