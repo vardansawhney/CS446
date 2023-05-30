@@ -21,11 +21,11 @@ Timelog file for time tracking.
 | 05-23-2023  | Proposal discussion meeting #2 | 1.0  | 1.0 |  1.0 | 1.0  | 1.0  | 1.0 |
 | 05-27-2023  | Created iteration of mockup for Deliverable 1 |  |  |  | | 2.5  | |
 | 05-27-2023  | Made suggestions/edited D1 rough draft |   |  |  | | 0.5  | |
-| 05-29-2023  | Made suggestions/edited D1 rough draft |   | 1.0 |  | |  | | 
+| 05-29-2023  | Made suggestions/edited D1 rough draft |   | 1.0 | 0.25 | |  | | 
 | 05-29-2023  | Find slide deck templates for team |   | 0.25 |  | |  | | 
 | 05-29-2023  | Proposal discussion meeting #3 | 2.0  | 2.0 |  2.0 | 2.0  | 2.0  | 2.0 |
-|      |       |       |        |          |        |         |        |
-|      |       |       |        |          |        |         |        |
+| 05-29-2023  | Prepare slide deck template |       |        | 1.0 |        |         |        |
+| 05-30-2023  | Prepare slides for pitch |       |        | 1.0 |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
