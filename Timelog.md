@@ -26,7 +26,7 @@ Timelog file for time tracking.
 | 05-29-2023  | Proposal discussion meeting #3 | 2.0  | 2.0 |  2.0 | 2.0  | 2.0  | 2.0 |
 | 05-29-2023  | Prepare slide deck template |       |        | 1.0 |        |         |        |
 | 05-30-2023  | Prepare slides for pitch |       |        | 1.0 |        |         |        |
-|      |       |       |        |          |        |         |        |
+| 05-30-2023  | Designed logo for app |  | 0.5 |  |  |  |  |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
