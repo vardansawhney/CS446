@@ -27,7 +27,7 @@ Timelog file for time tracking.
 | 05-29-2023  | Prepare slide deck template |       |        | 1.0 |        |         |        |
 | 05-30-2023  | Prepare slides for pitch |       |        | 1.0 |        |         |        |
 | 05-30-2023  | Designed logo for app |  | 0.5 |  |  |  |  |
-| 05-30-2023  | Designed logo for app |  | 2.5 |  | 2.5  |  |  |
+| 05-31-2023  | Brainstorming 'friends' aspect of application, how to make it more difficult to build |  | 2.5 |  | 2.5  |  |  |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
