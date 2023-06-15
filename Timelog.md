@@ -27,8 +27,8 @@ Timelog file for time tracking.
 | 05-29-2023  | Find slide deck templates for team |   | 0.25 |  | |  | | 
 | 05-29-2023  | Edit Proposal |   | |  | 0.5 |  | | 
 | 05-29-2023  | Proposal discussion meeting #3 | 2.0  | 2.0 |  2.0 | 2.0  | 2.0  | 2.0 |
-| 05-29-2023  | Prepare slide deck template |       |        | 1.0 |        |         |        |
-| 05-30-2023  | Prepare slides for pitch |       |        | 1.0 |        |         |        |
+| 05-29-2023  | Prepare slide deck template |       |        | 2.5 |        |         |        |
+| 05-30-2023  | Prepare slides for pitch |       |        | 2.5 |        |         |        |
 | 05-30-2023  | Designed logo for app |  | 1.0 |  |  |  |  |
 | 05-31-2023  | Brainstorming 'friends' aspect of application, how to make it more difficult to build |  | 2.5 |  | 2.5  |  |  |
 | 06-01-2023 | Making new mocks to represent latest vision of product, reflecting changes discussed with prof to increase difficulty |       |0.5|          | 1 |         |        |
@@ -36,7 +36,7 @@ Timelog file for time tracking.
 | 06-02-2023  | Editing proposal document |  | 1.0 |  |  |  |  |
 | 06-02-2023  | Finalizing Idea, Mocks, and Architectural Views |  |  |  | 4 |  |  |
 | 06-02-2023  | Final Edits on Proposal Doc + Design Discussions    |    3   |  1      |          |   2     |    3     |    1.5    |
-| 06-013-2023  | Buddy Team Evaluation    |   |      |          |   1     |         |      |
+| 06-013-2023  | Buddy Team Evaluation    |   |      |     2     |   1     |         |      |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
