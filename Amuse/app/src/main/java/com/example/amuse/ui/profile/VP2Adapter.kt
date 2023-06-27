@@ -15,8 +15,8 @@ class VP2Adapter(activity: FragmentActivity?) : FragmentStateAdapter(activity!!)
         return if(position == 0)
             FriendsFragment()
         else if(position == 1)
-            GroupsFragment()
+            FriendsFragment()
         else
-            SettingsFragment()
+            FriendsFragment()
     }
 }

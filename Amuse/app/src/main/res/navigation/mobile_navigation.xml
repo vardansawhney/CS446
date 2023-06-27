@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
+        android:id="@+id/navigation_groups"
+        android:name="com.example.amuse.ui.groups.GroupPageFragment"
+        android:label="Groups"
+        tools:layout="@layout/fragment_group_page" />
+
+    <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.amuse.ui.profile.ProfileFragment"
         android:label="@string/title_profile"

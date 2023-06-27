@@ -6,62 +6,48 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.amuse.R
 import com.example.amuse.databinding.FragmentFriendsBinding
+import androidx.recyclerview.widget.DividerItemDecoration
 
 class FriendsFragment : Fragment() {
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var friendList: ArrayList<Friend>
+    private lateinit var friendAdapter: FriendAdapter
 
     private var _binding: FragmentFriendsBinding? = null
-    private lateinit var friendArrayList : ArrayList<Friend>
-//
-//    // This property is only valid between onCreateView and
-//    // onDestroyView.
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
     private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentFriendsBinding.inflate(layoutInflater)
+        _binding = FragmentFriendsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val imageId = intArrayOf(
-            R.drawable.lilo, R.drawable.angel, R.drawable.nani
+        recyclerView = binding.root.findViewById(R.id.friendsView)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(this.context)
+
+        friendList = ArrayList()
+
+        friendList.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
+        friendList.add(Friend("Angel", "angelxoxo@gmail.com", R.drawable.angel, 2))
+        friendList.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani, 1))
+
+        friendAdapter = FriendAdapter(friendList)
+        recyclerView.adapter = friendAdapter
+        recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                DividerItemDecoration.VERTICAL
+            )
         )
-
-        val name = arrayOf(
-            "Lilo",
-            "Angel",
-            "Nani"
-        )
-
-        val email = arrayOf(
-            "lilolovesdancing@gmail.com",
-            "angelxoxo@gmail.com",
-            "bigsisnani@gmail.com"
-        )
-
-        val groups = arrayOf(
-            1, 2, 1
-        )
-
-        friendArrayList = ArrayList()
-        for (i in name.indices){
-            val friend = Friend(name[i], email[i], imageId[i], groups[i])
-            friendArrayList.add(friend)
-        }
-
-//        binding.listview.isClickable = true
-        binding.listview.adapter = FriendAdapter(this.context as Activity, this.friendArrayList)
-//        binding.listview.setOnItemClickListener{ parent, view, position, id ->
-//            val name = name[position]
-//            val email = email[position]
-//            val imageId = imageId[position]
-//            val groups = groups[position]
-//
-//            val i = Intent()
-//
-//        }
-
-        return inflater.inflate(R.layout.fragment_friends, container, false)
+        return root
     }
 }

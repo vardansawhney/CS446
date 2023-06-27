@@ -7,28 +7,35 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.amuse.R
+import de.hdodenhof.circleimageview.CircleImageView
 
-class FriendAdapter(private val context: Activity, private val arrayList: ArrayList<Friend>) :
-    ArrayAdapter<Friend>(context, R.layout.list_friend){
+class FriendAdapter(private val friendList: ArrayList<Friend>)
+    : RecyclerView.Adapter<FriendAdapter.FriendViewHolder>(){
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+    class FriendViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
+        val imageView : CircleImageView = itemView. findViewById(R.id.friend_profile_pic)
+        val nameTextView : TextView = itemView.findViewById(R.id.friendName)
+        val emailTextView : TextView = itemView.findViewById(R.id.email)
+        val groupsTextView : TextView = itemView.findViewById(R.id.numGroups)
+    }
 
-        val inflater : LayoutInflater = LayoutInflater.from(context)
-        val view : View = inflater.inflate(R.layout.list_friend, null)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_friend, parent, false)
+        return FriendViewHolder(view)
+    }
 
-        val imageView : ImageView = view.findViewById(R.id.friend_profile_pic)
-        val username : TextView = view.findViewById(R.id.friendName)
-        val email : TextView = view.findViewById(R.id.email)
-        val groups: TextView = view.findViewById(R.id.groups)
-        val numGroups : TextView = view.findViewById(R.id.numGroups)
+    override fun onBindViewHolder(holder: FriendViewHolder, position: Int) {
+        val friend = friendList[position]
+        holder.imageView.setImageResource(friend.imageId)
+        holder.nameTextView.text = friend.name
+        holder.emailTextView.text = friend.email
+        holder.groupsTextView.text = friend.groups.toString()
+    }
 
-        imageView.setImageResource(arrayList[position].imageId)
-        username.text = arrayList[position].name
-        email.text = arrayList[position].email
-        numGroups.text = arrayList[position].groups.toString()
-
-        return super.getView(position, convertView, parent)
+    override fun getItemCount(): Int {
+        return friendList.size
     }
 
 }
