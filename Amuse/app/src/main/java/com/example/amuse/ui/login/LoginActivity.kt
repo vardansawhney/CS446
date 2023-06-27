@@ -88,12 +88,13 @@ class LoginActivity : AppCompatActivity() {
                             password.text.toString()
                         )
                 }
-                false
+                true
             }
 
             login.setOnClickListener {
                 loading.visibility = View.VISIBLE
-                loginViewModel.login(username.text.toString(), password.text.toString())
+//                loginViewModel.login(username.text.toString(), password.text.toString())
+                setContentView(R.layout.fragment_notifications)
             }
         }
     }
