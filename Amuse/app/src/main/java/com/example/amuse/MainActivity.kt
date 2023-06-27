@@ -2,6 +2,7 @@ package com.example.amuse
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -15,8 +16,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d("TAG", "hello")
         super.onCreate(savedInstanceState)
-        val button = findViewById<Button>(R.id.login)
+//        val button = findViewById<Button>(R.id.login)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -34,6 +36,20 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+//        login.setOnClickListener {
+//            Log.d("TAG", "message")
+//                loading.visibility = View.VISIBLE
+//                loginViewModel.login(username.text.toString(), password.text.toString())
+//            setContentView(R.layout.fragment_notifications)
+//            if(username.text.toString() === "test" && password.text.toString() === "1234"){
+//                val buttonClick = findViewById<Button>(R.id.login)
+//                buttonClick.setOnClickListener {
+//                    val intent = Intent(this.context, ActivityMainBinding::class.java)
+//                    startActivity(intent)
+//                }
+//            }
+//        }
         setContentView(R.layout.activity_login)
+//        setContentView(binding.root)
     }
 }

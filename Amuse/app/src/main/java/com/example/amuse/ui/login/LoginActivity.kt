@@ -1,6 +1,7 @@
 package com.example.amuse.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,13 +9,16 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.amuse.databinding.ActivityLoginBinding
 
 import com.example.amuse.R
+import com.example.amuse.databinding.ActivityMainBinding
 
 class LoginActivity : AppCompatActivity() {
 
@@ -22,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d("TAG", "hello")
         super.onCreate(savedInstanceState)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -39,14 +44,14 @@ class LoginActivity : AppCompatActivity() {
             val loginState = it ?: return@Observer
 
             // disable login button unless both username / password is valid
-            login.isEnabled = loginState.isDataValid
-
-            if (loginState.usernameError != null) {
-                username.error = getString(loginState.usernameError)
-            }
-            if (loginState.passwordError != null) {
-                password.error = getString(loginState.passwordError)
-            }
+//            login.isEnabled = loginState.isDataValid
+//
+//            if (loginState.usernameError != null) {
+//                username.error = getString(loginState.usernameError)
+//            }
+//            if (loginState.passwordError != null) {
+//                password.error = getString(loginState.passwordError)
+//            }
         })
 
         loginViewModel.loginResult.observe(this@LoginActivity, Observer {
@@ -91,13 +96,21 @@ class LoginActivity : AppCompatActivity() {
                 true
             }
 
-            login.setOnClickListener {
-                loading.visibility = View.VISIBLE
+        login.setOnClickListener {
+            Log.d("TAG", "message")
+//                loading.visibility = View.VISIBLE
 //                loginViewModel.login(username.text.toString(), password.text.toString())
-                setContentView(R.layout.fragment_notifications)
+            setContentView(R.layout.fragment_notifications)
+            if(username.text.toString() === "test" && password.text.toString() === "1234"){
+                val buttonClick = findViewById<Button>(R.id.login)
+                buttonClick.setOnClickListener {
+                    val intent = Intent(this.context, ActivityMainBinding::class.java)
+                    startActivity(intent)
+                }
             }
         }
     }
+}
 
     private fun updateUiWithUser(model: LoggedInUserView) {
         val welcome = getString(R.string.welcome)
