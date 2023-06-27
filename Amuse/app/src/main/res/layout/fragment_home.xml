@@ -74,7 +74,7 @@
                         android:layout_height="25dp"
                         android:layout_weight="1"
                         android:paddingLeft="25dp"
-                        android:text="Mount Everest"
+                        android:text="Laurel Trail (2.1 km)"
                         android:textSize="12sp"
                         android:textColor="?android:attr/textColorPrimary" />
 
@@ -95,7 +95,7 @@
                         android:layout_weight="1"
                         android:paddingLeft="25dp"
                         android:paddingTop="8dp"
-                        android:text="$$$"
+                        android:text="$"
                         android:textSize="12sp"
                         android:textColor="?android:attr/textColorPrimary" />
                 </LinearLayout>
@@ -248,7 +248,7 @@
                         android:layout_height="25dp"
                         android:layout_weight="1"
                         android:paddingLeft="25dp"
-                        android:text="Fancy Dinner"
+                        android:text="Shinwa (1.8 km)"
                         android:textSize="12sp"
                         android:textColor="?android:attr/textColorPrimary" />
 
@@ -269,7 +269,7 @@
                         android:layout_weight="1"
                         android:paddingLeft="25dp"
                         android:paddingTop="8dp"
-                        android:text="$"
+                        android:text="$$"
                         android:textSize="12sp"
                         android:textColor="?android:attr/textColorPrimary" />
                 </LinearLayout>
@@ -423,7 +423,7 @@
                         android:layout_height="25dp"
                         android:layout_weight="1"
                         android:paddingLeft="25dp"
-                        android:text="Clubbing"
+                        android:text="Allure (2 km)"
                         android:textColor="?android:attr/textColorPrimary"
                         android:textSize="12sp" />
 
