@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.customview.widget.ViewDragHelper
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.amuse.R
 import com.example.amuse.databinding.FragmentHomeBinding
+import com.google.android.material.card.MaterialCardView
 
 class HomeFragment : Fragment() {
 
@@ -31,10 +33,12 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        /*
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+        */
         return root
     }
 
