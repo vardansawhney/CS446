@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import androidx.recyclerview.widget.RecyclerView
 
 
 class SwipeAdapter(private val context: Context, val data: ArrayList<Int>) :
@@ -54,19 +55,19 @@ class SwipeAdapter(private val context: Context, val data: ArrayList<Int>) :
         return view
     }
 
-//    /**
-//     * Static view items holder
-//     */
-//    class DataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-//        var picture = view.kolodaImage
-//
-//        internal fun bindData(context: Context, data: Int) {
-//            val transforms = RequestOptions().transforms(CenterCrop(), RoundedCorners(20))
-//            Glide.with(context)
-//                .load(data)
-//                .apply(transforms)
-//                .into(picture)
-//        }
-//
-//    }
+    /**
+     * Static view items holder
+     */
+    class DataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var picture = view.kolodaImage
+
+        internal fun bindData(context: Context, data: Int) {
+            val transforms = RequestOptions().transforms(CenterCrop(), RoundedCorners(20))
+            Glide.with(context)
+                .load(data)
+                .apply(transforms)
+                .into(picture)
+        }
+
+    }
 }
