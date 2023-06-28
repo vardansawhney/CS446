@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
 
         binding.card1.setOnClickListener {
             requireActivity().run {
-                startActivity(Intent(this, OpenCardActivity::class.java).putExtra("cardID", "card1"))
+                startActivity(Intent(this, OpenCardActivity::class.java).putExtra("cardID", "card2"))
                 finish()
             }
         }

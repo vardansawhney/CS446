@@ -26,16 +26,16 @@
         android:id="@+id/card1"
         android:layout_width="300dp"
         android:layout_height="500dp"
+        android:clickable="true"
+        android:focusable="true"
         app:cardCornerRadius="25dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497"
-        android:clickable="true"
-        android:focusable="true">
+        app:layout_constraintVertical_bias="0.497">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,6 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:orientation="horizontal">
+
                 <LinearLayout
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
@@ -65,8 +66,8 @@
                         android:layout_weight="1"
                         android:paddingLeft="16dp"
                         android:text=""
-                        android:textSize="12sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="12sp" />
 
                     <!-- Location -->
                     <TextView
@@ -75,8 +76,8 @@
                         android:layout_weight="1"
                         android:paddingLeft="25dp"
                         android:text="Laurel Trail (2.1 km)"
-                        android:textSize="12sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="12sp" />
 
                     <!-- Stars -->
                     <TextView
@@ -85,8 +86,8 @@
                         android:layout_weight="1"
                         android:paddingLeft="25dp"
                         android:text="&#9733;&#9733;&#9733;&#9734;&#9734;"
-                        android:textSize="12sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="12sp" />
 
                     <!-- Price -->
                     <TextView
@@ -96,9 +97,10 @@
                         android:paddingLeft="25dp"
                         android:paddingTop="8dp"
                         android:text="$"
-                        android:textSize="12sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="12sp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
@@ -129,7 +131,7 @@
                             android:paddingTop="8dp"
                             android:text="2 groups"
                             android:textColor="?android:attr/textColorPrimary"
-                            android:textSize="12sp"/>
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <!-- Padding -->
@@ -143,6 +145,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
@@ -156,25 +159,26 @@
                             android:paddingTop="8dp"
                             android:text="100 interested"
                             android:textColor="?android:attr/textColorPrimary"
-                            android:textSize="12sp"/>
+                            android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
             <!-- Short description -->
             <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="20dp"
                     android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidat."
                     android:textColor="?android:attr/textColorSecondary"
-                    android:textSize="10sp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="20dp"
-                    android:paddingTop="8dp"/>
+                    android:textSize="10sp" />
             </LinearLayout>
 
             <!-- Help icons -->
@@ -186,9 +190,9 @@
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="50dp"
+                    android:paddingLeft="25dp"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/gym_icon"
-                    android:paddingLeft="25dp"/>
+                    app:srcCompat="@drawable/gym_icon" />
             </LinearLayout>
 
         </LinearLayout>
@@ -199,17 +203,16 @@
         android:id="@+id/card2"
         android:layout_width="300dp"
         android:layout_height="500dp"
+        android:clickable="true"
+        android:focusable="true"
         app:cardCornerRadius="25dp"
         app:cardElevation="8dp"
-        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497"
-        android:clickable="true"
-        android:focusable="true">
+        app:layout_constraintVertical_bias="0.497">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -227,6 +230,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:orientation="horizontal">
+
                 <LinearLayout
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
@@ -239,8 +243,8 @@
                         android:layout_weight="1"
                         android:paddingLeft="16dp"
                         android:text=""
-                        android:textSize="12sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="12sp" />
 
                     <!-- Location -->
                     <TextView
@@ -249,8 +253,8 @@
                         android:layout_weight="1"
                         android:paddingLeft="25dp"
                         android:text="Shinwa (1.8 km)"
-                        android:textSize="12sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="12sp" />
 
                     <!-- Stars -->
                     <TextView
@@ -259,8 +263,8 @@
                         android:layout_weight="1"
                         android:paddingLeft="25dp"
                         android:text="&#9733;&#9733;&#9733;&#9733;&#9733;"
-                        android:textSize="12sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="12sp" />
 
                     <!-- Price -->
                     <TextView
@@ -270,9 +274,10 @@
                         android:paddingLeft="25dp"
                         android:paddingTop="8dp"
                         android:text="$$"
-                        android:textSize="12sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="12sp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
@@ -303,7 +308,7 @@
                             android:paddingTop="8dp"
                             android:text="1 groups"
                             android:textColor="?android:attr/textColorPrimary"
-                            android:textSize="12sp"/>
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <!-- Padding -->
@@ -317,6 +322,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
@@ -330,7 +336,7 @@
                             android:paddingTop="8dp"
                             android:text="2 interested"
                             android:textColor="?android:attr/textColorPrimary"
-                            android:textSize="12sp"/>
+                            android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -340,15 +346,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="20dp"
                     android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidat."
                     android:textColor="?android:attr/textColorSecondary"
-                    android:textSize="10sp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="20dp"
-                    android:paddingTop="8dp"/>
+                    android:textSize="10sp" />
             </LinearLayout>
 
             <!-- Help icons -->
@@ -360,9 +367,9 @@
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="50dp"
+                    android:paddingLeft="25dp"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/drink_icon"
-                    android:paddingLeft="25dp"/>
+                    app:srcCompat="@drawable/drink_icon" />
             </LinearLayout>
 
         </LinearLayout>
@@ -375,12 +382,11 @@
         android:layout_height="500dp"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="invisible"
         app:cardCornerRadius="25dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.795"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.497">
