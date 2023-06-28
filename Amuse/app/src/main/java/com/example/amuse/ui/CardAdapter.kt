@@ -14,7 +14,7 @@ class CardAdapter(private val cardsList: ArrayList<Card>) :
     RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
     class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val imageView : ImageView = itemView. findViewById(R.id.OuterCardMedia)
+        val imageView : ImageView = itemView.findViewById(R.id.OuterCardMedia)
         val titleTextView : TextView = itemView.findViewById(R.id.OuterCardTitle)
         val locationTextView : TextView = itemView.findViewById(R.id.OuterCardLocation)
         val starsTextView : TextView = itemView.findViewById(R.id.OuterCardStars)
