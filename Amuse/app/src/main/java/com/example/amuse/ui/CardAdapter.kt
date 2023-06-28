@@ -14,13 +14,13 @@ class CardAdapter(private val cardsList: ArrayList<Card>) :
     RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
     class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val imageView : ImageView = itemView.findViewById(R.id.OuterCardMedia)
-        val titleTextView : TextView = itemView.findViewById(R.id.OuterCardTitle)
-        val locationTextView : TextView = itemView.findViewById(R.id.OuterCardLocation)
-        val starsTextView : TextView = itemView.findViewById(R.id.OuterCardStars)
-        val priceTextView : TextView = itemView.findViewById(R.id.OuterCardPrice)
-        val groupsTextView : TextView = itemView.findViewById(R.id.OuterCardGroups)
-        val likesTextView : TextView = itemView.findViewById(R.id.OuterCardLikes)
+        val imageView : ImageView = itemView.findViewById(R.id.card_media)
+        val titleTextView : TextView = itemView.findViewById(R.id.card_title)
+        val locationTextView : TextView = itemView.findViewById(R.id.card_location)
+        val starsTextView : TextView = itemView.findViewById(R.id.card_stars)
+        val priceTextView : TextView = itemView.findViewById(R.id.card_price)
+        val groupsTextView : TextView = itemView.findViewById(R.id.card_groups)
+        val likesTextView : TextView = itemView.findViewById(R.id.card_likes)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val inflater = LayoutInflater.from(parent.context)

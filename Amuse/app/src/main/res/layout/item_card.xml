@@ -29,10 +29,21 @@
 
             <!-- Media -->
             <ImageView
+                android:id="@+id/card_media"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/card1_media" />
+
+                <!-- Title -->
+                <TextView
+                    android:id="@+id/card_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Hiking"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,6 +67,7 @@
 
                     <!-- Location -->
                     <TextView
+                        android:id="@+id/card_location"
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
                         android:layout_weight="1"
@@ -66,6 +78,7 @@
 
                     <!-- Stars -->
                     <TextView
+                        android:id="@+id/card_stars"
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
                         android:layout_weight="1"
@@ -76,6 +89,7 @@
 
                     <!-- Price -->
                     <TextView
+                        android:id="@+id/card_price"
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
                         android:layout_weight="1"
@@ -110,6 +124,7 @@
                             app:srcCompat="@drawable/groups_icon" />
 
                         <TextView
+                            android:id="@+id/card_groups"
                             android:layout_width="match_parent"
                             android:layout_height="25dp"
                             android:paddingLeft="5dp"
@@ -138,6 +153,7 @@
                             app:srcCompat="@drawable/likes_icon" />
 
                         <TextView
+                            android:id="@+id/card_likes"
                             android:layout_width="match_parent"
                             android:layout_height="25dp"
                             android:paddingLeft="5dp"
