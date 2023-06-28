@@ -13,6 +13,8 @@ import com.example.amuse.ui.home.Card
 class CardAdapter(private val cardsList: ArrayList<Card>) :
     RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
+    private var onClickListener: OnClickListener? = null
+
     class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val imageView : ImageView = itemView.findViewById(R.id.card_media)
         val titleTextView : TextView = itemView.findViewById(R.id.card_title)
@@ -38,9 +40,23 @@ class CardAdapter(private val cardsList: ArrayList<Card>) :
         holder.groupsTextView.text = card.groups
         holder.likesTextView.text = card.likes
 
+        holder.itemView.setOnClickListener{
+            if (onClickListener != null){
+                onClickListener!!.onClick(position, card)
+            }
+        }
+
     }
 
     override fun getItemCount(): Int {
         return cardsList.size
+    }
+
+    fun setOnClickListener(onClickListener: OnClickListener){
+        this.onClickListener = onClickListener
+    }
+
+    interface OnClickListener {
+        fun onClick(position: Int, model: Card)
     }
 }

@@ -69,10 +69,13 @@ class GroupPageFragment : Fragment() {
 
         // Group 2
         invitedList2 = ArrayList()
-        invitedList2.add(Friend("Angel", "angelxoxo@gmail.com", R.drawable.angel, 2))
+        invitedList2.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani, 2))
+        invitedList2.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
         acceptedList2 = ArrayList()
-        acceptedList2.add(Friend("Angel", "angelxoxo@gmail.com", R.drawable.angel, 2))
-        groupsList.add(Group("Park Date", 1, 1, false, invitedList2, acceptedList2))
+        acceptedList2.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani, 2))
+        groupsList.add(Group("Picniiiic", 1, 2, false, invitedList2, acceptedList2))
+
+        // New Group
         val groupInfo = activity?.intent?.extras?.getStringArray("groupInfo")
         if(groupInfo != null){
             for (i in 0..groupInfo!!.size - 1){
@@ -80,9 +83,8 @@ class GroupPageFragment : Fragment() {
             }
             // Group 3
             invitedList3 = ArrayList()
-            invitedList3.add(Friend(groupInfo_parsed[4], "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
+            invitedList3.add(Friend(groupInfo_parsed[4], "angelxoxo@gmail.com", R.drawable.angel, 1))
             acceptedList3 = ArrayList()
-            acceptedList3.add(Friend(groupInfo_parsed[4], "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
             groupsList.add(Group(groupInfo_parsed[0],1,groupInfo_parsed[2].toInt(),groupInfo_parsed[3].toBoolean(), invitedList3, acceptedList3))
         }
 
