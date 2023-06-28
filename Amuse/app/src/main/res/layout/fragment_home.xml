@@ -6,568 +6,590 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <!--
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    -->
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card1"
-        android:layout_width="300dp"
-        android:layout_height="500dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="25dp"
-        app:cardElevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.195"
+    <com.yuyakaido.android.cardstackview.CardStackView
+        android:id="@+id/card_stack"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        android:clipToPadding="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- Media -->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/card1_media" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <!-- Padding -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:paddingLeft="16dp"
-                        android:text=""
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp" />
-
-                    <!-- Location -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:paddingLeft="25dp"
-                        android:text="Laurel Trail (2.1 km)"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp" />
-
-                    <!-- Stars -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:paddingLeft="25dp"
-                        android:text="&#9733;&#9733;&#9733;&#9734;&#9734;"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp" />
-
-                    <!-- Price -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:paddingLeft="25dp"
-                        android:paddingTop="8dp"
-                        android:text="$"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <!-- Padding -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal"></LinearLayout>
-
-                    <!-- Groups -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/groups_icon" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="25dp"
-                            android:paddingLeft="5dp"
-                            android:paddingTop="8dp"
-                            android:text="2 groups"
-                            android:textColor="?android:attr/textColorPrimary"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <!-- Padding -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal"></LinearLayout>
-
-                    <!-- Likes -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/likes_icon" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="25dp"
-                            android:paddingLeft="5dp"
-                            android:paddingTop="8dp"
-                            android:text="100 interested"
-                            android:textColor="?android:attr/textColorPrimary"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Short description -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="8dp"
-                    android:paddingRight="20dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidat."
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textSize="10sp" />
-            </LinearLayout>
-
-            <!-- Help icons -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="75dp"
-                    android:layout_height="50dp"
-                    android:paddingLeft="25dp"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/gym_icon" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card2"
-        android:layout_width="300dp"
-        android:layout_height="500dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="25dp"
-        app:cardElevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- Media -->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/card2_media" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <!-- Padding -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:paddingLeft="16dp"
-                        android:text=""
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp" />
-
-                    <!-- Location -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:paddingLeft="25dp"
-                        android:text="Shinwa (1.8 km)"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp" />
-
-                    <!-- Stars -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:paddingLeft="25dp"
-                        android:text="&#9733;&#9733;&#9733;&#9733;&#9733;"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp" />
-
-                    <!-- Price -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:paddingLeft="25dp"
-                        android:paddingTop="8dp"
-                        android:text="$$"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <!-- Padding -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal"></LinearLayout>
-
-                    <!-- Groups -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/groups_icon" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="25dp"
-                            android:paddingLeft="5dp"
-                            android:paddingTop="8dp"
-                            android:text="1 groups"
-                            android:textColor="?android:attr/textColorPrimary"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <!-- Padding -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal"></LinearLayout>
-
-                    <!-- Likes -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/likes_icon" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="25dp"
-                            android:paddingLeft="5dp"
-                            android:paddingTop="8dp"
-                            android:text="2 interested"
-                            android:textColor="?android:attr/textColorPrimary"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Short description -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="8dp"
-                    android:paddingRight="20dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidat."
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textSize="10sp" />
-            </LinearLayout>
-
-            <!-- Help icons -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="75dp"
-                    android:layout_height="50dp"
-                    android:paddingLeft="25dp"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/drink_icon" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card3"
-        android:layout_width="300dp"
-        android:layout_height="500dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="25dp"
-        app:cardElevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.795"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- Media -->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/card3_media" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <!-- Padding -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:paddingLeft="16dp"
-                        android:text=""
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp" />
-
-                    <!-- Location -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:paddingLeft="25dp"
-                        android:text="Allure (2 km)"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp" />
-
-                    <!-- Stars -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:paddingLeft="25dp"
-                        android:text="&#9733;&#9734;&#9734;&#9734;&#9734;"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp" />
-
-                    <!-- Price -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:paddingLeft="25dp"
-                        android:paddingTop="8dp"
-                        android:text="$$$$"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <!-- Padding -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal"></LinearLayout>
-
-                    <!-- Groups -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/groups_icon" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="25dp"
-                            android:paddingLeft="5dp"
-                            android:paddingTop="8dp"
-                            android:text="0 groups"
-                            android:textColor="?android:attr/textColorPrimary"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <!-- Padding -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal"></LinearLayout>
-
-                    <!-- Likes -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/likes_icon" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="25dp"
-                            android:paddingLeft="5dp"
-                            android:paddingTop="8dp"
-                            android:text="0 interested"
-                            android:textColor="?android:attr/textColorPrimary"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Short description -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="8dp"
-                    android:paddingRight="20dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidat."
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textSize="10sp" />
-            </LinearLayout>
-
-            <!-- Help icons -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="75dp"
-                    android:layout_height="50dp"
-                    android:paddingLeft="25dp"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/drink_icon" />
-
-                <ImageView
-                    android:layout_width="75dp"
-                    android:layout_height="50dp"
-                    android:paddingLeft="25dp"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/gym_icon" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--
-<a href="https://www.flaticon.com/free-icons/party" title="party icons">Party icons created by Freepik - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/like" title="like icons">Like icons created by Freepik - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/people" title="people icons">People icons created by Freepik - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/drink" title="drink icons">Drink icons created by Good Ware - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/dumbell" title="Dumbell icons">Dumbell icons created by Freepik - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/background" title="background icons">Background icons created by Freepik - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/restaurant" title="restaurant icons">Restaurant icons created by Freepik - Flaticon</a>
--->
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".ui.home.HomeFragment">-->
+
+<!--    &lt;!&ndash;-->
+<!--    <TextView-->
+<!--        android:id="@+id/text_home"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+<!--    &ndash;&gt;-->
+
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:id="@+id/card1"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="500dp"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        app:cardCornerRadius="25dp"-->
+<!--        app:cardElevation="8dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.195"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.497">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+
+<!--            &lt;!&ndash; Media &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                app:srcCompat="@drawable/card1_media" />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    &lt;!&ndash; Padding &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="16dp"-->
+<!--                        android:text=""-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:textSize="12sp" />-->
+
+<!--                    &lt;!&ndash; Location &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="25dp"-->
+<!--                        android:text="Laurel Trail (2.1 km)"-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:textSize="12sp" />-->
+
+<!--                    &lt;!&ndash; Stars &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="25dp"-->
+<!--                        android:text="&#9733;&#9733;&#9733;&#9734;&#9734;"-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:textSize="12sp" />-->
+
+<!--                    &lt;!&ndash; Price &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="25dp"-->
+<!--                        android:paddingTop="8dp"-->
+<!--                        android:text="$"-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:textSize="12sp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    &lt;!&ndash; Padding &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:orientation="horizontal"></LinearLayout>-->
+
+<!--                    &lt;!&ndash; Groups &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="25dp"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:scaleType="fitCenter"-->
+<!--                            app:srcCompat="@drawable/groups_icon" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:paddingLeft="5dp"-->
+<!--                            android:paddingTop="8dp"-->
+<!--                            android:text="2 groups"-->
+<!--                            android:textColor="?android:attr/textColorPrimary"-->
+<!--                            android:textSize="12sp" />-->
+<!--                    </LinearLayout>-->
+
+<!--                    &lt;!&ndash; Padding &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:orientation="horizontal"></LinearLayout>-->
+
+<!--                    &lt;!&ndash; Likes &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="25dp"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:scaleType="fitCenter"-->
+<!--                            app:srcCompat="@drawable/likes_icon" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:paddingLeft="5dp"-->
+<!--                            android:paddingTop="8dp"-->
+<!--                            android:text="100 interested"-->
+<!--                            android:textColor="?android:attr/textColorPrimary"-->
+<!--                            android:textSize="12sp" />-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+
+<!--            &lt;!&ndash; Short description &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:paddingLeft="25dp"-->
+<!--                    android:paddingTop="8dp"-->
+<!--                    android:paddingRight="20dp"-->
+<!--                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidat."-->
+<!--                    android:textColor="?android:attr/textColorSecondary"-->
+<!--                    android:textSize="10sp" />-->
+<!--            </LinearLayout>-->
+
+<!--            &lt;!&ndash; Help icons &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="75dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:paddingLeft="25dp"-->
+<!--                    android:scaleType="fitCenter"-->
+<!--                    app:srcCompat="@drawable/gym_icon" />-->
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+
+<!--    </com.google.android.material.card.MaterialCardView>-->
+
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:id="@+id/card2"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="500dp"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        app:cardCornerRadius="25dp"-->
+<!--        app:cardElevation="8dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.495"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.497">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+
+<!--            &lt;!&ndash; Media &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                app:srcCompat="@drawable/card2_media" />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    &lt;!&ndash; Padding &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="16dp"-->
+<!--                        android:text=""-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:textSize="12sp" />-->
+
+<!--                    &lt;!&ndash; Location &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="25dp"-->
+<!--                        android:text="Shinwa (1.8 km)"-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:textSize="12sp" />-->
+
+<!--                    &lt;!&ndash; Stars &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="25dp"-->
+<!--                        android:text="&#9733;&#9733;&#9733;&#9733;&#9733;"-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:textSize="12sp" />-->
+
+<!--                    &lt;!&ndash; Price &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="25dp"-->
+<!--                        android:paddingTop="8dp"-->
+<!--                        android:text="$$"-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:textSize="12sp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    &lt;!&ndash; Padding &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:orientation="horizontal"></LinearLayout>-->
+
+<!--                    &lt;!&ndash; Groups &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="25dp"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:scaleType="fitCenter"-->
+<!--                            app:srcCompat="@drawable/groups_icon" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:paddingLeft="5dp"-->
+<!--                            android:paddingTop="8dp"-->
+<!--                            android:text="1 groups"-->
+<!--                            android:textColor="?android:attr/textColorPrimary"-->
+<!--                            android:textSize="12sp" />-->
+<!--                    </LinearLayout>-->
+
+<!--                    &lt;!&ndash; Padding &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:orientation="horizontal"></LinearLayout>-->
+
+<!--                    &lt;!&ndash; Likes &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="25dp"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:scaleType="fitCenter"-->
+<!--                            app:srcCompat="@drawable/likes_icon" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:paddingLeft="5dp"-->
+<!--                            android:paddingTop="8dp"-->
+<!--                            android:text="2 interested"-->
+<!--                            android:textColor="?android:attr/textColorPrimary"-->
+<!--                            android:textSize="12sp" />-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+
+<!--            &lt;!&ndash; Short description &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:paddingLeft="25dp"-->
+<!--                    android:paddingTop="8dp"-->
+<!--                    android:paddingRight="20dp"-->
+<!--                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidat."-->
+<!--                    android:textColor="?android:attr/textColorSecondary"-->
+<!--                    android:textSize="10sp" />-->
+<!--            </LinearLayout>-->
+
+<!--            &lt;!&ndash; Help icons &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="75dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:paddingLeft="25dp"-->
+<!--                    android:scaleType="fitCenter"-->
+<!--                    app:srcCompat="@drawable/drink_icon" />-->
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+
+<!--    </com.google.android.material.card.MaterialCardView>-->
+
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:id="@+id/card3"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="500dp"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        app:cardCornerRadius="25dp"-->
+<!--        app:cardElevation="8dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.795"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.497">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+
+<!--            &lt;!&ndash; Media &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                app:srcCompat="@drawable/card3_media" />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    &lt;!&ndash; Padding &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="16dp"-->
+<!--                        android:text=""-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:textSize="12sp" />-->
+
+<!--                    &lt;!&ndash; Location &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="25dp"-->
+<!--                        android:text="Allure (2 km)"-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:textSize="12sp" />-->
+
+<!--                    &lt;!&ndash; Stars &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="25dp"-->
+<!--                        android:text="&#9733;&#9734;&#9734;&#9734;&#9734;"-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:textSize="12sp" />-->
+
+<!--                    &lt;!&ndash; Price &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="25dp"-->
+<!--                        android:paddingTop="8dp"-->
+<!--                        android:text="$$$$"-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:textSize="12sp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    &lt;!&ndash; Padding &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:orientation="horizontal"></LinearLayout>-->
+
+<!--                    &lt;!&ndash; Groups &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="25dp"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:scaleType="fitCenter"-->
+<!--                            app:srcCompat="@drawable/groups_icon" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:paddingLeft="5dp"-->
+<!--                            android:paddingTop="8dp"-->
+<!--                            android:text="0 groups"-->
+<!--                            android:textColor="?android:attr/textColorPrimary"-->
+<!--                            android:textSize="12sp" />-->
+<!--                    </LinearLayout>-->
+
+<!--                    &lt;!&ndash; Padding &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:orientation="horizontal"></LinearLayout>-->
+
+<!--                    &lt;!&ndash; Likes &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="25dp"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:scaleType="fitCenter"-->
+<!--                            app:srcCompat="@drawable/likes_icon" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:paddingLeft="5dp"-->
+<!--                            android:paddingTop="8dp"-->
+<!--                            android:text="0 interested"-->
+<!--                            android:textColor="?android:attr/textColorPrimary"-->
+<!--                            android:textSize="12sp" />-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+
+<!--            &lt;!&ndash; Short description &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:paddingLeft="25dp"-->
+<!--                    android:paddingTop="8dp"-->
+<!--                    android:paddingRight="20dp"-->
+<!--                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidat."-->
+<!--                    android:textColor="?android:attr/textColorSecondary"-->
+<!--                    android:textSize="10sp" />-->
+<!--            </LinearLayout>-->
+
+<!--            &lt;!&ndash; Help icons &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="75dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:paddingLeft="25dp"-->
+<!--                    android:scaleType="fitCenter"-->
+<!--                    app:srcCompat="@drawable/drink_icon" />-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="75dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:paddingLeft="25dp"-->
+<!--                    android:scaleType="fitCenter"-->
+<!--                    app:srcCompat="@drawable/gym_icon" />-->
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+
+<!--    </com.google.android.material.card.MaterialCardView>-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--&lt;!&ndash;-->
+<!--<a href="https://www.flaticon.com/free-icons/party" title="party icons">Party icons created by Freepik - Flaticon</a>-->
+<!--<a href="https://www.flaticon.com/free-icons/like" title="like icons">Like icons created by Freepik - Flaticon</a>-->
+<!--<a href="https://www.flaticon.com/free-icons/people" title="people icons">People icons created by Freepik - Flaticon</a>-->
+<!--<a href="https://www.flaticon.com/free-icons/drink" title="drink icons">Drink icons created by Good Ware - Flaticon</a>-->
+<!--<a href="https://www.flaticon.com/free-icons/dumbell" title="Dumbell icons">Dumbell icons created by Freepik - Flaticon</a>-->
+<!--<a href="https://www.flaticon.com/free-icons/background" title="background icons">Background icons created by Freepik - Flaticon</a>-->
+<!--<a href="https://www.flaticon.com/free-icons/restaurant" title="restaurant icons">Restaurant icons created by Freepik - Flaticon</a>-->
+<!--&ndash;&gt;-->
