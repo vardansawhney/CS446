@@ -1,5 +1,6 @@
 package com.example.amuse.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
 import com.example.amuse.MainActivity
+import com.example.amuse.OpenCardActivity
 import com.example.amuse.R
 import com.example.amuse.databinding.FragmentHomeBinding
 import com.example.amuse.ui.CardAdapter
@@ -65,20 +67,24 @@ class HomeFragment : Fragment() {
 
             override fun onCardSwiped(direction: Direction) {
                 if (direction === Direction.Right) {
-                    Toast.makeText(root.context, "Direction Right", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(root.context, "Direction Right", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(activity, AvailableGroupsActivity::class.java)
+                    startActivity(intent)
                 }
                 if (direction === Direction.Top) {
-                    Toast.makeText(root.context, "Direction Top", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(root.context, "Direction Top", Toast.LENGTH_SHORT).show()
+                    Log.d("TAG", cardManager.topPosition.toString())
+                    startActivity(Intent(root.context, OpenCardActivity::class.java).putExtra("cardID", "card" + cardManager.topPosition.toString()))
                 }
                 if (direction === Direction.Left) {
-                    Toast.makeText(root.context, "Direction Left", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(root.context, "Direction Left", Toast.LENGTH_SHORT).show()
                 }
                 if (direction === Direction.Bottom) {
-                    Toast.makeText(
-                        root.context,
-                        "Direction Bottom",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Toast.makeText(
+//                        root.context,
+//                        "Direction Bottom",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
                 }
 
                 // Paginating
@@ -104,6 +110,7 @@ class HomeFragment : Fragment() {
             }
 
         })
+        cardManager.setDirections(Direction.FREEDOM)
 
 
         cardList = ArrayList()
@@ -120,6 +127,13 @@ class HomeFragment : Fragment() {
         cardAdapter = CardAdapter(cardList)
         cardStackView.layoutManager = cardManager
         cardStackView.adapter = cardAdapter
+
+        cardAdapter.setOnClickListener(object: CardAdapter.OnClickListener {
+            override fun onClick(position: Int, model: Card) {
+                Log.d("TAG", "hello")
+                startActivity(Intent(root.context, OpenCardActivity::class.java).putExtra("cardID", "card$position"))
+            }
+        })
 
         return root
     }
