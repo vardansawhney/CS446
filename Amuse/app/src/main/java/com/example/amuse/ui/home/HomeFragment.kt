@@ -12,14 +12,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
+import com.example.amuse.MainActivity
 import com.example.amuse.R
 import com.example.amuse.databinding.FragmentHomeBinding
 import com.example.amuse.ui.CardAdapter
-import com.yuyakaido.android.cardstackview.CardStackLayoutManager
-import com.yuyakaido.android.cardstackview.CardStackListener
-import com.yuyakaido.android.cardstackview.CardStackView
-import com.yuyakaido.android.cardstackview.StackFrom
-import com.yuyakaido.android.cardstackview.SwipeableMethod
+import com.yuyakaido.android.cardstackview.*
 
 
 //import android.content.Intent
@@ -62,42 +59,48 @@ class HomeFragment : Fragment() {
         cardStackView = binding.root.findViewById(R.id.card_stack)
 
         cardManager = CardStackLayoutManager(this.context, object : CardStackListener{
-            override fun onCardDragging(direction: Direction, ratio: Float) {
-                Log.d(
-                    Companion.TAG,
-                    "onCardDragging: d=" + direction.name() + " ratio=" + ratio
-                )
+            override fun onCardDragging(direction: Direction?, ratio: Float) {
+                Log.d("Tag", "Dragged")
             }
 
             override fun onCardSwiped(direction: Direction) {
-                Log.d(
-                    Companion.TAG,
-                    "onCardSwiped: p=" + manager!!.topPosition + " d=" + direction
-                )
                 if (direction === Direction.Right) {
-                    Toast.makeText(this@MainActivity, "Direction Right", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(root.context, "Direction Right", Toast.LENGTH_SHORT).show()
                 }
                 if (direction === Direction.Top) {
-                    Toast.makeText(this@MainActivity, "Direction Top", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(root.context, "Direction Top", Toast.LENGTH_SHORT).show()
                 }
                 if (direction === Direction.Left) {
-                    Toast.makeText(this@MainActivity, "Direction Left", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(root.context, "Direction Left", Toast.LENGTH_SHORT).show()
                 }
                 if (direction === Direction.Bottom) {
                     Toast.makeText(
-                        this@MainActivity,
+                        root.context,
                         "Direction Bottom",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
 
                 // Paginating
-                if (manager!!.topPosition == adapter.getItemCount() - 5) {
-                    paginate()
-                }
+//                if (cardManager!!.topPosition == cardAdapter.itemCount - 5) {
+//                    paginate()
+//                }
+            }
+
+            override fun onCardRewound() {
+                Log.d("Tag", "Rewound")
+            }
+
+            override fun onCardCanceled() {
+                Log.d("Tag", "Canceled")
+            }
+
+            override fun onCardAppeared(view: View?, position: Int) {
+                Log.d("Tag", "Appeared")
+            }
+
+            override fun onCardDisappeared(view: View?, position: Int) {
+                Log.d("Tag", "Disappeared")
             }
 
         })
@@ -115,6 +118,7 @@ class HomeFragment : Fragment() {
         cardList.add(Card("Clubbing", "Allure (2 km)", "★☆☆☆☆", "$$$$", "0 groups", "0 interested", R.drawable.card3_media))
 
         cardAdapter = CardAdapter(cardList)
+        cardStackView.layoutManager = cardManager
         cardStackView.adapter = cardAdapter
 
         return root
