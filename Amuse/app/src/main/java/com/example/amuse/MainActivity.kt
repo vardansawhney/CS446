@@ -1,6 +1,7 @@
 package com.example.amuse
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -15,7 +16,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+//        val groupInfo = this.getIntent()?.getExtras()?.getStringArray("groupInfo")
+//        Log.d("MainActivity", "hello, testing things")
+//        Log.d("ooogadiboogady", "$groupInfo")
+//        for (i in 0..groupInfo!!.size - 1){
+//            var a = groupInfo[i]
+//            Log.d("in_message", "$a")
+//        }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        setContentView(R.layout.fragment_home)

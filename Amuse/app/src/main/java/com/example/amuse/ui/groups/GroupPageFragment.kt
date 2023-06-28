@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.amuse.R
 import com.example.amuse.databinding.FragmentGroupPageBinding
 import com.example.amuse.ui.profile.Friend
-import com.example.amuse.ui.profile.FriendAdapter
 import com.example.amuse.ui.profile.Group
 import com.example.amuse.ui.profile.GroupAdapter
+import android.util.Log
 
 class GroupPageFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -21,6 +21,10 @@ class GroupPageFragment : Fragment() {
     private lateinit var invitedList2: ArrayList<Friend>
     private lateinit var acceptedList1: ArrayList<Friend>
     private lateinit var acceptedList2: ArrayList<Friend>
+
+    private lateinit var invitedList3: ArrayList<Friend>
+    private lateinit var acceptedList3: ArrayList<Friend>
+
     private lateinit var groupsList: ArrayList<Group>
     private lateinit var groupAdapter: GroupAdapter
 
@@ -29,13 +33,24 @@ class GroupPageFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
+    private lateinit var groupInfo_parsed: ArrayList<String>
+//    override fun onCreate(savedInstanceState: Bundle?){
+//        super.onCreate(savedInstanceState)
+//        val groupInfo = getActivity()?.getIntent()?.getExtras()?.getStringArray("groupInfo")
+//        Log.e("bapbadaboobabadumpum", "$groupInfo")
+//        for (i in 0..groupInfo!!.size - 1){
+//            groupInfo_parsed.add(groupInfo[i])
+//        }
+//    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentGroupPageBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        groupInfo_parsed = ArrayList()
+
 
         recyclerView = binding.root.findViewById(R.id.groupView)
         recyclerView.setHasFixedSize(true)
@@ -58,6 +73,18 @@ class GroupPageFragment : Fragment() {
         acceptedList2 = ArrayList()
         acceptedList2.add(Friend("Angel", "angelxoxo@gmail.com", R.drawable.angel, 2))
         groupsList.add(Group("Park Date", 1, 1, false, invitedList2, acceptedList2))
+        val groupInfo = activity?.intent?.extras?.getStringArray("groupInfo")
+        if(groupInfo != null){
+            for (i in 0..groupInfo!!.size - 1){
+                groupInfo_parsed.add(groupInfo[i])
+            }
+            // Group 3
+            invitedList3 = ArrayList()
+            invitedList3.add(Friend(groupInfo_parsed[4], "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
+            acceptedList3 = ArrayList()
+            acceptedList3.add(Friend(groupInfo_parsed[4], "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
+            groupsList.add(Group(groupInfo_parsed[0],1,groupInfo_parsed[2].toInt(),groupInfo_parsed[3].toBoolean(), invitedList3, acceptedList3))
+        }
 
         groupAdapter = GroupAdapter(groupsList)
         recyclerView.adapter = groupAdapter
