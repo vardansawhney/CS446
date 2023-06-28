@@ -54,4 +54,5 @@ dependencies {
 
     //Libraries
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.github.Yalantis:Koloda-Android:v0.0.2-alpha'
 }
