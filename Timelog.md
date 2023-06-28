@@ -35,8 +35,8 @@ Timelog file for time tracking.
 | 06-02-2023 | Finishing mocks to represent latest vision of product, reflecting changes discussed with prof to increase difficulty |       |        |          | 1 |         |        |
 | 06-02-2023  | Editing proposal document |  | 1.0 |  |  |  |  |
 | 06-02-2023  | Finalizing Idea, Mocks, and Architectural Views |  |  |  | 4 |  |  |
-| 06-02-2023  | Final Edits on Proposal Doc + Design Discussions    |    3   |  1      |          |   2     |    3     |    1.5    |
-| 06-013-2023  | Buddy Team Evaluation    |   |      |     2     |   1     |    2    |      |
+| 06-02-2023  | Final Edits on Proposal Doc + Design Discussions    |    3   |  2      |          |   2     |    3     |    1.5    |
+| 06-013-2023  | Buddy Team Evaluation    |   |   3.5   |     2     |   1     |    2    |      |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
