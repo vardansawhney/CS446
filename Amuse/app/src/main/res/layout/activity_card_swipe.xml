@@ -6,10 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.CardSwipeActivity">
 
-    <com.yalantis.library.Koloda
-        android:id="@+id/koloda"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:koloda_card_layout="@layout/item_card"/>
+    <com.yuyakaido.android.cardstackview.CardStackView
+        android:id="@+id/card_stack"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
