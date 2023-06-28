@@ -1,21 +1,26 @@
 package com.example.amuse.ui.home
 
-import androidx.fragment.app.Fragment
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.widget.ImageView
-import android.widget.TextView
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.DiffUtil
 import com.example.amuse.R
-import com.example.amuse.databinding.ActivityCardSwipeBinding
-import com.example.amuse.databinding.FragmentFriendsBinding
-import com.example.amuse.ui.home.Card
-import com.example.amuse.ui.CardAdapter
 import com.example.amuse.databinding.FragmentHomeBinding
+import com.example.amuse.ui.CardAdapter
+import com.yuyakaido.android.cardstackview.CardStackLayoutManager
+import com.yuyakaido.android.cardstackview.CardStackListener
 import com.yuyakaido.android.cardstackview.CardStackView
+import com.yuyakaido.android.cardstackview.StackFrom
+import com.yuyakaido.android.cardstackview.SwipeableMethod
+
 
 //import android.content.Intent
 //import android.os.Bundle
@@ -38,6 +43,7 @@ class HomeFragment : Fragment() {
     private lateinit var cardList: ArrayList<Card>
     private lateinit var cardAdapter: CardAdapter
     private lateinit var cardStackView: CardStackView
+    private lateinit var cardManager: CardStackLayoutManager
 //    private lateinit var binding: FragmentHomeBinding
 
     private var _binding: FragmentHomeBinding? = null
@@ -54,6 +60,49 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         cardStackView = binding.root.findViewById(R.id.card_stack)
+
+        cardManager = CardStackLayoutManager(this.context, object : CardStackListener{
+            override fun onCardDragging(direction: Direction, ratio: Float) {
+                Log.d(
+                    Companion.TAG,
+                    "onCardDragging: d=" + direction.name() + " ratio=" + ratio
+                )
+            }
+
+            override fun onCardSwiped(direction: Direction) {
+                Log.d(
+                    Companion.TAG,
+                    "onCardSwiped: p=" + manager!!.topPosition + " d=" + direction
+                )
+                if (direction === Direction.Right) {
+                    Toast.makeText(this@MainActivity, "Direction Right", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                if (direction === Direction.Top) {
+                    Toast.makeText(this@MainActivity, "Direction Top", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                if (direction === Direction.Left) {
+                    Toast.makeText(this@MainActivity, "Direction Left", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                if (direction === Direction.Bottom) {
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Direction Bottom",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+                // Paginating
+                if (manager!!.topPosition == adapter.getItemCount() - 5) {
+                    paginate()
+                }
+            }
+
+        })
+
+
         cardList = ArrayList()
 
         // Card 1
@@ -67,6 +116,7 @@ class HomeFragment : Fragment() {
 
         cardAdapter = CardAdapter(cardList)
         cardStackView.adapter = cardAdapter
+
         return root
     }
 //
