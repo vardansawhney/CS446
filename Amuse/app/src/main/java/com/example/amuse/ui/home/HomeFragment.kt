@@ -69,6 +69,7 @@ class HomeFragment : Fragment() {
                 if (direction === Direction.Right) {
 //                    Toast.makeText(root.context, "Direction Right", Toast.LENGTH_SHORT).show()
                     val intent = Intent(activity, AvailableGroupsActivity::class.java)
+                    val rightSwipe:ActivityCard = RightSwipeActivityCard()
                     startActivity(intent)
                 }
                 if (direction === Direction.Top) {
