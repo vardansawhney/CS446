@@ -40,7 +40,7 @@ Timelog file for time tracking.
 |  06-27-2023    |   Building App Demo + Fighting with Android studio    |  19     |   14     |    15      |  17      |    15     |   22     |
 |   07-07-2023   |  D4,D5 work     |       |        |          |   3     |    3     |        |
 |   07-12-2023   |   Working on Recommendation Engine and surrounding Event related components    |       |        |          |    10    |    10    |        |
-|   07-12-2023   |   Designing class level architecture and relevant design patterns for Recommendation engine and event related components    |       |        |     3     |      3  |         |        |
+|   07-12-2023   |   Designing class level architecture and relevant design patterns for Recommendation engine and event related components    |       |        |          |      3  |      3   |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
