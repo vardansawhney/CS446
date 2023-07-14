@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
+import com.example.amuse.EventsBackend.Event
 import com.example.amuse.MainActivity
 import com.example.amuse.OpenCardActivity
 import com.example.amuse.R
@@ -43,6 +44,7 @@ class HomeFragment : Fragment() {
     private lateinit var cardAdapter: CardAdapter
     private lateinit var cardStackView: CardStackView
     private lateinit var cardManager: CardStackLayoutManager
+    private lateinit var currentAvailableEvents: MutableList<Event>
 //    private lateinit var binding: FragmentHomeBinding
 
     private var _binding: FragmentHomeBinding? = null
@@ -66,26 +68,57 @@ class HomeFragment : Fragment() {
             }
 
             override fun onCardSwiped(direction: Direction) {
+                val currEventPrice = currentAvailableEvents[0].price;
+                val currEventDistance = currentAvailableEvents[0].distance;
+                val currEventTypes = currentAvailableEvents[0].types;
                 if (direction === Direction.Right) {
 //                    Toast.makeText(root.context, "Direction Right", Toast.LENGTH_SHORT).show()
+                    // TODO: add events ds and make this events.groups. this used to be AvailableGroupsActivity::class.java
+                    // but now that will have to be handled by the groups class maybe?
                     val intent = Intent(activity, AvailableGroupsActivity::class.java)
+                    // TODO: pass in event info
                     val rightSwipe:ActivityCard = RightSwipeActivityCard()
+
+                    rightSwipe.swipeActivity(currEventPrice,currEventDistance,currEventTypes)
+
+
+                    currentAvailableEvents.removeAt(0)
+
                     startActivity(intent)
                 }
                 if (direction === Direction.Top) {
 //                    Toast.makeText(root.context, "Direction Top", Toast.LENGTH_SHORT).show()
                     Log.d("TAG", cardManager.topPosition.toString())
+//                    val upSwipe:ActivityCard = UpSwipeActivityCard()
+//
+//                    upSwipe.swipeActivity(currEventPrice,currEventDistance,currEventTypes)
+
                     startActivity(Intent(root.context, OpenCardActivity::class.java).putExtra("cardID", "card" + cardManager.topPosition.toString()))
+
+
                 }
                 if (direction === Direction.Left) {
+                    val leftSwipe:ActivityCard = LeftSwipeActivityCard()
+
+                    leftSwipe.swipeActivity(currEventPrice,currEventDistance,currEventTypes)
+
+
 //                    Toast.makeText(root.context, "Direction Left", Toast.LENGTH_SHORT).show()
                 }
                 if (direction === Direction.Bottom) {
-//                    Toast.makeText(
-//                        root.context,
-//                        "Direction Bottom",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
+
+                    //                    Toast.makeText(root.context, "Direction Bottom", Toast.LENGTH_SHORT).show()
+                    // TODO: add events ds and make this events.groups. this used to be AvailableGroupsActivity::class.java
+                    // but now that will have to be handled by the groups class maybe?
+                    val intent = Intent(activity, AvailableGroupsActivity::class.java)
+                    // TODO: pass in event info
+                    val downSwipe:ActivityCard = DownSwipeActivityCard()
+
+                    downSwipe.swipeActivity(currEventPrice,currEventDistance,currEventTypes)
+
+                    currentAvailableEvents.removeAt(0)
+
+                    startActivity(intent)
                 }
 
                 // Paginating

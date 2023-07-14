@@ -1,21 +1,16 @@
-package com.example.amuse.ui.home
+package com.example.amuse.EventsBackend
 
 import com.google.gson.Gson
-import java.util.Objects
 
-data class Types(
-    val id: String,
-    val id2: String,
-    val id3: String,
-)
-
-data class PersonUnderstanding(
-    val Types: Types,
-    val averagePrice: Float,
-    val distance: Int,
-    val numOfSources: Int,
-    )
+//data class PersonUnderstanding(
+//    val Types: Types,
+//    val desiredPrice: Float,
+//    val desiredDistance: Int,
+//    val numOfSources: Int,
+//    )
 object UserUnderstanding {
+    lateinit val desireForTypes : MutableList<Pair<Types,Int>>
+
     val json = """ {
     "Types": {
       "id": "0",
@@ -40,7 +35,7 @@ object UserUnderstanding {
         action: String
     ) {
 
-//        TODO: NEED TO GET THE SOURCE UPDATES FROM SOMWHERE
+//        TODO: NEED TO GET THE SOURCE UPDATES FROM SOMEWHERE
 
         if (action == "right") {
         // TODO: NEED A CONDITIONAL HERE TO CHECK FOR WHETHER WE WANT TO UPDATE THE FILEDS OR NOT, OR WHETHER IT EXISTS
@@ -58,34 +53,6 @@ object UserUnderstanding {
         }
 
         //        Increment the sources
-        //        incrementSources(
-    }
-
-    fun rightSwipeWithPreference(Type: String) {
-        //++ob.Types.type
-    }
-
-    fun rightSwipeAveragePrice(price: Int) {
-//        ob.averagePrice = (ob.averagePrice) + (ob.averagePrice / ob.numOfSources)
-    }
-
-    fun rightSwipeUpdateDistance(distance: Int) {
-//        ob.distance = (ob.distance) + (ob.distance / ob.numOfSources)
-    }
-
-    fun leftSwipeWithPreference(Type: String) {
-        //++ob.Types.type
-    }
-
-    fun leftSwipeAveragePrice(price: Int) {
-//        ob.averagePrice = (ob.averagePrice) - (ob.averagePrice / ob.numOfSources)
-    }
-
-    fun leftSwipeUpdateDistance(distance: Int) {
-//        ob.distance = (ob.distance) - (ob.distance / ob.numOfSources)
-    }
-
-    fun incrementSources(sources: Int){
-        //        ++ob.numOfSources
+        //        incrementSources()
     }
 }
