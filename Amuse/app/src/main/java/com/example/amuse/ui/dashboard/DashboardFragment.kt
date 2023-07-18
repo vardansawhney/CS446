@@ -1,59 +1,80 @@
 package com.example.amuse.ui.dashboard
 
-import android.content.Intent
 import android.os.Bundle
+import android.transition.AutoTransition
+import android.transition.TransitionManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.amuse.MainActivity
 import com.example.amuse.R
 import com.example.amuse.databinding.FragmentDashboardBinding
-import com.example.amuse.ui.home.AvailableGroupsActivity
+
 
 class DashboardFragment : Fragment() {
 
     private lateinit var dashboardViewModel: DashboardViewModel
+    // Variables added from XML
+//    private lateinit var expandBtn: Button
+//    Button expandBtn;
+    private lateinit var expandableLayout: LinearLayout
+    private lateinit var cardView: CardView
+    // Variables added from XML
     private var _binding: FragmentDashboardBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    lateinit var test_create_group_button : Button
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
         dashboardViewModel =
             ViewModelProvider(this).get(DashboardViewModel::class.java)
 
+//        var cardView: CardView =
+//            inflater.inflate(R.layout.fragment_dashboard, container, false) as CardView
+
+        //        val expandBtn = cardView.findViewById(R.id.expandBtn) as Button
+        //        var expandableLayout = cardView.findViewById(R.id.expandableLayout) as LinearLayout
+
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        test_create_group_button = root.findViewById<Button>(R.id.test_create)
-        test_create_group_button.setOnClickListener(test_create_group_button_listener)
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        val stupidButton: Button = binding.expandBtn
+        val stupidExpandableLayout: LinearLayout = binding.expandableLayout
+        val stupidCardView: CardView = binding.cardView
 
-        return root
-    }
+//        val textView: TextView = binding.textDashboard
+//        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
 
-    private val test_create_group_button_listener = View.OnClickListener { view ->
-        when (view.getId()) {
-            R.id.test_create -> {
-                val intent = Intent(activity, AvailableGroupsActivity::class.java);
-                startActivity(intent);
+//        var expandBtn: Button? = getView()?.findViewById(R.id.expandBtn)
+
+
+//        expandableLayout = binding.expandableLayout
+//        cardView = binding.cardView
+//        expandBtn = binding.Button
+
+
+        stupidButton?.setOnClickListener {
+            if (stupidExpandableLayout.visibility == View.GONE) {
+                TransitionManager.beginDelayedTransition(stupidCardView, AutoTransition())
+                stupidExpandableLayout.visibility = View.VISIBLE
+                stupidButton.text = "COLLAPSE"
+            } else {
+                TransitionManager.beginDelayedTransition(stupidCardView, AutoTransition())
+                stupidExpandableLayout.visibility = View.GONE
+                stupidButton.text = "EXPAND"
             }
         }
+        return root
     }
 
     override fun onDestroyView() {
