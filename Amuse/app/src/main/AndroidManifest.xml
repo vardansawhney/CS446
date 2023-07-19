@@ -19,6 +19,9 @@
             android:name=".ui.home.AvailableGroupsActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.RegisterUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.LoginActivity"
             android:exported="true"
             android:label="@string/app_name">
