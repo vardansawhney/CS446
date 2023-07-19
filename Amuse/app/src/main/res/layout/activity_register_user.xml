@@ -59,7 +59,10 @@
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/register_user_text" />
+        app:layout_constraintTop_toTopOf="@id/register_user_text"
+        app:errorEnabled="true"
+        app:helperText="Required"
+        app:helperTextTextColor="@color/design_default_color_error"/>
 
     <EditText
         android:id="@+id/register_email"
@@ -71,7 +74,10 @@
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/full_name" />
+        app:layout_constraintTop_toTopOf="@id/full_name"
+        app:errorEnabled="true"
+        app:helperText="Required"
+        app:helperTextTextColor="@color/design_default_color_error"/>
 
     <EditText
         android:id="@+id/register_confirm_email"
@@ -82,7 +88,10 @@
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_email" />
+        app:layout_constraintTop_toBottomOf="@+id/register_email"
+        app:errorEnabled="true"
+        app:helperText="Required"
+        app:helperTextTextColor="@color/design_default_color_error"/>
 
     <EditText
         android:id="@+id/register_password"
@@ -96,7 +105,10 @@
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_confirm_email" />
+        app:layout_constraintTop_toBottomOf="@+id/register_confirm_email"
+        app:errorEnabled="true"
+        app:helperText="Required"
+        app:helperTextTextColor="@color/design_default_color_error"/>
 
     <Button
         android:id="@+id/register_button"
