@@ -41,7 +41,7 @@ Timelog file for time tracking.
 |   07-07-2023   |  D4,D5 work     |       |        |          |   3     |    3     |        |
 |   07-12-2023   |   Working on Recommendation Engine and surrounding Event related components    |       |        |          |    10    |    10    |        |
 |   07-12-2023   |   Designing class level architecture and relevant design patterns for Recommendation engine and event related components    |       |        |          |      3  |      3   |        |
-|      |       |       |        |          |        |         |        |
+|   07-17-2023   | Brainstorming social aspect of Amuse     |       |    4    |          |   0     |    0     |     4   |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
