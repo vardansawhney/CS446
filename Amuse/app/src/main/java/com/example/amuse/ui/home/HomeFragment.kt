@@ -10,6 +10,7 @@ import android.view.animation.LinearInterpolator
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
@@ -100,13 +101,13 @@ class HomeFragment : Fragment() {
 //                    }
 
                     // Test code for quering data from Firestore
-//                    CoroutineScope(Dispatchers.IO).launch {
-//                        queryEvents(3, listOf("restaurant")).collect( { data->
-//                            for (document in data) {
-//                                Log.d(TAG, "${document.id} => price_level: ${document.data.get("price_level")}, types: ${document.data.get("types")}")
-//                            }
-//                        })
-//                    }
+                    /*CoroutineScope(Dispatchers.IO).launch {
+                        queryEvents(3, listOf("restaurant")).collect( { data->
+                            for (document in data) {
+                                Log.d(TAG, "${document.id} => price_level: ${document.data.get("price_level")}, types: ${document.data.get("types")}")
+                            }
+                        })
+                    }*/
 
 
                 }
