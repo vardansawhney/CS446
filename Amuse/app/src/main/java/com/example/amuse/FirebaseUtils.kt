@@ -4,6 +4,9 @@ package com.example.amuse
 import android.util.Log
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.callbackFlow
 
 const val TAG = "FIRESTORE"
 
@@ -45,4 +48,23 @@ public fun uploadData(event: Event) {
         .addOnFailureListener { exception ->
             Log.w(TAG, "Error adding document $exception")
         }
+}
+
+public suspend fun queryEvents(price_level: Int, types: List<String>) = callbackFlow<QuerySnapshot>{
+    FirebaseUtils().fireStoreDatabase.collection("Events")
+        .whereLessThanOrEqualTo("price_level", price_level)
+        .whereArrayContainsAny("types", types)
+        .get()
+        .addOnSuccessListener { documents ->
+            trySend(documents)
+        }
+        .addOnFailureListener { exception ->
+            Log.w(TAG, "Error getting documents: ", exception)
+        }
+
+    awaitClose {
+        Log.d(TAG, "Await channel closed")
+        channel.close()
+    }
+
 }
