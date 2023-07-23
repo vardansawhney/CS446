@@ -1,5 +1,6 @@
 package com.example.amuse.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,10 @@ import com.example.amuse.R
 import com.example.amuse.databinding.FragmentProfileBinding
 import com.google.android.material.tabs.TabLayout
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.example.amuse.MainActivity
+import com.example.amuse.ui.PreferenceUpdateActivity
+import com.google.android.material.button.MaterialButton
 
 
 class ProfileFragment : Fragment() {
@@ -19,8 +24,12 @@ class ProfileFragment : Fragment() {
     private lateinit var viewPager2: ViewPager2
     private lateinit var adapter: VP2Adapter
 
+
     private lateinit var profileViewModel: ProfileViewModel
+    private lateinit var SettingsTab: PreferenceUpdateActivity
     private var _binding: FragmentProfileBinding? = null
+
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -31,11 +40,9 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        profileViewModel =
-            ViewModelProvider(this).get(ProfileViewModel::class.java)
-
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
 
         tabLayout = binding.constraintLayout.findViewById(R.id.tabLayout)
         viewPager2 = binding.constraintLayout.findViewById(R.id.viewPager2)
@@ -43,7 +50,7 @@ class ProfileFragment : Fragment() {
 
         tabLayout.addTab(tabLayout.newTab().setText("Friends"))
         tabLayout.addTab(tabLayout.newTab().setText("Groups"))
-        tabLayout.addTab(tabLayout.newTab().setText("Settings"))
+//        tabLayout.addTab(tabLayout.newTab().setText("Settings"))
 
         viewPager2.adapter = adapter
 
@@ -70,6 +77,14 @@ class ProfileFragment : Fragment() {
 
         return root
     }
+
+
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//
+//    }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
