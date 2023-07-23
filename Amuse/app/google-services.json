@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "296308467578",
+    "project_id": "amuseus-db",
+    "storage_bucket": "amuseus-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296308467578:android:23686f29212c2f12bad8c3",
+        "android_client_info": {
+          "package_name": "com.example.amuse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "296308467578-hcq25srs6s4lofvqcflge948go01nbfj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwHOeJxqJDSsthfXmY-48QXXxB7Fj93U0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "296308467578-hcq25srs6s4lofvqcflge948go01nbfj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
