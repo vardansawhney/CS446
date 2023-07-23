@@ -4,6 +4,9 @@ package com.example.amuse
 import android.util.Log
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.callbackFlow
 
 const val TAG = "FIRESTORE"
 
@@ -47,32 +50,21 @@ public fun uploadData(event: Event) {
         }
 }
 
-public fun queryEvents(price_level: Int, types: List<String>){
-    val event_ref = FirebaseUtils().fireStoreDatabase.collection("Events")
+public suspend fun queryEvents(price_level: Int, types: List<String>) = callbackFlow<QuerySnapshot>{
+    FirebaseUtils().fireStoreDatabase.collection("Events")
+        .whereLessThanOrEqualTo("price_level", price_level)
+        .whereArrayContainsAny("types", types)
+        .get()
+        .addOnSuccessListener { documents ->
+            trySend(documents)
+        }
+        .addOnFailureListener { exception ->
+            Log.w(TAG, "Error getting documents: ", exception)
+        }
 
-    var query = event_ref
-                    .whereLessThanOrEqualTo("price_level", price_level)
-                    .whereArrayContainsAny("types", types)
-
-    // This query works but need to add callback
-//    query
-//        .get()
-//        .addOnSuccessListener { documents ->
-//            for (document in documents) {
-//                Log.d(TAG, "${document.id} => ${document.data}")
-//            }
-//        }
-//        .addOnFailureListener { exception ->
-//            Log.w(TAG, "Error getting documents: ", exception)
-//        }
-
-        query
-            .get()
-            .addOnSuccessListener { documents ->
-                return documents
-            }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents: ", exception)
-            }
+    awaitClose {
+        Log.d(TAG, "Await channel closed")
+        channel.close()
+    }
 
 }
