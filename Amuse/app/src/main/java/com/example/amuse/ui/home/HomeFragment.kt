@@ -10,15 +10,23 @@ import android.view.animation.LinearInterpolator
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
+import com.example.amuse.Event
 import com.example.amuse.MainActivity
 import com.example.amuse.OpenCardActivity
 import com.example.amuse.R
+import com.example.amuse.Review
 import com.example.amuse.databinding.FragmentHomeBinding
+import com.example.amuse.queryEvents
 import com.example.amuse.ui.CardAdapter
 import com.yuyakaido.android.cardstackview.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import com.example.amuse.uploadData
 
 
 //import android.content.Intent
@@ -37,6 +45,8 @@ import com.yuyakaido.android.cardstackview.*
 //import com.example.amuse.R
 //import com.example.amuse.databinding.FragmentHomeBinding
 //import com.google.android.material.card.MaterialCardView
+
+const val TAG = "FIRESTORE"
 
 class HomeFragment : Fragment() {
     private lateinit var cardList: ArrayList<Card>
@@ -78,6 +88,28 @@ class HomeFragment : Fragment() {
                 }
                 if (direction === Direction.Left) {
 //                    Toast.makeText(root.context, "Direction Left", Toast.LENGTH_SHORT).show()
+
+                    // An example event to upload to Firestore
+//                    val event = Event("e_duhsuhf981398", "source_id: String", "source: String", "name: String", "description: String",
+//                       "earliest_time: String", "latest_time: String", "address: String", "Waterloo", 1, 5.0,
+//                        listOf("type1", "type2"), Review("Adam", 3.4, "This is a review", "Monday: 9:00 AM – 5:00 PM")
+//                    )
+
+                    // Test code for uploading data into Firestore
+//                    CoroutineScope(Dispatchers.IO).launch {
+//                        uploadData(event)
+//                    }
+
+                    // Test code for quering data from Firestore
+                    /*CoroutineScope(Dispatchers.IO).launch {
+                        queryEvents(3, listOf("restaurant")).collect( { data->
+                            for (document in data) {
+                                Log.d(TAG, "${document.id} => price_level: ${document.data.get("price_level")}, types: ${document.data.get("types")}")
+                            }
+                        })
+                    }*/
+
+
                 }
                 if (direction === Direction.Bottom) {
 //                    Toast.makeText(
