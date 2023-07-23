@@ -10,12 +10,7 @@ import android.widget.Button
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.amuse.R
-import com.example.amuse.databinding.ActivityMainBinding
-import com.example.amuse.databinding.ActivityPreferencesBinding
 import com.example.amuse.databinding.FragmentMainBinding
-import com.example.amuse.databinding.FragmentProfileBinding
-import com.example.amuse.databinding.RecommendationMenuBinding
-import com.example.amuse.ui.home.HomeFragment
 import com.example.amuse.ui.profile.ProfileFragment
 
 class PreferencesFragment : Fragment() {
@@ -46,6 +41,7 @@ class PreferencesFragment : Fragment() {
             val profileFragment = ProfileFragment()
             val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+            fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
             fragmentTransaction.replace(R.id.container, profileFragment)
             fragmentTransaction.commit()
         }

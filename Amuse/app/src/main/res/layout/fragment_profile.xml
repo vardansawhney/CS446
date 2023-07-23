@@ -41,6 +41,20 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
+                        <Button
+                            android:id="@+id/SettingsButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="303dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginBottom="305dp"
+                            android:text="settings"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -125,14 +139,6 @@
                     </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <Button
-                    android:id="@+id/SettingsButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="settings"
-                    tools:layout_editor_absoluteX="265dp"
-                    tools:layout_editor_absoluteY="676dp" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

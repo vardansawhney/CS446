@@ -1,8 +1,6 @@
 package com.example.amuse.ui.profile
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,16 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.viewpager2.widget.ViewPager2
-import com.example.amuse.OpenCardActivity
 import com.example.amuse.R
 import com.example.amuse.databinding.FragmentProfileBinding
-import com.example.amuse.ui.CardAdapter
 import com.example.amuse.ui.MainViewModel
-import com.example.amuse.ui.PreferenceUpdateActivity
 import com.example.amuse.ui.PreferencesFragment
-import com.example.amuse.ui.dashboard.DashboardViewModel
-import com.example.amuse.ui.home.Card
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayout
 
 
@@ -33,7 +25,6 @@ class ProfileFragment : Fragment() {
 
 
     private lateinit var profileViewModel: ProfileViewModel
-    private lateinit var SettingsTab: PreferenceUpdateActivity
     private var _binding: FragmentProfileBinding? = null
 
 
@@ -88,7 +79,7 @@ class ProfileFragment : Fragment() {
             val preferencesFragment = PreferencesFragment()
             val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-
+            fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
             // Replace the current fragment with the target fragment
             fragmentTransaction.replace(R.id.container, preferencesFragment)
 
