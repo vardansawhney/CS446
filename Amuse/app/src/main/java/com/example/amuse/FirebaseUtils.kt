@@ -46,33 +46,3 @@ public fun uploadData(event: Event) {
             Log.w(TAG, "Error adding document $exception")
         }
 }
-
-public fun queryEvents(price_level: Int, types: List<String>){
-    val event_ref = FirebaseUtils().fireStoreDatabase.collection("Events")
-
-    var query = event_ref
-                    .whereLessThanOrEqualTo("price_level", price_level)
-                    .whereArrayContainsAny("types", types)
-
-    // This query works but need to add callback
-//    query
-//        .get()
-//        .addOnSuccessListener { documents ->
-//            for (document in documents) {
-//                Log.d(TAG, "${document.id} => ${document.data}")
-//            }
-//        }
-//        .addOnFailureListener { exception ->
-//            Log.w(TAG, "Error getting documents: ", exception)
-//        }
-
-        query
-            .get()
-            .addOnSuccessListener { documents ->
-                return documents
-            }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents: ", exception)
-            }
-
-}

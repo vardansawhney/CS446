@@ -25,34 +25,3 @@ data class Place(
     val user_ratings_total: Int?,
     val vicinity: String?
 )
-
-data class Geometry(
-    val location: Location?,
-    val viewport: Viewport?
-)
-
-data class Location(
-    val lat: Double?,
-    val lng: Double?
-)
-
-data class Viewport(
-    val northeast: Location?,
-    val southwest: Location?
-)
-
-data class OpeningHours(
-    val open_now: Boolean?
-)
-
-data class Photo(
-    val height: Int?,
-    val html_attributions: List<String>?,
-    val photo_reference: String?,
-    val width: Int?
-)
-
-data class PlusCode(
-    val compound_code: String?,
-    val global_code: String?
-)

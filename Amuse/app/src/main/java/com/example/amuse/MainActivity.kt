@@ -11,7 +11,11 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.amuse.databinding.ActivityMainBinding
+import com.example.amuse.network.AddressComponent
+import com.example.amuse.network.DetailsApiInstance
 import com.example.amuse.network.PlacesApiInstance
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
@@ -22,51 +26,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        val groupInfo = this.getIntent()?.getExtras()?.getStringArray("groupInfo")
-//        Log.d("MainActivity", "hello, testing things")
-//        Log.d("ooogadiboogady", "$groupInfo")
-//        for (i in 0..groupInfo!!.size - 1){
-//            var a = groupInfo[i]
-//            Log.d("in_message", "$a")
-//        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        setContentView(R.layout.fragment_home)
 
         val navView: BottomNavigationView = binding.navView
 
-        /*
-        * Testing **********************************************************************************
-        * */
-        val apiKey: String = try {
-            val ai = packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
-            ai.metaData?.getString("com.google.android.geo.API_KEY")!!
-        } catch (e: PackageManager.NameNotFoundException) {
-            Log.e("API_KEY", "key not found maybe")
-            ""
-        }
-        Log.e("Printing Key", apiKey)
-
-        lifecycleScope.launch {
-            val response = try {
-                PlacesApiInstance.api.getPlaces("-33.8670522,151.1957362", "1500", apiKey)
-            } catch (e: IOException) {
-                Log.e("ERROR", "IO error")
-                return@launch
-            } catch (e: HttpException) {
-                Log.e("ERROR", "HTTP error")
-                return@launch
-            }
-
-            if (response.isSuccessful && response.body() != null) {
-                Log.e("Printing data", response.body().toString())
-            } else {
-                Log.e("ERROR", "unsuccessful")
-            }
-        }
-        /*
-        * Testing **********************************************************************************
-        * */
+        // API requests and DB updates
+        apiPullDbPush()
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
@@ -78,5 +46,88 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    private fun apiPullDbPush() {
+        val apiKey: String = try {
+            val ai = packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
+            ai.metaData?.getString("com.google.android.geo.API_KEY")!!
+        } catch (e: PackageManager.NameNotFoundException) {
+            Log.e("API_KEY", "key not found maybe")
+            ""
+        }
+
+        lifecycleScope.launch {
+            val places_response = try {
+                PlacesApiInstance.api.getPlaces("43.471881, -80.544671", "1000", apiKey)
+            } catch (e: IOException) {
+                Log.e("ERROR", "IO error in")
+                return@launch
+            } catch (e: HttpException) {
+                Log.e("ERROR", "HTTP error")
+                return@launch
+            }
+
+            if (places_response.isSuccessful && places_response.body() != null) {
+                val data = places_response.body()!!
+                for (place in data.results) {
+
+                    val details_response = try {
+                        DetailsApiInstance.api.getDetails(place.place_id!!, apiKey)
+                    } catch (e: IOException) {
+                        Log.e("ERROR", "IO error")
+                        return@launch
+                    } catch (e: HttpException) {
+                        Log.e("ERROR", "HTTP error")
+                        return@launch
+                    }
+
+                    if (details_response.isSuccessful && details_response.body() != null) {
+                        val details_data = details_response.body()!!
+                        val place_details = details_data.result
+
+                        val place_city = getCity(place_details.address_components!!)
+
+                        val event = Event(
+                            "e_${place.place_id}",
+                            place.place_id,
+                            "google",
+                            place.name,
+                            place_details.editorial_summary?.overview,
+                            place_details.opening_hours?.periods?.get(0)?.open?.time,
+                            place_details.opening_hours?.periods?.get(0)?.close?.time,
+                            place_details.formatted_address,
+                            place_city,
+                            place.price_level,
+                            place.rating,
+                            place.types,
+                            Review(
+                                place_details.reviews?.get(0)?.author_name,
+                                place_details.reviews?.get(0)?.rating,
+                                place_details.reviews?.get(0)?.text,
+                                place_details.reviews?.get(0)?.relative_time_description
+                            )
+                        )
+
+                        CoroutineScope(Dispatchers.IO).launch {
+                            uploadData(event)
+                        }
+                    }
+                }
+                Log.i("apiPullDbPush", "No errors")
+            } else {
+                Log.e("ERROR", "unsuccessful")
+            }
+        }
+    }
+
+    private fun getCity(comps: List<AddressComponent>): String {
+        for (comp in comps) {
+            if ("administrative_area_level_2" in comp.types) {
+                return comp.long_name
+            }
+        }
+
+        return "NaC"
     }
 }
