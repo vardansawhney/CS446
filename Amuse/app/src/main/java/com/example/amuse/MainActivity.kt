@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             val places_response = try {
-                PlacesApiInstance.api.getPlaces("43.471881, -80.544671", "1000", apiKey)
+                PlacesApiInstance.api.getPlaces("43.471881, -80.544671", "3000", apiKey)
             } catch (e: IOException) {
                 Log.e("ERROR", "IO error in")
                 return@launch

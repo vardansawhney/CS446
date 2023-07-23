@@ -1,5 +1,33 @@
 package com.example.amuse.network
 
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+object ApiClient {
+    private var InstanceDirectory = hashMapOf<String, Retrofit?>()
+
+    private var emptyRetrofitSubdomain: Retrofit? = null
+
+    fun subscribe(url: String) {
+        InstanceDirectory[url] = emptyRetrofitSubdomain
+    }
+
+    fun getApiInstance(url: String): Retrofit {
+        if (InstanceDirectory[url] == null) {
+            InstanceDirectory[url] = Retrofit
+                .Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        }
+        return InstanceDirectory[url]!!
+    }
+}
+
+/*
+* Common data classes
+* */
+
 data class AddressComponent(
     val long_name: String,
     val short_name: String,
@@ -48,7 +76,6 @@ data class Viewport(
     val northeast: Location?,
     val southwest: Location?
 )
-
 
 data class Photo(
     val height: Int?,
