@@ -1,7 +1,11 @@
 package com.example.amuse
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.WindowInsets
+import android.view.WindowInsetsController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -23,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 //            var a = groupInfo[i]
 //            Log.d("in_message", "$a")
 //        }
+        Log.d("hello",Build.VERSION.SDK_INT.toString())
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        setContentView(R.layout.fragment_home)
@@ -37,7 +42,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_groups, R.id.navigation_notifications
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//NOTE this was disabled to remove the topbar
+//        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 }

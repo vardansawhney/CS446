@@ -128,6 +128,16 @@
 
         </LinearLayout>
 
+<!--        <TimePicker-->
+<!--            android:id="@+id/timePicker1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:timePickerMode="spinner"-->
+<!--            android:layout_below="@+id/layoutHorizontal1"-->
+<!--        />-->
+
         <TextView
             android:id="@+id/Distance"
             android:layout_width="wrap_content"
