@@ -12,10 +12,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.amuse.databinding.ActivityMainBinding
 import com.example.amuse.network.PlacesApiInstance
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.libraries.places.api.Places
-import com.google.android.libraries.places.api.model.Place
-import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
