@@ -2,20 +2,26 @@ package com.example.amuse.ui.profile
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.viewpager2.widget.ViewPager2
+import com.example.amuse.OpenCardActivity
 import com.example.amuse.R
 import com.example.amuse.databinding.FragmentProfileBinding
-import com.google.android.material.tabs.TabLayout
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
-import com.example.amuse.MainActivity
+import com.example.amuse.ui.CardAdapter
+import com.example.amuse.ui.MainViewModel
 import com.example.amuse.ui.PreferenceUpdateActivity
+import com.example.amuse.ui.PreferencesFragment
+import com.example.amuse.ui.dashboard.DashboardViewModel
+import com.example.amuse.ui.home.Card
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.tabs.TabLayout
 
 
 class ProfileFragment : Fragment() {
@@ -23,6 +29,7 @@ class ProfileFragment : Fragment() {
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager2: ViewPager2
     private lateinit var adapter: VP2Adapter
+    private lateinit var preferencesViewModal: MainViewModel
 
 
     private lateinit var profileViewModel: ProfileViewModel
@@ -43,6 +50,7 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val settingButton: Button = binding.SettingsButton
 
         tabLayout = binding.constraintLayout.findViewById(R.id.tabLayout)
         viewPager2 = binding.constraintLayout.findViewById(R.id.viewPager2)
@@ -75,6 +83,21 @@ class ProfileFragment : Fragment() {
             }
         })
 
+
+        settingButton?.setOnClickListener {
+            val preferencesFragment = PreferencesFragment()
+            val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+
+            // Replace the current fragment with the target fragment
+            fragmentTransaction.replace(R.id.container, preferencesFragment)
+
+            // Optionally, you can add the transaction to the back stack, so the user can navigate back to the source fragment
+            // fragmentTransaction.addToBackStack(null)
+
+            fragmentTransaction.commit()
+
+        }
         return root
     }
 
