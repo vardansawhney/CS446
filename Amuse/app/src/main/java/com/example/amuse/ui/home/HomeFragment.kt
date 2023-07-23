@@ -89,24 +89,24 @@ class HomeFragment : Fragment() {
 //                    Toast.makeText(root.context, "Direction Left", Toast.LENGTH_SHORT).show()
 
                     // An example event to upload to Firestore
-                    val event = Event("e_duhsuhf981398", "source_id: String", "source: String", "name: String", "description: String",
-                       "earliest_time: String", "latest_time: String", "address: String", "Waterloo", 1, 5.0,
-                        listOf("type1", "type2"), Review("Adam", 3.4, "This is a review", "Monday: 9:00 AM – 5:00 PM")
-                    )
+//                    val event = Event("e_duhsuhf981398", "source_id: String", "source: String", "name: String", "description: String",
+//                       "earliest_time: String", "latest_time: String", "address: String", "Waterloo", 1, 5.0,
+//                        listOf("type1", "type2"), Review("Adam", 3.4, "This is a review", "Monday: 9:00 AM – 5:00 PM")
+//                    )
 
                     // Test code for uploading data into Firestore
-                    CoroutineScope(Dispatchers.IO).launch {
-                        uploadData(event)
-                    }
+//                    CoroutineScope(Dispatchers.IO).launch {
+//                        uploadData(event)
+//                    }
 
                     // Test code for quering data from Firestore
-                    CoroutineScope(Dispatchers.IO).launch {
-                        queryEvents(3, listOf("restaurant")).collect( { data->
-                            for (document in data) {
-                                Log.d(TAG, "${document.id} => price_level: ${document.data.get("price_level")}, types: ${document.data.get("types")}")
-                            }
-                        })
-                    }
+//                    CoroutineScope(Dispatchers.IO).launch {
+//                        queryEvents(3, listOf("restaurant")).collect( { data->
+//                            for (document in data) {
+//                                Log.d(TAG, "${document.id} => price_level: ${document.data.get("price_level")}, types: ${document.data.get("types")}")
+//                            }
+//                        })
+//                    }
 
 
                 }
