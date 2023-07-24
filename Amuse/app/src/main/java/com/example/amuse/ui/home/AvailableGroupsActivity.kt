@@ -53,9 +53,7 @@ class AvailableGroupsActivity : AppCompatActivity() {
 
     // Making available groups show
     private lateinit var recyclerAvailGroupView: RecyclerView
-    // New
-    private lateinit var availGroup1: ArrayList<Friend>
-    // New
+
     private lateinit var invitedList1: ArrayList<Friend>
     private lateinit var invitedList2: ArrayList<Friend>
     private lateinit var acceptedList1: ArrayList<Friend>
@@ -65,6 +63,10 @@ class AvailableGroupsActivity : AppCompatActivity() {
 
     private lateinit var availGroupsList: ArrayList<AvailGroup>
     private lateinit var availGroupAdapter: AvailGroupAdapter
+
+    // Dynamic group variables for creations
+    private lateinit var availGroup1: ArrayList<Friend>
+    private lateinit var dynamicAcceptedList: ArrayList<Friend>
 
     private var _binding: FragmentGroupPageBinding? = null
 
@@ -93,7 +95,7 @@ class AvailableGroupsActivity : AppCompatActivity() {
         acceptedList1 = ArrayList()
         acceptedList1.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
         // groupsList.add(AvailGroup("Ohana Outing", 3, 3, false, invitedList1, acceptedList1))
-        availGroupsList.add(AvailGroup("What up 1", "6:30pm", "8:30pm", "July 27th",1, 3, acceptedList1))
+        availGroupsList.add(AvailGroup("What up 1", "6:30pm", "8:30pm", "July 27th",1))
         // data class AvailGroup(var name: String, var minMembers: Int, var maxMembers: Int)
 
         // Group 2
@@ -103,17 +105,45 @@ class AvailableGroupsActivity : AppCompatActivity() {
         acceptedList2 = ArrayList()
         acceptedList2.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani, 2))
 //        groupsList.add(AvailGroup("Picniiiic", 1, 2, false, invitedList2, acceptedList2))
-        availGroupsList.add(AvailGroup("What up 2", "2:30pm", "3:30pm", "July 27th",
-            1, 15, acceptedList2))
+        availGroupsList.add(AvailGroup("What up 2", "2:30pm", "3:30pm", "July 27th", 3))
 
         // Displaying groups
 //        var numGroups = FirebaseUtils().fireStoreDatabase.collection("Groups").count().toString().toInt()
-//        Log.d("HEY! HERE", "$numGroups")
+//        Log.e("HEY! HERE", "$numGroups")
 //        if (numGroups == 0) {
 //            // Display no available groups
 //            no_groups_text = findViewById<TextView>(R.id.no_groups_text)
 //        } else {
-            // Visually displaying the actual groups
+            // Visually displaying the actual groups (DYNAMICALLY)
+
+            // Grabbing the current user
+            // val currentUser = ?
+
+            // Info from event card that was swiped right one
+            val swipeRightEventID = ?
+            // Checkin if startTime or EndTime is null!!!
+            val swipeRightStartTime = ?
+            val swipeRightEndTime = ?
+
+            // Grabbing friends from currently logged into user
+            val userFriends = FirebaseUtils().fireStoreDatabase.collection("Users").document("denis@gmail.com (CURRENT USER)").get("friends"); // syntax issues
+
+            // For each of my friends, check if they already started a group for the card I swiped right on
+            for (friend in userFriends) {
+                // Grabbing each group that this friend is in
+                val friendsGroups = FirebaseUtils().fireStoreDatabase.collection("Users").document(friend).get("groups"); // syntax issues
+                // Check each "group" and check the following: eventID + creatorID + startTime + endTime
+                for (group in friendsGroups) {
+                    if (friend == creatorID && group.eventID == swipeRightEventID && (group.startTime == swipeRightStartTime && group.endTime == swipeRightEndTime) ) {
+                        if (group.availableSpots >= 1) {
+                            // Add
+                            availGroupsList.add(AvailGroup(group.name, group.startTime, group.endTime, group.date, group.availableSpots))
+                        }
+                    }
+                }
+            }
+
+            // Display the groups
             // groupAdapter = GroupAdapter(groupsList)
             availGroupAdapter = AvailGroupAdapter(availGroupsList)
             recyclerAvailGroupView.adapter = availGroupAdapter
