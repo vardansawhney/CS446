@@ -27,7 +27,7 @@ data class Event(
     val price_level: Int?,
     val rating: Double?,
     val types: List<String>?,
-    val reviews: Review
+    val reviews: Review? = null
 )
 
 data class Review(
