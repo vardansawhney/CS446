@@ -85,8 +85,8 @@ class HomeFragment : Fragment() {
                     //Might not work. How to pass context?
                     val rightSwipe:CardAction = RightSwipeAction(container!!.context)
                     rightSwipe.swipeActivity(localStore.currentAvailableEventsStack.removeFirst())
-                    val intent = Intent(activity, AvailableGroupsActivity::class.java)
-                    startActivity(intent)
+//                    val intent = Intent(activity, AvailableGroupsActivity::class.java)
+//                    startActivity(intent)
                 }
                 if (direction === Direction.Top) {
 //                    Toast.makeText(root.context, "Direction Top", Toast.LENGTH_SHORT).show()
@@ -119,8 +119,8 @@ class HomeFragment : Fragment() {
 
                 }
                 if (direction === Direction.Bottom) {
-                    val rightSwipe:CardAction = DownSwipeAction(container!!.context)
-                    rightSwipe.swipeActivity(localStore.currentAvailableEventsStack.removeFirst())
+                    val downSwipe:CardAction = DownSwipeAction(container!!.context)
+                    downSwipe.swipeActivity(localStore.currentAvailableEventsStack.removeFirst())
 //                    Toast.makeText(
 //                        root.context,
 //                        "Direction Bottom",
