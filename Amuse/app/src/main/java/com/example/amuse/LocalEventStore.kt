@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.callbackFlow
 import com.google.firebase.firestore.DocumentReference
 
 object LocalEventStore {
-    public lateinit var currentAvailableEventsStack: MutableList<Event>
+    public var currentAvailableEventsStack: MutableList<Event> = mutableListOf()
     init{
         Log.d("tag", "YO")
         CoroutineScope(Dispatchers.IO).launch {
@@ -44,16 +44,6 @@ object LocalEventStore {
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
     }
     fun doSomething(){
         Log.d("tag", "hopefully this works")
