@@ -13,10 +13,11 @@ import com.google.firebase.firestore.DocumentReference
 object LocalEventStore {
     public lateinit var currentAvailableEventsStack: MutableList<Event>
     init{
+        Log.d("tag", "YO")
         CoroutineScope(Dispatchers.IO).launch {
             queryEvents(3, listOf("restaurant")).collect { data->
                 for (document in data) {
-                    Log.d(TAG, "${document.id} => price_level: ${document.data.get("price_level")}, types: ${document.data.get("types")}")
+                    Log.d("tag", "${document.id} => price_level: ${document.data.get("price_level")}, types: ${document.data.get("types")}")
                     val types_list = document.data.get("types") as List<String>
                     val event = Event(
                         document.id,
@@ -32,7 +33,7 @@ object LocalEventStore {
                         document.data.get("rating").toString().toDouble(),
                         types_list
                         )
-                    Log.d(TAG, event.toString())
+                    Log.d("tag", event.toString())
                     if(!currentAvailableEventsStack.contains(event)){
                         currentAvailableEventsStack.add(event)
                     }
