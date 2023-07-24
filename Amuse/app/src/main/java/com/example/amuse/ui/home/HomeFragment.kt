@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
+import android.widget.Button
+import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +29,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.example.amuse.uploadData
+import com.google.android.material.button.MaterialButton
 
 
 //import android.content.Intent
@@ -52,11 +55,14 @@ class HomeFragment : Fragment() {
     private lateinit var cardList: ArrayList<Card>
     private lateinit var cardAdapter: CardAdapter
     private lateinit var cardStackView: CardStackView
+    private lateinit var pref_popup_card: View
     private lateinit var cardManager: CardStackLayoutManager
+//    lateinit var SettingsButton : MaterialButton
+
 //    private lateinit var binding: FragmentHomeBinding
 
     private var _binding: FragmentHomeBinding? = null
-
+    val settingButton: Button = binding.SettingsButton
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -69,6 +75,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         cardStackView = binding.root.findViewById(R.id.card_stack)
+//        pref_popup_card = binding.root.findViewById(R.id.pref_popup_card)
 
         cardManager = CardStackLayoutManager(this.context, object : CardStackListener{
             override fun onCardDragging(direction: Direction?, ratio: Float) {
@@ -167,6 +174,9 @@ class HomeFragment : Fragment() {
             }
         })
 
+//        settingButton?.setOnClickListener {
+//            pref_popup_card.visibility= View.VISIBLE
+//        }
         return root
     }
 //
