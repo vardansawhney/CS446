@@ -62,6 +62,16 @@ class DashboardFragment : Fragment() {
 //        cardView = binding.cardView
 //        expandBtn = binding.Button
 
+        val event_id = activity?.intent?.getStringExtra("Info-ID")
+        val event_starttime = activity?.intent?.getStringExtra("Info-StartTime")
+        val event_endtime = activity?.intent?.getStringExtra("Info-Endtime")
+        val event_source_id = activity?.intent?.getStringExtra("Info-source_id")
+        val event_source = activity?.intent?.getStringExtra("Info-source")
+        val event_description = activity?.intent?.getStringExtra("Info-description")
+        val event_address = activity?.intent?.getStringExtra("Info-address")
+        val event_city = activity?.intent?.getStringExtra("Info-city")
+        val event_price_level = activity?.intent?.getStringExtra("Info-price_level")
+        val event_rating = activity?.intent?.getStringExtra("Info-rating")
 
         stupidButton?.setOnClickListener {
             if (stupidExpandableLayout.visibility == View.GONE) {

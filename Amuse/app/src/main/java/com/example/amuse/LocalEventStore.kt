@@ -9,9 +9,11 @@ import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 import com.google.firebase.firestore.DocumentReference
+import kotlinx.coroutines.delay
 
 object LocalEventStore {
     public var currentAvailableEventsStack: MutableList<Event> = mutableListOf()
+    public var isRunning :Boolean = false
     init{
         Log.d("tag", "YO")
         CoroutineScope(Dispatchers.IO).launch {
@@ -45,6 +47,17 @@ object LocalEventStore {
             }
         }
     }
+
+    fun PullUntilFull(){
+        if(currentAvailableEventsStack.size<5){
+            isRunning = true
+            CoroutineScope(Dispatchers.Default).launch {
+                while (currentAvailableEventsStack.size<10) {
+                    delay(1000) // 1 second delay
+                }
+            }
+        }
+    } 
     fun doSomething(){
         Log.d("tag", "hopefully this works")
     }
