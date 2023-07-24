@@ -34,6 +34,7 @@ import com.example.amuse.uploadData
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textfield.TextInputEditText
+import kotlin.properties.Delegates
 
 
 //import android.content.Intent
@@ -66,6 +67,7 @@ class HomeFragment : Fragment() {
     private lateinit var startTime: TextInputEditText
     private lateinit var endTime: TextInputEditText
 //    private lateinit var priceRange: Int?
+//    private var distance: Float()
     private lateinit var thrilling_type: CheckBox
     private lateinit var no_alchol_type: CheckBox
     private lateinit var eating_type: CheckBox
@@ -75,7 +77,6 @@ class HomeFragment : Fragment() {
     private lateinit var movies_type: CheckBox
     private lateinit var outdoors_type: CheckBox
     private lateinit var malls_type: CheckBox
-    private lateinit var types: Array<String>
 
 
 
@@ -236,31 +237,45 @@ class HomeFragment : Fragment() {
                 if (thrilling_type.isEnabled){
                     preferencesFormatted.add("amusement_park")
                     preferencesFormatted.add("tourist_attraction")
-                }
-                if (no_alchol_type.isEnabled){
-
+                    preferencesFormatted.add("art_gallery")
+                    preferencesFormatted.add("stadium")
+                    preferencesFormatted.add("museum")
+                    preferencesFormatted.add("bowling_alley")
+                    preferencesFormatted.add("casino")
                 }
                 if(eating_type.isEnabled){
-                    preferencesFormatted
-                }
-                if(dancing_type.isEnabled){
-
+                    preferencesFormatted.add("restaurant")
+                    preferencesFormatted.add("meal_takeaway")
+                    preferencesFormatted.add("cafe")
                 }
                 if(alcohol_type.isEnabled){
-
+                    if(dancing_type.isEnabled){
+                        preferencesFormatted.add("night_club")
+                    }
                 }
                 if(animals_type.isEnabled){
-
+                    preferencesFormatted.add("pet_store")
+                    preferencesFormatted.add("zoo")
+                    preferencesFormatted.add("aquarium")
                 }
                 if(movies_type.isEnabled){
-
+                    preferencesFormatted.add("movie_theater")
                 }
                 if(outdoors_type.isEnabled){
-
+                    preferencesFormatted.add("park")
+                    preferencesFormatted.add("campground")
                 }
                 if(malls_type.isEnabled){
-
+                    preferencesFormatted.add("bicycle_store")
+                    preferencesFormatted.add("book_store")
+                    preferencesFormatted.add("clothing_store")
+                    preferencesFormatted.add("convenience_store")
+                    preferencesFormatted.add("electronics_store")
+                    preferencesFormatted.add("shopping_mall")
+                    preferencesFormatted.add("shoe_store")
                 }
+
+                val thingsToQuery = arrayListOf<Any>(startTime.toString(), endTime.toString(), preferencesFormatted)
 
 
                 pref_popup_card.visibility = View.GONE;
