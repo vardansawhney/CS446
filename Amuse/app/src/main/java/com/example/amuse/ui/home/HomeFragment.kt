@@ -7,18 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
 import com.example.amuse.MainActivity
 import com.example.amuse.OpenCardActivity
 import com.example.amuse.R
-import com.example.amuse.databinding.FragmentHomeBinding
+//import com.example.amuse.databinding.FragmentHomeBinding
+import com.example.amuse.databinding.FragmentProfileBinding
 import com.example.amuse.ui.CardAdapter
+import com.example.amuse.ui.PreferencesFragment
 import com.yuyakaido.android.cardstackview.*
 
 
@@ -36,7 +40,7 @@ import com.yuyakaido.android.cardstackview.*
 //import com.example.amuse.MainActivity
 //import com.example.amuse.OpenCardActivity
 //import com.example.amuse.R
-//import com.example.amuse.databinding.FragmentHomeBinding
+import com.example.amuse.databinding.FragmentHomeBinding
 //import com.google.android.material.card.MaterialCardView
 
 class HomeFragment : Fragment() {
@@ -47,7 +51,6 @@ class HomeFragment : Fragment() {
 //    private lateinit var binding: FragmentHomeBinding
 
     private var _binding: FragmentHomeBinding? = null
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -60,6 +63,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         cardStackView = binding.root.findViewById(R.id.card_stack)
+        val settingButton: Button = binding.SettingsButton
 
         cardManager = CardStackLayoutManager(this.context, object : CardStackListener{
             override fun onCardDragging(direction: Direction?, ratio: Float) {
@@ -135,6 +139,22 @@ class HomeFragment : Fragment() {
                 startActivity(Intent(root.context, OpenCardActivity::class.java).putExtra("cardID", "card$position"))
             }
         })
+
+        settingButton?.setOnClickListener {
+            val preferencesFragment = PreferencesFragment()
+            val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+            fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            // Replace the current fragment with the target fragment
+            fragmentTransaction.replace(R.id.container, preferencesFragment)
+
+            // Optionally, you can add the transaction to the back stack, so the user can navigate back to the source fragment
+            // fragmentTransaction.addToBackStack(null)
+
+            fragmentTransaction.commit()
+
+        }
+
 
         return root
     }

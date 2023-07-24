@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.amuse.R
 import com.example.amuse.databinding.FragmentMainBinding
+import com.example.amuse.ui.home.HomeFragment
 import com.example.amuse.ui.profile.ProfileFragment
 
 class PreferencesFragment : Fragment() {
@@ -38,7 +39,7 @@ class PreferencesFragment : Fragment() {
         val button: Button = binding.dummyButton
 
         button?.setOnClickListener{
-            val profileFragment = ProfileFragment()
+            val profileFragment = HomeFragment()
             val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
             fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)

@@ -28,6 +28,8 @@
             android:orientation="vertical">
 
             <!-- Media -->
+
+            <!-- Title -->
             <ImageView
                 android:id="@+id/card_media"
                 android:layout_width="match_parent"
@@ -35,8 +37,7 @@
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/card1_media" />
 
-                <!-- Title -->
-                <TextView
+            <TextView
                     android:id="@+id/card_title"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

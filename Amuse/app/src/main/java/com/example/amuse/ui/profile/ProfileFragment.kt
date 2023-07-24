@@ -40,8 +40,8 @@ class ProfileFragment : Fragment() {
     ): View? {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
         val settingButton: Button = binding.SettingsButton
+
 
         tabLayout = binding.constraintLayout.findViewById(R.id.tabLayout)
         viewPager2 = binding.constraintLayout.findViewById(R.id.viewPager2)

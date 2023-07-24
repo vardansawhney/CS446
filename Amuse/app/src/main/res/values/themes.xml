@@ -4,9 +4,6 @@
 
     <style name="Theme.Amuse" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-<!--        <item name="windowNoTitle">true</item>-->
-<!--        <item name="windowActionBar">false</item>-->
-<!--        <item name="windowNoTitle">true</item>-->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
 
