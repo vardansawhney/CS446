@@ -70,6 +70,8 @@ class AvailableGroupsActivity : AppCompatActivity() {
 
         confirm_group_creation = findViewById<MaterialButton>(R.id.confirm_new_group_settings)
         confirm_group_creation.setOnClickListener(confirm_group_listener)
+
+
         val adapter: ArrayAdapter<String> =
             ArrayAdapter(this, android.R.layout.select_dialog_item, fruits)
         val actv = findViewById<View>(R.id.autoCompleteTextView) as AutoCompleteTextView

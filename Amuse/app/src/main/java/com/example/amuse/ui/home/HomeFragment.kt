@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
@@ -32,6 +33,7 @@ import kotlinx.coroutines.launch
 import com.example.amuse.uploadData
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.textfield.TextInputEditText
 
 
 //import android.content.Intent
@@ -61,6 +63,20 @@ class HomeFragment : Fragment() {
     private lateinit var cardManager: CardStackLayoutManager
     private lateinit var SettingsButton: AppCompatButton
     private lateinit var SubmitButton: AppCompatButton
+    private lateinit var startTime: TextInputEditText
+    private lateinit var endTime: TextInputEditText
+//    private lateinit var priceRange: Int?
+    private lateinit var thrilling_type: CheckBox
+    private lateinit var no_alchol_type: CheckBox
+    private lateinit var eating_type: CheckBox
+    private lateinit var dancing_type: CheckBox
+    private lateinit var alcohol_type: CheckBox
+    private lateinit var animals_type: CheckBox
+    private lateinit var movies_type: CheckBox
+    private lateinit var outdoors_type: CheckBox
+    private lateinit var malls_type: CheckBox
+    private lateinit var types: Array<String>
+
 
 
 //    private lateinit var binding: FragmentHomeBinding
@@ -78,12 +94,27 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         cardStackView = binding.root.findViewById(R.id.card_stack)
-        pref_popup_card = binding.root.findViewById<MaterialCardView>(R.id.pref_popup_card)
-        SettingsButton = binding.root.findViewById<AppCompatButton>(R.id.SettingsButton)
-        SettingsButton.setOnClickListener(settings_button_press)
 
-        SubmitButton = binding.root.findViewById<AppCompatButton>(R.id.SubmitButton)
+        // Preferences Panel Info
+        pref_popup_card = root.findViewById<MaterialCardView>(R.id.pref_popup_card)
+        SettingsButton = root.findViewById<AppCompatButton>(R.id.SettingsButton)
+        SettingsButton.setOnClickListener(settings_button_press)
+        SubmitButton = root.findViewById<AppCompatButton>(R.id.SubmitButton)
         SubmitButton.setOnClickListener(submit_button_press)
+
+        startTime = root.findViewById<TextInputEditText>(R.id.startTime)
+        endTime = root.findViewById(R.id.endTime)
+
+        thrilling_type = root.findViewById<CheckBox>(R.id.type1)
+        no_alchol_type = root.findViewById<CheckBox>(R.id.type2)
+        eating_type = root.findViewById<CheckBox>(R.id.type3)
+        dancing_type = root.findViewById<CheckBox>(R.id.type4)
+        alcohol_type = root.findViewById<CheckBox>(R.id.type5)
+        animals_type = root.findViewById<CheckBox>(R.id.type6)
+        movies_type = root.findViewById<CheckBox>(R.id.type7)
+        outdoors_type = root.findViewById<CheckBox>(R.id.type8)
+        malls_type = root.findViewById<CheckBox>(R.id.type9)
+
 
         cardManager = CardStackLayoutManager(this.context, object : CardStackListener{
             override fun onCardDragging(direction: Direction?, ratio: Float) {
@@ -200,7 +231,39 @@ class HomeFragment : Fragment() {
     val submit_button_press = View.OnClickListener { view ->
         when (view.getId()) {
             R.id.SubmitButton -> {
-                pref_popup_card.visibility = View.INVISIBLE;
+                val preferencesFormatted = ArrayList<String>()
+
+                if (thrilling_type.isEnabled){
+                    preferencesFormatted.add("amusement_park")
+                    preferencesFormatted.add("tourist_attraction")
+                }
+                if (no_alchol_type.isEnabled){
+
+                }
+                if(eating_type.isEnabled){
+                    preferencesFormatted
+                }
+                if(dancing_type.isEnabled){
+
+                }
+                if(alcohol_type.isEnabled){
+
+                }
+                if(animals_type.isEnabled){
+
+                }
+                if(movies_type.isEnabled){
+
+                }
+                if(outdoors_type.isEnabled){
+
+                }
+                if(malls_type.isEnabled){
+
+                }
+
+
+                pref_popup_card.visibility = View.GONE;
             }
         }
     }

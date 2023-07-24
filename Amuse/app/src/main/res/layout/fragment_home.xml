@@ -22,10 +22,9 @@
             android:id="@+id/SettingsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="303dp"
             android:layout_marginTop="7dp"
-            android:layout_marginBottom="305dp"
-            android:text="settings"
+            android:layout_marginLeft="250dp"
+            android:text="Preferences"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -34,19 +33,18 @@
             app:layout_constraintVertical_bias="0.0" />
 
 
-
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/pref_popup_card"
-            android:layout_width="336dp"
-            android:layout_height="592dp"
+            android:layout_width="340dp"
+            android:layout_height="555dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="60dp"
             android:layout_marginRight="15dp"
             android:checkable="true"
             android:clickable="true"
             android:elevation="8dp"
-            android:visibility="gone"
             android:focusable="true"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -92,6 +90,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="12dp"
                                     android:hint="Start"
+                                    android:id="@+id/startTime"
                                     android:inputType="time" />
 
                                 <EditText
@@ -99,6 +98,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="22dp"
                                     android:hint="End"
+                                    android:id="@+id/endTime"
                                     android:inputType="time" />
                         </LinearLayout>
 
@@ -120,12 +120,11 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/Price"
                             android:layout_marginTop="5dp"
-                            android:value="2.0"
-                            android:valueFrom="1.0"
-                            android:valueTo="4.0"
                             android:stepSize="1.0"
                             android:theme="@style/WD_Slider"
-                            />
+                            android:value="2.0"
+                            android:valueFrom="1.0"
+                            android:valueTo="4.0" />
 
                         <TextView
                             android:id="@+id/Distance"
@@ -145,11 +144,10 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/Distance"
                             android:layout_marginTop="5dp"
+                            android:theme="@style/WD_Slider"
                             android:value="20"
                             android:valueFrom="0"
-                            android:valueTo="100"
-                            android:theme="@style/WD_Slider"
-                            />
+                            android:valueTo="100" />
 
                         <TextView
                             android:id="@+id/Preferences"
@@ -286,8 +284,8 @@
 
                                 <Button
                                     android:id="@+id/SubmitButton"
-                                    android:layout_height="wrap_content"
                                     android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:text="Submit" />
                         </LinearLayout>
