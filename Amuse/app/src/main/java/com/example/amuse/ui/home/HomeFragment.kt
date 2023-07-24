@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
     private lateinit var cardList: ArrayList<Card>
     private lateinit var cardAdapter: CardAdapter
     private lateinit var cardStackView: CardStackView
-    private lateinit var pref_popup_card: View
+//    private lateinit var pref_popup_card: View
     private lateinit var cardManager: CardStackLayoutManager
 //    lateinit var SettingsButton : MaterialButton
 
