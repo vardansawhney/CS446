@@ -55,4 +55,7 @@ object LocalEventStore {
 
 
     }
+    fun doSomething(){
+        Log.d("tag", "hopefully this works")
+    }
 }

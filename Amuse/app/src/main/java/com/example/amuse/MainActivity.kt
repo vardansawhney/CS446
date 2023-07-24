@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        setContentView(R.layout.fragment_home)
-
+        LocalEventStore.doSomething()
         val navView: BottomNavigationView = binding.navView
 
         // API requests and DB updates
