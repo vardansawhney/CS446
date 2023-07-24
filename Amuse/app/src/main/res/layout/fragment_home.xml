@@ -15,290 +15,286 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="Enter How Much Cookies You Want"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-<!--        <Button-->
-<!--            android:id="@+id/SettingsButton"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="303dp"-->
-<!--            android:layout_marginTop="7dp"-->
-<!--            android:layout_marginBottom="305dp"-->
-<!--            android:text="settings"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.0"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintVertical_bias="0.0" />-->
+        <Button
+            android:id="@+id/SettingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="303dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="305dp"
+            android:text="settings"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
 
 
-<!--        <com.google.android.material.card.MaterialCardView-->
-<!--            android:id="@+id/pref_popup_card"-->
-<!--            android:layout_width="336dp"-->
-<!--            android:layout_height="592dp"-->
-<!--            android:layout_marginLeft="15dp"-->
-<!--            android:layout_marginTop="60dp"-->
-<!--            android:layout_marginRight="15dp"-->
-<!--            android:checkable="true"-->
-<!--            android:clickable="true"-->
-<!--            android:elevation="8dp"-->
-<!--            android:visibility="gone"-->
-<!--            android:focusable="true"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:strokeColor="@color/black"-->
-<!--            app:strokeWidth="1dp">-->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/pref_popup_card"
+            android:layout_width="336dp"
+            android:layout_height="592dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="15dp"
+            android:checkable="true"
+            android:clickable="true"
+            android:elevation="8dp"
+            android:visibility="gone"
+            android:focusable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp">
 
-<!--                <RelativeLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="612dp">-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="612dp">
 
-<!--                        <TextView-->
-<!--                            android:id="@+id/Title"-->
-<!--                            android:layout_width="308dp"-->
-<!--                            android:layout_height="39dp"-->
-<!--                            android:layout_marginLeft="12dp"-->
-<!--                            android:text="Preferences"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            android:textSize="25sp"-->
-<!--                            android:textStyle="bold" />-->
+                        <TextView
+                            android:id="@+id/Title"
+                            android:layout_width="308dp"
+                            android:layout_height="39dp"
+                            android:layout_marginLeft="12dp"
+                            android:text="Preferences"
+                            android:textColor="@color/black"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
 
-<!--                        <TextView-->
-<!--                            android:id="@+id/Timing"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@+id/Title"-->
-<!--                            android:layout_marginLeft="12dp"-->
-<!--                            android:layout_marginTop="15dp"-->
-<!--                            android:text="Event Timing"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            android:textSize="20sp"-->
-<!--                            android:textStyle="bold" />-->
+                        <TextView
+                            android:id="@+id/Timing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/Title"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="15dp"
+                            android:text="Event Timing"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
-<!--                        <LinearLayout-->
-<!--                            android:id="@+id/layoutHorizontal"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@+id/Timing"-->
-<!--                            android:layout_marginLeft="20dp">-->
-
-
-<!--                                <EditText-->
-<!--                                    android:layout_width="85dp"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_marginLeft="12dp"-->
-<!--                                    android:hint="Start"-->
-<!--                                    android:inputType="time" />-->
-
-<!--                                <EditText-->
-<!--                                    android:layout_width="85dp"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_marginLeft="22dp"-->
-<!--                                    android:hint="End"-->
-<!--                                    android:inputType="time" />-->
-<!--                        </LinearLayout>-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/Price"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@id/layoutHorizontal"-->
-<!--                            android:layout_marginLeft="12dp"-->
-<!--                            android:layout_marginTop="25dp"-->
-<!--                            android:text="Price (in CAD)"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            android:textSize="20sp"-->
-<!--                            android:textStyle="bold" />-->
-
-<!--                        &lt;!&ndash;        <TimePicker&ndash;&gt;-->
-<!--                        &lt;!&ndash;            android:id="@+id/timePicker1"&ndash;&gt;-->
-<!--                        &lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
-<!--                        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
-<!--                        &lt;!&ndash;            android:layout_centerHorizontal="true"&ndash;&gt;-->
-<!--                        &lt;!&ndash;            android:layout_marginTop="20dp"&ndash;&gt;-->
-<!--                        &lt;!&ndash;            android:timePickerMode="spinner"&ndash;&gt;-->
-<!--                        &lt;!&ndash;            android:layout_below="@+id/layoutHorizontal1"&ndash;&gt;-->
-<!--                        &lt;!&ndash;        />&ndash;&gt;-->
-
-<!--                        <com.google.android.material.slider.Slider-->
-<!--                            android:id="@+id/layoutHorizontal1"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@+id/Price"-->
-<!--                            android:layout_marginTop="5dp"-->
-<!--                            android:value="20.0"-->
-<!--                            android:valueFrom="0.0"-->
-<!--                            android:valueTo="100.0" />-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/Distance"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@+id/layoutHorizontal1"-->
-<!--                            android:layout_marginLeft="12dp"-->
-<!--                            android:layout_marginTop="-5dp"-->
-<!--                            android:text="Distance (in km)"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            android:textSize="20sp"-->
-<!--                            android:textStyle="bold" />-->
-
-<!--                        <com.google.android.material.slider.Slider-->
-<!--                            android:id="@+id/distance"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@+id/Distance"-->
-<!--                            android:layout_marginTop="5dp"-->
-<!--                            android:value="20.0"-->
-<!--                            android:valueFrom="0.0"-->
-<!--                            android:valueTo="100.0" />-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/Preferences"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@id/distance"-->
-<!--                            android:layout_marginLeft="12dp"-->
-<!--                            android:layout_marginTop="25dp"-->
-<!--                            android:text="Types of Events"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            android:textSize="20sp"-->
-<!--                            android:textStyle="bold" />-->
-
-<!--                        <LinearLayout-->
-<!--                            android:id="@+id/layoutHorizontal2"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@+id/Preferences">-->
-
-<!--                                <CheckBox-->
-<!--                                    android:id="@+id/type1"-->
-<!--                                    android:layout_width="wrap_content"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_below="@+id/Price"-->
-<!--                                    android:layout_marginLeft="25dp"-->
-<!--                                    android:checked="false"-->
-<!--                                    android:text="Thrilling" />-->
-
-<!--                                <CheckBox-->
-<!--                                    android:id="@+id/type2"-->
-<!--                                    android:layout_width="wrap_content"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_below="@+id/type1"-->
-<!--                                    android:layout_marginLeft="23dp"-->
-<!--                                    android:layout_marginTop="0dp"-->
-<!--                                    android:checked="false"-->
-<!--                                    android:text="No Alcohol" />-->
-
-<!--                                <CheckBox-->
-<!--                                    android:id="@+id/type3"-->
-<!--                                    android:layout_width="wrap_content"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_below="@+id/type2"-->
-<!--                                    android:layout_marginLeft="14dp"-->
-<!--                                    android:layout_marginTop="0dp"-->
-<!--                                    android:checked="false"-->
-<!--                                    android:text="Eating" />-->
-
-<!--                        </LinearLayout>-->
-
-<!--                        <LinearLayout-->
-<!--                            android:id="@+id/layoutHorizontal4"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@+id/layoutHorizontal3">-->
-
-<!--                                <CheckBox-->
-<!--                                    android:id="@+id/type7"-->
-<!--                                    android:layout_width="wrap_content"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_below="@+id/Price"-->
-<!--                                    android:layout_marginLeft="25dp"-->
-<!--                                    android:checked="false"-->
-<!--                                    android:text="Movies " />-->
-
-<!--                                <CheckBox-->
-<!--                                    android:id="@+id/type8"-->
-<!--                                    android:layout_width="wrap_content"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_below="@+id/type1"-->
-<!--                                    android:layout_marginLeft="25dp"-->
-<!--                                    android:layout_marginTop="0dp"-->
-<!--                                    android:checked="false"-->
-<!--                                    android:text="Outdoors    " />-->
-
-<!--                                <CheckBox-->
-<!--                                    android:id="@+id/type9"-->
-<!--                                    android:layout_width="wrap_content"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_below="@+id/type2"-->
-<!--                                    android:layout_marginLeft="10dp"-->
-<!--                                    android:checked="false"-->
-<!--                                    android:text="Malls" />-->
-
-<!--                        </LinearLayout>-->
-
-<!--                        <LinearLayout-->
-<!--                            android:id="@+id/layoutHorizontal3"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@+id/layoutHorizontal2">-->
-
-<!--                                <CheckBox-->
-<!--                                    android:id="@+id/type4"-->
-<!--                                    android:layout_width="wrap_content"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_below="@+id/Price"-->
-<!--                                    android:layout_marginLeft="25dp"-->
-<!--                                    android:checked="false"-->
-<!--                                    android:text="Dancing" />-->
-
-<!--                                <CheckBox-->
-<!--                                    android:id="@+id/type5"-->
-<!--                                    android:layout_width="wrap_content"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_below="@+id/type1"-->
-<!--                                    android:layout_marginLeft="23dp"-->
-<!--                                    android:layout_marginTop="0dp"-->
-<!--                                    android:checked="false"-->
-<!--                                    android:text="Alcohol " />-->
-
-<!--                                <CheckBox-->
-<!--                                    android:id="@+id/type6"-->
-<!--                                    android:layout_width="wrap_content"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_below="@+id/type2"-->
-<!--                                    android:layout_marginLeft="30dp"-->
-<!--                                    android:layout_marginTop="0dp"-->
-<!--                                    android:checked="false"-->
-<!--                                    android:text="Animals" />-->
-
-<!--                        </LinearLayout>-->
+                        <LinearLayout
+                            android:id="@+id/layoutHorizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/Timing"
+                            android:layout_marginLeft="20dp">
 
 
-<!--                        <LinearLayout-->
-<!--                            android:id="@+id/fullscreen_content_controls"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@id/layoutHorizontal4"-->
-<!--                            android:layout_gravity="bottom|center_horizontal"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:orientation="horizontal"-->
-<!--                            tools:ignore="UselessParent">-->
+                                <EditText
+                                    android:layout_width="85dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="12dp"
+                                    android:hint="Start"
+                                    android:inputType="time" />
 
-<!--                                <Button-->
-<!--                                    android:id="@+id/dummy_button"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_width="wrap_content"-->
-<!--                                    android:layout_weight="1"-->
-<!--                                    android:text="Submit" />-->
-<!--                        </LinearLayout>-->
+                                <EditText
+                                    android:layout_width="85dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="22dp"
+                                    android:hint="End"
+                                    android:inputType="time" />
+                        </LinearLayout>
 
-<!--                </RelativeLayout>-->
+                        <TextView
+                            android:id="@+id/Price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/layoutHorizontal"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="25dp"
+                            android:text="Price Range"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
-<!--        </com.google.android.material.card.MaterialCardView>-->
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/layoutHorizontal1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/Price"
+                            android:layout_marginTop="5dp"
+                            android:value="2.0"
+                            android:valueFrom="1.0"
+                            android:valueTo="4.0"
+                            android:stepSize="1.0"
+                            android:theme="@style/WD_Slider"
+                            />
+
+                        <TextView
+                            android:id="@+id/Distance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/layoutHorizontal1"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="-5dp"
+                            android:text="Distance (in km)"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/distance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/Distance"
+                            android:layout_marginTop="5dp"
+                            android:value="20"
+                            android:valueFrom="0"
+                            android:valueTo="100"
+                            android:theme="@style/WD_Slider"
+                            />
+
+                        <TextView
+                            android:id="@+id/Preferences"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/distance"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="25dp"
+                            android:text="Types of Events"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/layoutHorizontal2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/Preferences">
+
+                                <CheckBox
+                                    android:id="@+id/type1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/Price"
+                                    android:layout_marginLeft="25dp"
+                                    android:checked="false"
+                                    android:text="Thrilling" />
+
+                                <CheckBox
+                                    android:id="@+id/type2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/type1"
+                                    android:layout_marginLeft="23dp"
+                                    android:layout_marginTop="0dp"
+                                    android:checked="false"
+                                    android:text="No Alcohol" />
+
+                                <CheckBox
+                                    android:id="@+id/type3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/type2"
+                                    android:layout_marginLeft="14dp"
+                                    android:layout_marginTop="0dp"
+                                    android:checked="false"
+                                    android:text="Eating" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutHorizontal4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/layoutHorizontal3">
+
+                                <CheckBox
+                                    android:id="@+id/type7"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/Price"
+                                    android:layout_marginLeft="25dp"
+                                    android:checked="false"
+                                    android:text="Movies " />
+
+                                <CheckBox
+                                    android:id="@+id/type8"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/type1"
+                                    android:layout_marginLeft="25dp"
+                                    android:layout_marginTop="0dp"
+                                    android:checked="false"
+                                    android:text="Outdoors    " />
+
+                                <CheckBox
+                                    android:id="@+id/type9"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/type2"
+                                    android:layout_marginLeft="10dp"
+                                    android:checked="false"
+                                    android:text="Malls" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutHorizontal3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/layoutHorizontal2">
+
+                                <CheckBox
+                                    android:id="@+id/type4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/Price"
+                                    android:layout_marginLeft="25dp"
+                                    android:checked="false"
+                                    android:text="Dancing" />
+
+                                <CheckBox
+                                    android:id="@+id/type5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/type1"
+                                    android:layout_marginLeft="23dp"
+                                    android:layout_marginTop="0dp"
+                                    android:checked="false"
+                                    android:text="Alcohol " />
+
+                                <CheckBox
+                                    android:id="@+id/type6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/type2"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="0dp"
+                                    android:checked="false"
+                                    android:text="Animals" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/fullscreen_content_controls"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/layoutHorizontal4"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal"
+                            tools:ignore="UselessParent">
+
+                                <Button
+                                    android:id="@+id/SubmitButton"
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Submit" />
+                        </LinearLayout>
+
+                </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

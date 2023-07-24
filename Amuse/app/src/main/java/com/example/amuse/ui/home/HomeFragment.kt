@@ -12,6 +12,7 @@ import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -30,6 +31,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.example.amuse.uploadData
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.card.MaterialCardView
 
 
 //import android.content.Intent
@@ -55,14 +57,15 @@ class HomeFragment : Fragment() {
     private lateinit var cardList: ArrayList<Card>
     private lateinit var cardAdapter: CardAdapter
     private lateinit var cardStackView: CardStackView
-//    private lateinit var pref_popup_card: View
+    private lateinit var pref_popup_card: MaterialCardView
     private lateinit var cardManager: CardStackLayoutManager
-//    lateinit var SettingsButton : MaterialButton
+    private lateinit var SettingsButton: AppCompatButton
+    private lateinit var SubmitButton: AppCompatButton
+
 
 //    private lateinit var binding: FragmentHomeBinding
 
     private var _binding: FragmentHomeBinding? = null
-    val settingButton: Button = binding.SettingsButton
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -75,7 +78,12 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         cardStackView = binding.root.findViewById(R.id.card_stack)
-//        pref_popup_card = binding.root.findViewById(R.id.pref_popup_card)
+        pref_popup_card = binding.root.findViewById<MaterialCardView>(R.id.pref_popup_card)
+        SettingsButton = binding.root.findViewById<AppCompatButton>(R.id.SettingsButton)
+        SettingsButton.setOnClickListener(settings_button_press)
+
+        SubmitButton = binding.root.findViewById<AppCompatButton>(R.id.SubmitButton)
+        SubmitButton.setOnClickListener(submit_button_press)
 
         cardManager = CardStackLayoutManager(this.context, object : CardStackListener{
             override fun onCardDragging(direction: Direction?, ratio: Float) {
@@ -174,10 +182,27 @@ class HomeFragment : Fragment() {
             }
         })
 
-//        settingButton?.setOnClickListener {
-//            pref_popup_card.visibility= View.VISIBLE
-//        }
+
+
+
+
         return root
+    }
+
+    val settings_button_press = View.OnClickListener { view ->
+        when (view.getId()) {
+            R.id.SettingsButton -> {
+                pref_popup_card.visibility = View.VISIBLE;
+            }
+        }
+    }
+
+    val submit_button_press = View.OnClickListener { view ->
+        when (view.getId()) {
+            R.id.SubmitButton -> {
+                pref_popup_card.visibility = View.INVISIBLE;
+            }
+        }
     }
 //
 //    private lateinit var homeViewModel: HomeViewModel
