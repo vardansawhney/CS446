@@ -72,7 +72,9 @@ class DashboardFragment : Fragment() {
         val event_city = activity?.intent?.getStringExtra("Info-city")
         val event_price_level = activity?.intent?.getStringExtra("Info-price_level")
         val event_rating = activity?.intent?.getStringExtra("Info-rating")
-
+        if(event_id!=null && event_address!=null && event_description!=null){
+            Log.d("tag", "got the data to liked groups...probably")
+        }
         stupidButton?.setOnClickListener {
             if (stupidExpandableLayout.visibility == View.GONE) {
                 TransitionManager.beginDelayedTransition(stupidCardView, AutoTransition())

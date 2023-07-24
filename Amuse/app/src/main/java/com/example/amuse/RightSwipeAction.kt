@@ -6,6 +6,8 @@ import com.example.amuse.ui.dashboard.DashboardFragment
 import com.example.amuse.ui.home.AvailableGroupsActivity
 
 class RightSwipeAction(val context: Context):CardAction {
+    val localStore = LocalEventStore
+
     override fun swipeActivity(event: Event){
         var weighted_types = ArrayList<Pair<String,Int>>()
         event.types?.forEach { type ->
@@ -24,6 +26,8 @@ class RightSwipeAction(val context: Context):CardAction {
         intent.putExtra("Info-price_level", event.price_level)
         intent.putExtra("Info-rating", event.rating)
         context.startActivity(intent)
+        localStore.PullUntilFull()
+
     }
 
 }

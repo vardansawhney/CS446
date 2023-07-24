@@ -5,6 +5,7 @@ import android.content.Intent
 import com.example.amuse.ui.home.AvailableGroupsActivity
 
 class DownSwipeAction(val context: Context):CardAction {
+    val localStore = LocalEventStore
     override fun swipeActivity(event: Event){
         var weighted_types = ArrayList<Pair<String,Int>>()
         event.types?.forEach { type ->
@@ -16,6 +17,7 @@ class DownSwipeAction(val context: Context):CardAction {
         intent.putExtra("Group-Info-StartTime", event.earliest_time)
         intent.putExtra("Group-Info-Endtime", event.latest_time)
         context.startActivity(intent)
+        localStore.PullUntilFull()
     }
 
 }

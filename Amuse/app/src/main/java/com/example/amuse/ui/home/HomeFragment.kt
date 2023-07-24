@@ -14,11 +14,15 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
+import com.example.amuse.CardAction
+import com.example.amuse.DownSwipeAction
 import com.example.amuse.Event
+import com.example.amuse.LocalEventStore
 import com.example.amuse.MainActivity
 import com.example.amuse.OpenCardActivity
 import com.example.amuse.R
 import com.example.amuse.Review
+import com.example.amuse.RightSwipeAction
 import com.example.amuse.databinding.FragmentHomeBinding
 import com.example.amuse.queryEvents
 import com.example.amuse.ui.CardAdapter
@@ -69,7 +73,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         cardStackView = binding.root.findViewById(R.id.card_stack)
-
+        val localStore = LocalEventStore
         cardManager = CardStackLayoutManager(this.context, object : CardStackListener{
             override fun onCardDragging(direction: Direction?, ratio: Float) {
                 Log.d("Tag", "Dragged")
@@ -78,6 +82,9 @@ class HomeFragment : Fragment() {
             override fun onCardSwiped(direction: Direction) {
                 if (direction === Direction.Right) {
 //                    Toast.makeText(root.context, "Direction Right", Toast.LENGTH_SHORT).show()
+                    //Might not work. How to pass context?
+                    val rightSwipe:CardAction = RightSwipeAction(container!!.context)
+                    rightSwipe.swipeActivity(localStore.currentAvailableEventsStack.removeFirst())
                     val intent = Intent(activity, AvailableGroupsActivity::class.java)
                     startActivity(intent)
                 }
@@ -112,6 +119,8 @@ class HomeFragment : Fragment() {
 
                 }
                 if (direction === Direction.Bottom) {
+                    val rightSwipe:CardAction = DownSwipeAction(container!!.context)
+                    rightSwipe.swipeActivity(localStore.currentAvailableEventsStack.removeFirst())
 //                    Toast.makeText(
 //                        root.context,
 //                        "Direction Bottom",
