@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View;
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView;
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.amuse.R
@@ -19,8 +18,8 @@ class AvailGroupAdapter(private val availGroupsList: ArrayList<AvailGroup>)
         val imageView2 : CircleImageView = itemView.findViewById(R.id.group_pic2)
         val imageView3 : CircleImageView = itemView.findViewById(R.id.group_pic3)
         val nameTextView : TextView = itemView.findViewById(R.id.availGroupName)
-        val displayTimesTextView : TextView = itemView.findViewById(R.id.hiddenMemberNames)
-        val groupsTextView : TextView = itemView.findViewById(R.id.numMembers)
+        val displayTimesTextView : TextView = itemView.findViewById(R.id.dateDisplay)
+        val availSpotsLeftTextView : TextView = itemView.findViewById(R.id.availSpotsLeft)
         val joinButtonView: Button = itemView.findViewById(R.id.joinButton)
     }
 
@@ -45,7 +44,7 @@ class AvailGroupAdapter(private val availGroupsList: ArrayList<AvailGroup>)
         // Displaying the group name
         holder.nameTextView.text = availGroup.name
         holder.displayTimesTextView.text = availGroup.date + " at " + availGroup.startTime + " - " + availGroup.endTime
-        holder.groupsTextView.text = "Members: " + availGroup.accepted.size.toString() + "/" + availGroup.maxMembers
+        holder.availSpotsLeftTextView.text = "Spots left: " + availGroup.availSpotsLeft
         // Do something with button here?!?!?!
     }
 

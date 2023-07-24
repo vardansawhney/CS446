@@ -75,7 +75,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/numMembers"
+        android:id="@+id/availSpotsLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"

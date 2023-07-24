@@ -60,7 +60,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/hiddenMemberNames"
+                android:id="@+id/dateDisplay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -83,12 +83,12 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/numMembers"
+        android:id="@+id/availSpotsLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:padding="5dp"
-        android:text="Members: 1/3"
+        android:text="Spots left: 3"
         android:textSize="10sp" />
 
 
