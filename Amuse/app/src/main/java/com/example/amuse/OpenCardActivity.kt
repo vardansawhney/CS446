@@ -55,4 +55,65 @@ class OpenCardActivity : AppCompatActivity() {
             }
         }
     }
+    fun getRating(rating: Double):String{
+            if(rating < 1){
+                return "☆☆☆☆☆"
+            }else if (rating < 2){
+                return "★☆☆☆☆"
+            }else if (rating < 3){
+                return "★★☆☆☆"
+            }else if (rating < 4){
+                return "★★★☆☆"
+            }else{
+                return "★★★★☆"
+            }
+    }
+
+    fun getPriceLevelDollarSigns(p_lvl : Int):String{
+        if(p_lvl == 1){
+            return "$"
+        }else if (p_lvl ==2){
+            return "$$"
+        }else if (p_lvl ==3){
+            return "$$$"
+        }else if (p_lvl == 4){
+            return "$$$$"
+        }else{
+            return "$$$$$"
+        }
+    }
+    fun openCard(event: Event){
+        setContentView(R.layout.activity_open_card)
+        if(event.imageURL != null){
+            //TODO Talha: Update this to use the actual image
+            findViewById<ImageView>(R.id.OuterCardMedia).setImageResource(R.drawable.card1_media)
+
+        }else{
+            findViewById<ImageView>(R.id.OuterCardMedia).setImageResource(R.drawable.card1_media)
+        }
+        if(event.name !=null){
+            findViewById<TextView>(R.id.OuterCardTitle).text = event.name
+        }else{
+            findViewById<TextView>(R.id.OuterCardTitle).text = "U/A"
+        }
+        if(event.address != null){
+            findViewById<TextView>(R.id.OuterCardLocation).text = event.address
+        }else{
+            findViewById<TextView>(R.id.OuterCardLocation).text = "U/A"
+        }
+
+        if(event.rating != null){
+            findViewById<TextView>(R.id.OuterCardStars).text = getRating(event.rating)
+        }else{
+            findViewById<TextView>(R.id.OuterCardStars).text = "U/A"
+        }
+
+        if(event.price_level != null){
+            findViewById<TextView>(R.id.OuterCardPrice).text = getPriceLevelDollarSigns(event.price_level)
+        }else{
+            findViewById<TextView>(R.id.OuterCardPrice).text = "U/A"
+        }
+        findViewById<TextView>(R.id.OuterCardGroups).text = ""
+        findViewById<TextView>(R.id.OuterCardLikes).text = ""
+    }
 }
