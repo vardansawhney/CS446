@@ -67,6 +67,7 @@ class AvailableGroupsActivity : AppCompatActivity() {
     // Dynamic group variables for creations
     private lateinit var availGroup1: ArrayList<Friend>
     private lateinit var dynamicAcceptedList: ArrayList<Friend>
+//    private var currentUserFriends: Array<String!>
 
     private var _binding: FragmentGroupPageBinding? = null
 
@@ -119,29 +120,82 @@ class AvailableGroupsActivity : AppCompatActivity() {
             // Grabbing the current user
             // val currentUser = ?
 
-            // Info from event card that was swiped right one
-            val swipeRightEventID = ?
-            // Checkin if startTime or EndTime is null!!!
-            val swipeRightStartTime = ?
-            val swipeRightEndTime = ?
-
             // Grabbing friends from currently logged into user
-            val userFriends = FirebaseUtils().fireStoreDatabase.collection("Users").document("denis@gmail.com (CURRENT USER)").get("friends"); // syntax issues
+            // val currentUserFriends = FirebaseUtils().fireStoreDatabase.collection("Users").document("denis@gmail.com (CURRENT USER)").get()
 
-            // For each of my friends, check if they already started a group for the card I swiped right on
-            for (friend in userFriends) {
-                // Grabbing each group that this friend is in
-                val friendsGroups = FirebaseUtils().fireStoreDatabase.collection("Users").document(friend).get("groups"); // syntax issues
+
+            // Grabbing friends from currently logged into user (REPLACE "denis@gmail.com" WITH CURRENT USER)
+//            FirebaseUtils().fireStoreDatabase.collection("Users").document("denis@gmail.com").get()
+//                .addOnSuccessListener { documentSnapshot ->
+//                    if (documentSnapshot.exists()) {
+//                        val friendsDataMap = documentSnapshot.data
+//
+//                        // Check if friendsDataMap is not null to avoid null pointer exceptions
+//                        if (friendsDataMap != null) {
+//
+//                            // Now you can dynamically populate currentUserFriends with values from the database
+//                            currentUserFriends = friendsDataMap.keys.toTypedArray()
+//
+//                            // Perform any additional operations with the dynamically populated currentUserFriends array
+//                            for (friend in currentUserFriends) {
+//                                val fieldValue = friendsDataMap[friend]
+//                                Log.d("SUCCESS", "The value of '$friend' in the document is: $fieldValue")
+//                            }
+//                        }
+//                    } else {
+//                        Log.d("FAILURE", "Document not found!")
+//                    }
+//                }
+//                .addOnFailureListener { exception ->
+//                    Log.e("ERROR", "Error getting document: $exception")
+//                }
+
+            // Info from event card that was swiped right one
+//            val swipeRightEventID = ?
+//            // Checkin if startTime or EndTime is null!!!
+//            val swipeRightStartTime = ?
+//            val swipeRightEndTime = ?
+//
+//            // For each of my friends, check if they started a group for the card I swiped right on
+//            for (friend in currentUserFriends) {
+//                // Grabbing each group that this friend is in
+//                // val friendsGroups = FirebaseUtils().fireStoreDatabase.collection("Users").document(friend).get("groups"); // syntax issues
+//
+//                FirebaseUtils().fireStoreDatabase.collection("Users").document(friend).get()
+//                    .addOnSuccessListener { documentSnapshot ->
+//                        if (documentSnapshot.exists()) {
+//                            val groups = documentSnapshot.get("groups") as? Array<String>
+//                            if (groups != null) {
+//                                // Check each "group" and check the following: eventID + creatorID + startTime + endTime
+//                                for (group in groups) {
+//                                    if (friend == group.creatorID && swipeRightEventID == group.eventID && swipeRightStartTime == group.startTime && swipeRightEndTime == group.endTime) {
+//                                        if (group.availableSpots >= 1) {
+//                                            // Add this group to availGroupsList in order for it to be printed
+//                                            availGroupsList.add(AvailGroup(group.name, group.startTime, group.endTime, group.date, group.availableSpots))
+//                                        }
+//                                    }
+//                                }
+//                            } else {
+//                                Log.d("EMPTY", "No 'groups' field found or the value is not an Array<String>")
+//                            }
+//                        } else {
+//                            Log.d("FAILURE", "Document not found!")
+//                        }
+//                    }
+//                    .addOnFailureListener { exception ->
+//                        Log.e("ERROR", "Error getting document: $exception")
+//                    }
+
                 // Check each "group" and check the following: eventID + creatorID + startTime + endTime
-                for (group in friendsGroups) {
-                    if (friend == creatorID && group.eventID == swipeRightEventID && (group.startTime == swipeRightStartTime && group.endTime == swipeRightEndTime) ) {
-                        if (group.availableSpots >= 1) {
-                            // Add
-                            availGroupsList.add(AvailGroup(group.name, group.startTime, group.endTime, group.date, group.availableSpots))
-                        }
-                    }
-                }
-            }
+//                for (group in friendsGroups) {
+//                    if (friend == group.creatorID && swipeRightEventID == group.eventID && swipeRightStartTime == group.startTime && swipeRightEndTime == group.endTime) {
+//                        if (group.availableSpots >= 1) {
+//                            // Add this group to availGroupsList in order for it to be printed
+//                            availGroupsList.add(AvailGroup(group.name, group.startTime, group.endTime, group.date, group.availableSpots))
+//                        }
+//                    }
+//                }
+//            }
 
             // Display the groups
             // groupAdapter = GroupAdapter(groupsList)
@@ -153,7 +207,7 @@ class AvailableGroupsActivity : AppCompatActivity() {
                     DividerItemDecoration.VERTICAL
                 )
             )
-//        }
+
 
 
 
@@ -235,8 +289,4 @@ class AvailableGroupsActivity : AppCompatActivity() {
             }
         }
     }
-
-
-
-
 }
