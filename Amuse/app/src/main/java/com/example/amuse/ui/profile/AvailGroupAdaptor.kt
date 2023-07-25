@@ -43,7 +43,7 @@ class AvailGroupAdapter(private val availGroupsList: ArrayList<AvailGroup>)
 //        }
         // Displaying the group name
         holder.nameTextView.text = availGroup.name
-        holder.displayTimesTextView.text = availGroup.date + " at " + availGroup.startTime + " - " + availGroup.endTime
+        holder.displayTimesTextView.text = availGroup.date
         holder.availSpotsLeftTextView.text = "Spots left: " + availGroup.availSpotsLeft
         // Do something with button here?!?!?!
     }

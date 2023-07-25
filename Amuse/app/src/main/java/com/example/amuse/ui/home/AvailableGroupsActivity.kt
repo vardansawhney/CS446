@@ -1,54 +1,71 @@
 package com.example.amuse.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.view.View
-import android.widget.CheckBox
-import com.example.amuse.R
-import com.example.amuse.ui.groups.GroupPageFragment
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.card.MaterialCardView
-import com.google.android.material.textfield.TextInputLayout
 import android.content.Intent
-import kotlin.math.max
-import android.graphics.Color
+import android.os.Bundle
 import android.util.Log
-
-import android.widget.AutoCompleteTextView
-
+import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import android.widget.CheckBox
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.amuse.FirebaseUtils
 import com.example.amuse.MainActivity
+import com.example.amuse.R
 import com.example.amuse.databinding.FragmentGroupPageBinding
 import com.example.amuse.ui.profile.AvailGroup
-import com.example.amuse.ui.profile.Friend
 import com.example.amuse.ui.profile.AvailGroupAdapter
+import com.example.amuse.ui.profile.Friend
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textfield.TextInputEditText
-import org.w3c.dom.Text
+import com.google.android.material.textfield.TextInputLayout
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 
 class AvailableGroupsActivity : AppCompatActivity() {
-    lateinit var create_group_button : MaterialButton
-    lateinit var create_group_popup_card : MaterialCardView
-    lateinit var checkbox_solo_Adventure : CheckBox
-    lateinit var min_ppl : TextInputLayout
-    lateinit var max_ppl : TextInputLayout
-    lateinit var invited_friends : TextInputLayout
-    lateinit var event_title : TextInputLayout
+    lateinit var create_group_button: MaterialButton
+    lateinit var create_group_popup_card: MaterialCardView
+    lateinit var checkbox_solo_Adventure: CheckBox
+    lateinit var min_ppl: TextInputLayout
+    lateinit var max_ppl: TextInputLayout
+    lateinit var invited_friends: TextInputLayout
+    lateinit var event_title: TextInputLayout
 
-    lateinit var confirm_group_creation : MaterialButton
+    lateinit var confirm_group_creation: MaterialButton
 
-    lateinit var event_title_text : TextInputEditText
-    lateinit var min_ppl_text : TextInputEditText
-    lateinit var max_ppl_text : TextInputEditText
+    lateinit var event_title_text: TextInputEditText
+    lateinit var min_ppl_text: TextInputEditText
+    lateinit var max_ppl_text: TextInputEditText
 
-    lateinit var friends_text : AutoCompleteTextView
-    lateinit var no_groups_text : TextView
-    var fruits = arrayOf("Lance","Liam","Lilo","Saksham", "Talha", "Vardhan", "Denis", "Yinuo", "Alan", "Alex", "Alejandro", "Yilin", "Ying", "Varun", "Victor", "Tommy", "Tammy", "D_enis")
+    lateinit var friends_text: AutoCompleteTextView
+    lateinit var no_groups_text: TextView
+    var fruits = arrayOf(
+        "Lance",
+        "Liam",
+        "Lilo",
+        "Saksham",
+        "Talha",
+        "Vardhan",
+        "Denis",
+        "Yinuo",
+        "Alan",
+        "Alex",
+        "Alejandro",
+        "Yilin",
+        "Ying",
+        "Varun",
+        "Victor",
+        "Tommy",
+        "Tammy",
+        "D_enis"
+    )
 
 
     // Making available groups show
@@ -75,6 +92,7 @@ class AvailableGroupsActivity : AppCompatActivity() {
     private lateinit var groupInfo_parsed: ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.e("Group matching", "page loaded")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_available_groups)
 
@@ -88,25 +106,25 @@ class AvailableGroupsActivity : AppCompatActivity() {
 
         availGroupsList = ArrayList()
 
-        // Group 1
-        invitedList1 = ArrayList()
-        invitedList1.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
-        invitedList1.add(Friend("Angel", "angelxoxo@gmail.com", R.drawable.angel, 2))
-        invitedList1.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani, 1))
-        acceptedList1 = ArrayList()
-        acceptedList1.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
-        // groupsList.add(AvailGroup("Ohana Outing", 3, 3, false, invitedList1, acceptedList1))
-        availGroupsList.add(AvailGroup("What up 1", "6:30pm", "8:30pm", "July 27th",1))
-        // data class AvailGroup(var name: String, var minMembers: Int, var maxMembers: Int)
-
-        // Group 2
-        invitedList2 = ArrayList()
-        invitedList2.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani, 2))
-        invitedList2.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
-        acceptedList2 = ArrayList()
-        acceptedList2.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani, 2))
-//        groupsList.add(AvailGroup("Picniiiic", 1, 2, false, invitedList2, acceptedList2))
-        availGroupsList.add(AvailGroup("What up 2", "2:30pm", "3:30pm", "July 27th", 3))
+//        // Group 1
+//        invitedList1 = ArrayList()
+//        invitedList1.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
+//        invitedList1.add(Friend("Angel", "angelxoxo@gmail.com", R.drawable.angel, 2))
+//        invitedList1.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani, 1))
+//        acceptedList1 = ArrayList()
+//        acceptedList1.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
+//        // groupsList.add(AvailGroup("Ohana Outing", 3, 3, false, invitedList1, acceptedList1))
+//        availGroupsList.add(AvailGroup("What up 1", "6:30pm", "8:30pm", "July 27th", 1))
+//        // data class AvailGroup(var name: String, var minMembers: Int, var maxMembers: Int)
+//
+//        // Group 2
+//        invitedList2 = ArrayList()
+//        invitedList2.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani, 2))
+//        invitedList2.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo, 1))
+//        acceptedList2 = ArrayList()
+//        acceptedList2.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani, 2))
+////        groupsList.add(AvailGroup("Picniiiic", 1, 2, false, invitedList2, acceptedList2))
+//        availGroupsList.add(AvailGroup("What up 2", "2:30pm", "3:30pm", "July 27th", 3))
 
         // Displaying groups
 //        var numGroups = FirebaseUtils().fireStoreDatabase.collection("Groups").count().toString().toInt()
@@ -115,16 +133,16 @@ class AvailableGroupsActivity : AppCompatActivity() {
 //            // Display no available groups
 //            no_groups_text = findViewById<TextView>(R.id.no_groups_text)
 //        } else {
-            // Visually displaying the actual groups (DYNAMICALLY)
+        // Visually displaying the actual groups (DYNAMICALLY)
 
-            // Grabbing the current user
-            // val currentUser = ?
+        // Grabbing the current user
+        // val currentUser = ?
 
-            // Grabbing friends from currently logged into user
-            // val currentUserFriends = FirebaseUtils().fireStoreDatabase.collection("Users").document("denis@gmail.com (CURRENT USER)").get()
+        // Grabbing friends from currently logged into user
+        // val currentUserFriends = FirebaseUtils().fireStoreDatabase.collection("Users").document("denis@gmail.com (CURRENT USER)").get()
 
 
-            // Grabbing friends from currently logged into user (REPLACE "denis@gmail.com" WITH CURRENT USER)
+        // Grabbing friends from currently logged into user (REPLACE "denis@gmail.com" WITH CURRENT USER)
 //            FirebaseUtils().fireStoreDatabase.collection("Users").document("denis@gmail.com").get()
 //                .addOnSuccessListener { documentSnapshot ->
 //                    if (documentSnapshot.exists()) {
@@ -150,21 +168,115 @@ class AvailableGroupsActivity : AppCompatActivity() {
 //                    Log.e("ERROR", "Error getting document: $exception")
 //                }
 
-            // Info from event card that was swiped right one
-//            val swipeRightEventID = ?
-//            // Checkin if startTime or EndTime is null!!!
-//            val swipeRightStartTime = ?
-//            val swipeRightEndTime = ?
-//
-//            // For each of my friends, check if they started a group for the card I swiped right on
+        // Info from event card that was swiped right one       // THIS NEEDS TO BE UPDATED!
+        val swipeRightEventID = "e_ChIJ2drVF-zzK4gRcfVpe3fGJH4"
+        val LongVal1: Long = 1
+        // Checkin if startTime or EndTime is null!!!
+//        val swipeRightStartTime = "1100"
+
+
+        // For each of my friends, check if they started a group for the card I swiped right on
 //            for (friend in currentUserFriends) {
-//                // Grabbing each group that this friend is in
-//                // val friendsGroups = FirebaseUtils().fireStoreDatabase.collection("Users").document(friend).get("groups"); // syntax issues
-//
-//                FirebaseUtils().fireStoreDatabase.collection("Users").document(friend).get()
-//                    .addOnSuccessListener { documentSnapshot ->
-//                        if (documentSnapshot.exists()) {
-//                            val groups = documentSnapshot.get("groups") as? Array<String>
+        // Grabbing each group that this friend is in
+        // val friendsGroups = FirebaseUtils().fireStoreDatabase.collection("Users").document(friend).get("groups"); // syntax issues
+
+        FirebaseUtils().fireStoreDatabase.collection("Users").document("denis@gmail.com").get()
+            .addOnSuccessListener { documentSnapshot ->
+                if (documentSnapshot.exists()) {
+                    Log.e("Group matching", "snapshot obtained: $documentSnapshot")
+//                    Log.e("Group matching", "Group found")
+                    val friends = documentSnapshot.data?.get("friends") as? List<String>
+
+                    Log.e("Group matching", "Your friends are: $friends")
+
+                    FirebaseUtils().fireStoreDatabase.collection("Groups").get()
+                        .addOnSuccessListener { groups ->
+                            Log.e("Group matching", "Groups obtained from db: $groups")
+                            for (group in groups) {
+                                Log.e("Group matching", "Here is group: $group")
+//                                val startTime = group.data?.get("startTime")
+//                                Log.e("Group matching", "startTime is: $startTime")
+//                                val newStartTime = getDateString(time)
+
+                                // Convert from time stamp into actual date
+//                                val newTime = getDateTime(startTime.toString())
+//                                Log.e("Group matching", "TIME CONVERTED: $newTime")
+                                // grab hour from actual date
+
+//                                val date: String = DateFormat.format("dd-MM-yyyy hh:mm:ss", startTime).toString())
+//                                Log.e("Group matching", "startTime is: $date")
+
+                                if (friends != null) {
+                                    Log.e("Group matching", "friend is NOT null")
+                                    // Convert swipeRightStartTime to timestamp
+//                                    val date = startTime?.get("Date") as? Date
+//                                    val newStartTime = startTime?.get("Time") as? Time
+
+//                                    Log.e("Group matching", "you date is: $date")
+//                                    Log.e("Group matching", "you time is: $newStartTime")
+
+                                    // groups.blah.blah == 1690473600
+                                    // Convert ^^^ to >>>
+                                    // swipeRightStartTime == "Jul 27, 2023"
+
+                                    val randoGroup = group.get("creatorID")
+                                    val randoID = group.get("eventID")
+                                    val currentFriend = group.get("creatorID")
+                                    val friendsRusults = group.get("creatorID") in friends
+
+                                    Log.e("Group matching", "creatorID is: $randoGroup")
+                                    Log.e("Group matching", "eventID is: $randoID")
+                                    Log.e("Group matching", "current friend is: $currentFriend")
+                                    Log.e("Group matching", "in Friends results: $friendsRusults")
+
+                                    if ((group.get("creatorID") in friends) && swipeRightEventID == group.get("eventID")) {
+                                        Log.e("Group matching", "Group found")
+                                        val dbSpots = group.get("availableSpots")
+                                        Log.e("Group matching", "DB SPOTS!: $dbSpots")
+
+//                                        val availSpotLongValue: Long = group.get("availableSpots").toString() as Long
+                                        if (group.get("availableSpots") as Long >= LongVal1) {
+
+                                            Log.e("Group matching", "available spots!")
+                                            val timestamp = group.get("startTime") as com.google.firebase.Timestamp
+                                            val date = timestamp.toDate().toString()
+                                            // Add this group to availGroupsList in order for it to be printed
+                                            availGroupsList.add(
+                                                AvailGroup(
+                                                    group.id,
+                                                    group.get("startTime").toString(),
+                                                    group.get("endTime").toString(),
+                                                    date,
+                                                    group.get("availableSpots") as Long
+                                                )
+                                            )
+
+                                            // Display the groups
+                                            // groupAdapter = GroupAdapter(groupsList)
+                                            Log.e("Group matching", "availGrouList!: $availGroupsList")
+                                            availGroupAdapter = AvailGroupAdapter(availGroupsList)
+                                            recyclerAvailGroupView.adapter = availGroupAdapter
+                                            recyclerAvailGroupView.addItemDecoration(
+                                                DividerItemDecoration(
+                                                    this,
+                                                    DividerItemDecoration.VERTICAL
+                                                )
+                                            )
+                                            Log.e("Group matching", "Added to list!")
+                                        } else {
+                                            Log.e("Group matching", "Group not found")
+                                        }
+                                    } else {
+                                        Log.e("Group matching", "no available spots!")
+                                    }
+                                }
+                            }
+                        }
+                } else {
+                    Log.e("Group matching", "page NOT loaded")
+                }
+            }
+        // Iterate through groups of this friend
 //                            if (groups != null) {
 //                                // Check each "group" and check the following: eventID + creatorID + startTime + endTime
 //                                for (group in groups) {
@@ -175,18 +287,21 @@ class AvailableGroupsActivity : AppCompatActivity() {
 //                                        }
 //                                    }
 //                                }
-//                            } else {
+//                            }
+//                            else {
 //                                Log.d("EMPTY", "No 'groups' field found or the value is not an Array<String>")
 //                            }
+//
+////                            for (friend in friends){
+////                            }
 //                        } else {
 //                            Log.d("FAILURE", "Document not found!")
 //                        }
-//                    }
-//                    .addOnFailureListener { exception ->
+//                    }.addOnFailureListener { exception ->
 //                        Log.e("ERROR", "Error getting document: $exception")
 //                    }
-
-                // Check each "group" and check the following: eventID + creatorID + startTime + endTime
+//
+//                 Check each "group" and check the following: eventID + creatorID + startTime + endTime
 //                for (group in friendsGroups) {
 //                    if (friend == group.creatorID && swipeRightEventID == group.eventID && swipeRightStartTime == group.startTime && swipeRightEndTime == group.endTime) {
 //                        if (group.availableSpots >= 1) {
@@ -197,26 +312,14 @@ class AvailableGroupsActivity : AppCompatActivity() {
 //                }
 //            }
 
-            // Display the groups
-            // groupAdapter = GroupAdapter(groupsList)
-            availGroupAdapter = AvailGroupAdapter(availGroupsList)
-            recyclerAvailGroupView.adapter = availGroupAdapter
-            recyclerAvailGroupView.addItemDecoration(
-                DividerItemDecoration(
-                    this,
-                    DividerItemDecoration.VERTICAL
-                )
-            )
-
-
-
 
 
         // Creating a group flow/code
         create_group_button = findViewById<MaterialButton>(R.id.create_group_button)
         create_group_button.setOnClickListener(create_button_listener)
 
-        create_group_popup_card = findViewById<MaterialCardView>(R.id.create_group_popup_card)
+        create_group_popup_card =
+            findViewById<MaterialCardView>(R.id.create_group_popup_card)
 
         checkbox_solo_Adventure = findViewById<CheckBox>(R.id.solo_checkbox)
         checkbox_solo_Adventure.setOnClickListener(solo_checkbox_listener)
@@ -233,7 +336,8 @@ class AvailableGroupsActivity : AppCompatActivity() {
         invited_friends = findViewById<TextInputLayout>(R.id.invite_friends)
         friends_text = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
 
-        confirm_group_creation = findViewById<MaterialButton>(R.id.confirm_new_group_settings)
+        confirm_group_creation =
+            findViewById<MaterialButton>(R.id.confirm_new_group_settings)
         confirm_group_creation.setOnClickListener(confirm_group_listener)
 
 
@@ -253,6 +357,18 @@ class AvailableGroupsActivity : AppCompatActivity() {
         }
     }
 
+    private fun getDateTime(s: String): String? {
+        Log.e("Group matcing", "Your string is!!!!: $s")
+        try {
+            val sdf = SimpleDateFormat("MM/dd/yyyy")
+//                        val netDate = Date(Long.parseLong(s) * 1000)
+            val netDate = Date(s.toLong() * 1000)
+            return sdf.format(netDate)
+        } catch (e: Exception) {
+            return e.toString()
+        }
+    }
+
     private val create_button_listener = View.OnClickListener { view ->
         when (view.getId()) {
             R.id.create_group_button -> {
@@ -264,11 +380,11 @@ class AvailableGroupsActivity : AppCompatActivity() {
     private val solo_checkbox_listener = View.OnClickListener { view ->
         when (view.getId()) {
             R.id.solo_checkbox -> {
-                if(checkbox_solo_Adventure.isChecked){
+                if (checkbox_solo_Adventure.isChecked) {
                     min_ppl.isEnabled = false;
                     max_ppl.isEnabled = false;
                     invited_friends.isEnabled = false;
-                }else{
+                } else {
                     min_ppl.isEnabled = true;
                     max_ppl.isEnabled = true;
                     invited_friends.isEnabled = true;
@@ -280,7 +396,13 @@ class AvailableGroupsActivity : AppCompatActivity() {
     private val confirm_group_listener = View.OnClickListener { view ->
         when (view.getId()) {
             R.id.confirm_new_group_settings -> {
-                val group_to_add = arrayOf<String>(event_title_text.text.toString(), min_ppl_text.text.toString(), max_ppl_text.text.toString(), checkbox_solo_Adventure.isChecked.toString() , friends_text.text.toString())
+                val group_to_add = arrayOf<String>(
+                    event_title_text.text.toString(),
+                    min_ppl_text.text.toString(),
+                    max_ppl_text.text.toString(),
+                    checkbox_solo_Adventure.isChecked.toString(),
+                    friends_text.text.toString()
+                )
                 val intent = Intent(this, MainActivity::class.java);
 //                setContentView(R.layout.fragment_group_page)
                 startActivity(intent.putExtra("groupInfo", group_to_add));

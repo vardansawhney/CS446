@@ -1,6 +1,6 @@
 package com.example.amuse.ui.profile
 
-data class AvailGroup(var name: String, var startTime: String, var endTime: String, var date: String, var availSpotsLeft: Int)
+data class AvailGroup(var name: String, var startTime: String, var endTime: String, var date: String, var availSpotsLeft: Long)
 
 //data class AvailGroup(var name: String, var startTime: String, var endTime: String, var date: String,
 //                      var minMembers: Int, var maxMembers: Int, var accepted: ArrayList<Friend>, var availSpotsLeft: Int)
