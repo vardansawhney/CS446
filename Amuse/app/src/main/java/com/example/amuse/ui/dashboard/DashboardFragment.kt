@@ -1,8 +1,10 @@
 package com.example.amuse.ui.dashboard
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.transition.AutoTransition
 import android.transition.TransitionManager
 import android.util.Log
@@ -11,12 +13,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView
-import com.example.amuse.R
 import com.example.amuse.databinding.FragmentDashboardBinding
 
 
@@ -54,6 +53,7 @@ Log.d("tag", getActivity().toString())
         val stupidButton: Button = binding.expandBtn
         val stupidExpandableLayout: LinearLayout = binding.expandableLayout
         val stupidCardView: CardView = binding.cardView
+        val toCal = binding.goToCal
 
 //        val textView: TextView = binding.textDashboard
 //        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
@@ -96,13 +96,29 @@ Log.d("tag", getActivity().toString())
         // https://www.youtube.com/watch?v=0IIueHddQDE
         // https://developer.android.com/training/basics/intents/sending
 
-        toCal = root.findViewById(R.id.addToCal)
-
+//        toCal = root.findViewById(R.id.addToCal)
+        Log.e("Calendar Tag", "BEFORE CLICKIE")
         toCal.setOnClickListener {
-            val calendarUrl = "https://calendar.google.com"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(calendarUrl))
-            Log.d("tag", "calendar button pressed")
-            startActivity(intent)
+//            val calendarUrl = "https://calendar.google.com"
+//            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(calendarUrl))
+//            Log.d("tag", "calendar button pressed")
+//            startActivity(intent)
+//            val i = PackageManager.getLaunchIntentForPackage("com.google.calendar")
+////            val i = PackageManager.
+//            // add data, emails, to clipboard
+//            if (i != null) {
+//                startActivity(i)
+//            } else {
+
+
+            Log.e("Calendar Tag", "Tapped add to calendar")
+                var intent2 = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.google.android.calendar"))
+                intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                intent.setData(Uri.parse("market://details?id=" + "com.google.calender"))
+            Log.e("Calendar Tag", "About to start the activity")
+                startActivity(intent2)
+            Log.e("Calendar Tag", "Started the activity")
+//            }
         }
 
         return root

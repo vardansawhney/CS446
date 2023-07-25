@@ -125,24 +125,24 @@
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/black" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:orientation="horizontal">
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="12dp"-->
+<!--                            android:orientation="horizontal">-->
 
-                            <Button
-                                android:layout_width="200dp"
-                                android:layout_height="45dp"
-                                android:layout_marginStart="12dp"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginBottom="2dp"
+<!--                            <Button-->
+<!--                                android:layout_width="200dp"-->
+<!--                                android:layout_height="45dp"-->
+<!--                                android:layout_marginStart="12dp"-->
+<!--                                android:layout_marginTop="2dp"-->
+<!--                                android:layout_marginBottom="2dp"-->
 
-                                android:elevation="0dp"
-                                android:text="Add to Calendar"
-                                android:textColor="@color/white" />
+<!--                                android:elevation="0dp"-->
+<!--                                android:text="Add to Calendar"-->
+<!--                                android:textColor="@color/white" />-->
 
-                        </LinearLayout>
+<!--                        </LinearLayout>-->
 
 
                     </LinearLayout>
@@ -152,6 +152,14 @@
                         android:layout_height="0.5dp"
                         android:layout_marginTop="18dp"
                         android:background="#88888888" />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/expandBtn"
@@ -163,6 +171,16 @@
                         android:text="EXPAND"
                         android:textColor="#F9F8FA" />
 
+                    <Button
+                        android:id="@+id/goToCal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="55dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+
+                        android:text="Add to Calendar"
+                        android:textColor="#F9F8FA" />
+                </LinearLayout>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
