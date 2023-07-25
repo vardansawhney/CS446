@@ -1,5 +1,7 @@
 package com.example.amuse.ui.dashboard
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.transition.AutoTransition
 import android.transition.TransitionManager
@@ -13,6 +15,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import com.example.amuse.R
 import com.example.amuse.databinding.FragmentDashboardBinding
 
@@ -27,6 +30,8 @@ class DashboardFragment : Fragment() {
     private lateinit var cardView: CardView
     // Variables added from XML
     private var _binding: FragmentDashboardBinding? = null
+
+    private lateinit var toCal: Button
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -86,6 +91,20 @@ Log.d("tag", getActivity().toString())
                 stupidButton.text = "EXPAND"
             }
         }
+
+        // https://www.youtube.com/watch?v=ZT4DmaVWSaY
+        // https://www.youtube.com/watch?v=0IIueHddQDE
+        // https://developer.android.com/training/basics/intents/sending
+
+        toCal = root.findViewById(R.id.addToCal)
+
+        toCal.setOnClickListener {
+            val calendarUrl = "https://calendar.google.com"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(calendarUrl))
+            Log.d("tag", "calendar button pressed")
+            startActivity(intent)
+        }
+
         return root
     }
 
