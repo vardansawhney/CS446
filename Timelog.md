@@ -42,9 +42,9 @@ Timelog file for time tracking.
 |   07-12-2023   |   Working on Recommendation Engine and surrounding Event related components    |       |        |          |    10    |    10    |        |
 |   07-12-2023   |   Designing class level architecture and relevant design patterns for Recommendation engine and event related components    |       |        |          |      3  |      3   |        |
 |   07-17-2023   | Brainstorming social aspect of Amuse     |       |    4    |          |   0     |    0     |     4   |
-|      |       |       |        |          |        |         |        |
-|      |       |       |        |          |        |         |        |
-|      |       |       |        |          |        |         |        |
+|  07-22-2023    | Extending architecture and connecting to db, updating design patterns     |       |        |          |    12    |   12      |        |
+|   07-23-2023   | Implemented full strategy pattern for card swiping + worked on event pulling     |    1   |        |          |  10      |     10    |        |
+|   07-24-2023   | Finalized structure, created dynamic UIs to populate from multiple APIs//dbs    |    1   |     1   |      1    |     15   |     15    |    1    |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
