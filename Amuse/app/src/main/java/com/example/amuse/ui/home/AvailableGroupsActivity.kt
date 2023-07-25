@@ -1,11 +1,13 @@
 package com.example.amuse.ui.home
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -86,7 +88,12 @@ class AvailableGroupsActivity : AppCompatActivity() {
     private lateinit var dynamicAcceptedList: ArrayList<Friend>
 //    private var currentUserFriends: Array<String!>
 
+    // Joined group action / buttons
+    private lateinit var joinButtonPressed: Button
+
     private var _binding: FragmentGroupPageBinding? = null
+
+
 
     private val binding get() = _binding!!
     private lateinit var groupInfo_parsed: ArrayList<String>
@@ -98,7 +105,6 @@ class AvailableGroupsActivity : AppCompatActivity() {
 
         // Mo's work
         groupInfo_parsed = ArrayList()
-
 
         recyclerAvailGroupView = findViewById(R.id.recyclerAvailGroupsView)
         recyclerAvailGroupView.setHasFixedSize(true)
@@ -312,7 +318,28 @@ class AvailableGroupsActivity : AppCompatActivity() {
 //                }
 //            }
 
+        val joinButtonClick = binding.root.findViewById<Button>(R.id.joinButton)
+        joinButtonClick.setOnClickListener {
+//            val intent = Intent(this, NewActivity::class.java)
+//            startActivity(intent)
 
+            // Add currentUser's ID (email) to the members of this group!
+
+
+            // Access this group in DB
+
+
+            // Decrease available spots in DB
+
+
+            // Change availGroupList and show DECREASE avail spots by 1, show this on the UI
+
+
+            // Change button colour to black!
+            joinButtonClick.setBackgroundColor(Color.BLACK);
+            joinButtonClick.text = "JOINED"
+
+        }
 
         // Creating a group flow/code
         create_group_button = findViewById<MaterialButton>(R.id.create_group_button)
