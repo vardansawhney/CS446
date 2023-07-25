@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
@@ -33,6 +34,7 @@ import kotlinx.coroutines.launch
 import com.example.amuse.uploadData
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.slider.Slider
 import com.google.android.material.textfield.TextInputEditText
 import kotlin.properties.Delegates
 
@@ -64,8 +66,8 @@ class HomeFragment : Fragment() {
     private lateinit var cardManager: CardStackLayoutManager
     private lateinit var SettingsButton: AppCompatButton
     private lateinit var SubmitButton: AppCompatButton
-    private lateinit var startTime: TextInputEditText
-    private lateinit var endTime: TextInputEditText
+    private lateinit var startTime: EditText
+    private lateinit var endTime: EditText
 //    private lateinit var priceRange: Int?
 //    private var distance: Float()
     private lateinit var thrilling_type: CheckBox
@@ -78,8 +80,8 @@ class HomeFragment : Fragment() {
     private lateinit var outdoors_type: CheckBox
     private lateinit var malls_type: CheckBox
 
-
-
+    private lateinit var price_slider: Slider
+    private lateinit var distance_slider: Slider
 //    private lateinit var binding: FragmentHomeBinding
 
     private var _binding: FragmentHomeBinding? = null
@@ -95,7 +97,8 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         cardStackView = binding.root.findViewById(R.id.card_stack)
-
+        price_slider = root.findViewById(R.id.layoutHorizontal1)
+        distance_slider = root.findViewById(R.id.distance)
         // Preferences Panel Info
         pref_popup_card = root.findViewById<MaterialCardView>(R.id.pref_popup_card)
         SettingsButton = root.findViewById<AppCompatButton>(R.id.SettingsButton)
@@ -231,10 +234,14 @@ class HomeFragment : Fragment() {
 
     val submit_button_press = View.OnClickListener { view ->
         when (view.getId()) {
+
             R.id.SubmitButton -> {
                 val preferencesFormatted = ArrayList<String>()
-
-                if (thrilling_type.isEnabled){
+                val priceSliderValue = price_slider.value
+                val distanceSliderValue = distance_slider.value
+                Log.d("tag", priceSliderValue.toString())
+                Log.d("tag",distanceSliderValue.toString())
+                if (thrilling_type.isChecked){
                     preferencesFormatted.add("amusement_park")
                     preferencesFormatted.add("tourist_attraction")
                     preferencesFormatted.add("art_gallery")
@@ -243,29 +250,29 @@ class HomeFragment : Fragment() {
                     preferencesFormatted.add("bowling_alley")
                     preferencesFormatted.add("casino")
                 }
-                if(eating_type.isEnabled){
+                if(eating_type.isChecked){
                     preferencesFormatted.add("restaurant")
                     preferencesFormatted.add("meal_takeaway")
                     preferencesFormatted.add("cafe")
                 }
-                if(alcohol_type.isEnabled){
-                    if(dancing_type.isEnabled){
+                if(alcohol_type.isChecked){
+                    if(dancing_type.isChecked){
                         preferencesFormatted.add("night_club")
                     }
                 }
-                if(animals_type.isEnabled){
+                if(animals_type.isChecked){
                     preferencesFormatted.add("pet_store")
                     preferencesFormatted.add("zoo")
                     preferencesFormatted.add("aquarium")
                 }
-                if(movies_type.isEnabled){
+                if(movies_type.isChecked){
                     preferencesFormatted.add("movie_theater")
                 }
-                if(outdoors_type.isEnabled){
+                if(outdoors_type.isChecked){
                     preferencesFormatted.add("park")
                     preferencesFormatted.add("campground")
                 }
-                if(malls_type.isEnabled){
+                if(malls_type.isChecked){
                     preferencesFormatted.add("bicycle_store")
                     preferencesFormatted.add("book_store")
                     preferencesFormatted.add("clothing_store")
@@ -277,6 +284,7 @@ class HomeFragment : Fragment() {
 
                 val thingsToQuery = arrayListOf<Any>(startTime.toString(), endTime.toString(), preferencesFormatted)
 
+                Log.d("tag",preferencesFormatted.size.toString())
 
                 pref_popup_card.visibility = View.GONE;
             }
