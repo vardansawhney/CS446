@@ -51,7 +51,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="150dp"
+                    android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
@@ -100,69 +100,6 @@
                         android:textSize="12sp" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <!-- Padding -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal"></LinearLayout>
-
-                    <!-- Groups -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/groups_icon" />
-
-                        <TextView
-                            android:id="@+id/card_groups"
-                            android:layout_width="match_parent"
-                            android:layout_height="25dp"
-                            android:paddingLeft="5dp"
-                            android:paddingTop="8dp"
-                            android:text="2 groups"
-                            android:textColor="?android:attr/textColorPrimary"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <!-- Padding -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal"></LinearLayout>
-
-                    <!-- Likes -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/likes_icon" />
-
-                        <TextView
-                            android:id="@+id/card_likes"
-                            android:layout_width="match_parent"
-                            android:layout_height="25dp"
-                            android:paddingLeft="5dp"
-                            android:paddingTop="8dp"
-                            android:text="100 interested"
-                            android:textColor="?android:attr/textColorPrimary"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
             </LinearLayout>
 
             <!-- Short description -->
@@ -172,6 +109,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/description_open"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingLeft="25dp"
@@ -184,17 +122,10 @@
 
             <!-- Help icons -->
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="75dp"
-                    android:layout_height="50dp"
-                    android:paddingLeft="25dp"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/gym_icon" />
-            </LinearLayout>
+                android:orientation="horizontal"/>
 
         </LinearLayout>
 

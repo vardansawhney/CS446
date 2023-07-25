@@ -11,7 +11,10 @@ class LeftSwipeAction(val context: Context):CardAction {
         event.types?.forEach { type ->
             weighted_types.add(Pair(type, -1))
         }
+
+        localStore.cardList.removeFirst()
         localStore.PullUntilFull()
+
     }
 
 }

@@ -17,6 +17,8 @@ class DownSwipeAction(val context: Context):CardAction {
         intent.putExtra("Group-Info-StartTime", event.earliest_time)
         intent.putExtra("Group-Info-Endtime", event.latest_time)
         context.startActivity(intent)
+        localStore.cardList.removeFirst()
+
         localStore.PullUntilFull()
     }
 

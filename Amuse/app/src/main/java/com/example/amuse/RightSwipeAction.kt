@@ -2,6 +2,7 @@ package com.example.amuse
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import com.example.amuse.ui.dashboard.DashboardFragment
 import com.example.amuse.ui.home.AvailableGroupsActivity
 
@@ -13,6 +14,9 @@ class RightSwipeAction(val context: Context):CardAction {
         event.types?.forEach { type ->
             weighted_types.add(Pair(type, 1))
         }
+        localStore.likedEvents.add(event)
+        Log.d("liked",localStore.likedEvents.size.toString())
+        localStore.cardList.removeFirst()
 
 //        val intent = Intent(context, MainActivity::class.java)
 //        intent.putExtra("Info-ID", event.id)

@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.example.amuse.CardAction
 import com.example.amuse.DownSwipeAction
 import com.example.amuse.Event
+import com.example.amuse.LeftSwipeAction
 import com.example.amuse.LocalEventStore
 import com.example.amuse.MainActivity
 import com.example.amuse.OpenCardActivity
@@ -92,7 +93,7 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
+    val localStore = LocalEventStore
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -102,7 +103,7 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
         cardStackView = binding.root.findViewById(R.id.card_stack)
 
-        val localStore = LocalEventStore
+
 
         price_slider = root.findViewById(R.id.layoutHorizontal1)
         distance_slider = root.findViewById(R.id.distance)
@@ -146,6 +147,9 @@ class HomeFragment : Fragment() {
                     startActivity(Intent(root.context, OpenCardActivity::class.java).putExtra("cardID", "card" + cardManager.topPosition.toString()))
                 }
                 if (direction === Direction.Left) {
+                    val leftSwipe:CardAction = LeftSwipeAction(container!!.context)
+                    leftSwipe.swipeActivity(localStore.currentAvailableEventsStack.removeFirst())
+//
 //                    Toast.makeText(root.context, "Direction Left", Toast.LENGTH_SHORT).show()
 
                     // An example event to upload to Firestore
@@ -206,18 +210,18 @@ class HomeFragment : Fragment() {
         cardManager.setDirections(Direction.FREEDOM)
 
 
-        cardList = ArrayList()
+//        cardList = ArrayList()
+//
+//        // Card 1
+//        cardList.add(Card("Hiking", "Laurel Trail (2.1 km)", "★★★☆☆", "$", "2 groups", "100 interested", R.drawable.card1_media))
+//
+//        // Card 2
+//        cardList.add(Card("Fancy Dinner", "Shinwa (1.8 km)", "★★★★★", "$$", "1 groups", "2 interested", R.drawable.card2_media))
+//
+//        // Card 3
+//        cardList.add(Card("Clubbing", "Allure (2 km)", "★☆☆☆☆", "$$$$", "0 groups", "0 interested", R.drawable.card3_media))
 
-        // Card 1
-        cardList.add(Card("Hiking", "Laurel Trail (2.1 km)", "★★★☆☆", "$", "2 groups", "100 interested", R.drawable.card1_media))
-
-        // Card 2
-        cardList.add(Card("Fancy Dinner", "Shinwa (1.8 km)", "★★★★★", "$$", "1 groups", "2 interested", R.drawable.card2_media))
-
-        // Card 3
-        cardList.add(Card("Clubbing", "Allure (2 km)", "★☆☆☆☆", "$$$$", "0 groups", "0 interested", R.drawable.card3_media))
-
-        cardAdapter = CardAdapter(cardList)
+        cardAdapter = CardAdapter(localStore.cardList)
         cardStackView.layoutManager = cardManager
         cardStackView.adapter = cardAdapter
 
@@ -296,7 +300,7 @@ class HomeFragment : Fragment() {
                 val thingsToQuery = arrayListOf<Any>(startTime.toString(), endTime.toString(), preferencesFormatted)
 
                 Log.d("tag",preferencesFormatted.size.toString())
-
+                localStore.PullUntilFull(true)
                 pref_popup_card.visibility = View.GONE;
             }
         }

@@ -120,60 +120,6 @@
                             </LinearLayout>
 
                             <!-- Right -->
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-
-                                <!-- Groups -->
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1"
-                                    android:orientation="horizontal">
-
-                                    <ImageView
-                                        android:layout_width="25dp"
-                                        android:layout_height="25dp"
-                                        android:scaleType="fitCenter"
-                                        app:srcCompat="@drawable/groups_icon" />
-
-                                    <TextView
-                                        android:id="@+id/OuterCardGroups"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="25dp"
-                                        android:paddingLeft="5dp"
-                                        android:paddingTop="8dp"
-                                        android:text="2 groups"
-                                        android:textColor="?android:attr/textColorPrimary"
-                                        android:textSize="12sp"/>
-                                </LinearLayout>
-
-
-                                <!-- Likes -->
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1"
-                                    android:orientation="horizontal">
-                                    <ImageView
-                                        android:layout_width="25dp"
-                                        android:layout_height="25dp"
-                                        android:scaleType="fitCenter"
-                                        app:srcCompat="@drawable/likes_icon" />
-
-                                    <TextView
-                                        android:id="@+id/OuterCardLikes"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="25dp"
-                                        android:paddingLeft="5dp"
-                                        android:paddingTop="8dp"
-                                        android:text="100 interested"
-                                        android:textColor="?android:attr/textColorPrimary"
-                                        android:textSize="12sp"/>
-                                </LinearLayout>
-                            </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
@@ -184,6 +130,7 @@
 
                             <!-- Short description -->
                             <TextView
+                                android:id="@+id/description_open"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="0.2"
@@ -234,7 +181,7 @@
                                             android:layout_height="0dp"
                                             android:layout_weight="1"
                                             android:paddingLeft="10dp"
-                                            android:text="&#9733;&#9733;&#9733;&#9734;&#9734;"
+                                            android:text="&#9733;&#9733;&#9733;&#9733;&#9734;"
                                             android:textSize="12sp"
                                             android:textColor="?android:attr/textColorPrimary" />
                                         <TextView
@@ -242,52 +189,7 @@
                                             android:layout_height="0dp"
                                             android:layout_weight="1"
                                             android:paddingLeft="10dp"
-                                            android:text="Good activity!"
-                                            android:textSize="12sp"
-                                            android:textColor="?android:attr/textColorPrimary" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <!-- Padding -->
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="3dp"
-                                    android:orientation="horizontal" />
-
-                                <!-- Individual Review -->
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="45dp"
-                                    android:orientation="horizontal">
-                                    <ImageView
-                                        android:layout_width="0dp"
-                                        android:layout_height="45dp"
-                                        android:layout_weight="1"
-                                        android:paddingLeft="25dp"
-                                        app:srcCompat="@drawable/user_icon"/>
-                                    <LinearLayout
-                                        android:layout_width="0dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="5"
-                                        android:orientation="vertical">
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1"
-                                            android:paddingLeft="10dp"
-                                            android:text="&#9733;&#9733;&#9733;&#9734;&#9734;"
-                                            android:textSize="12sp"
-                                            android:textColor="?android:attr/textColorPrimary" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1"
-                                            android:paddingLeft="10dp"
-                                            android:text="Good activity!"
+                                            android:text="Good service. Were very kind!"
                                             android:textSize="12sp"
                                             android:textColor="?android:attr/textColorPrimary" />
                                         <TextView
@@ -332,7 +234,52 @@
                                             android:layout_height="0dp"
                                             android:layout_weight="1"
                                             android:paddingLeft="10dp"
-                                            android:text="Good activity!"
+                                            android:text="Food was fresh and tasty. Would go again"
+                                            android:textSize="12sp"
+                                            android:textColor="?android:attr/textColorPrimary" />
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <!-- Padding -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="3dp"
+                                    android:orientation="horizontal" />
+
+                                <!-- Individual Review -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:orientation="horizontal">
+                                    <ImageView
+                                        android:layout_width="0dp"
+                                        android:layout_height="45dp"
+                                        android:layout_weight="1"
+                                        android:paddingLeft="25dp"
+                                        app:srcCompat="@drawable/user_icon"/>
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="5"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:paddingLeft="10dp"
+                                            android:text="&#9733;&#9733;&#9734;&#9734;&#9734;"
+                                            android:textSize="12sp"
+                                            android:textColor="?android:attr/textColorPrimary" />
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:paddingLeft="10dp"
+                                            android:text="very slow service, cashier was rude"
                                             android:textSize="12sp"
                                             android:textColor="?android:attr/textColorPrimary" />
                                         <TextView
@@ -377,7 +324,7 @@
                                             android:layout_height="0dp"
                                             android:layout_weight="1"
                                             android:paddingLeft="10dp"
-                                            android:text="Good activity!"
+                                            android:text="It's fine if you're in a rush. Not for family sit down"
                                             android:textSize="12sp"
                                             android:textColor="?android:attr/textColorPrimary" />
                                         <TextView
@@ -458,21 +405,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="company-email@email.com"
+                        android:text="corporate@timhortons.com"
                         android:paddingLeft="25dp"
                         android:textSize="12sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="www.event-website.com"
+                        android:text="www.timhortons.ca"
                         android:paddingLeft="25dp"
                         android:textSize="12sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="+1 (999) 999-9999"
+                        android:text="(519) 884-2748"
                         android:paddingLeft="25dp"
                         android:textSize="12sp"/>
                     <TextView

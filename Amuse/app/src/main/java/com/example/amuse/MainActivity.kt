@@ -21,7 +21,7 @@ import retrofit2.HttpException
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
-
+val localstore = LocalEventStore
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        setContentView(R.layout.fragment_home)
-        LocalEventStore.doSomething()
+        localstore.doSomething()
         val navView: BottomNavigationView = binding.navView
 
         // API requests and DB updates
