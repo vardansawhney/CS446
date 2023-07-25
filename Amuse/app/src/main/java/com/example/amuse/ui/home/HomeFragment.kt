@@ -7,9 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -31,6 +36,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.example.amuse.uploadData
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.card.MaterialCardView
+import com.google.android.material.slider.Slider
+import com.google.android.material.textfield.TextInputEditText
+import kotlin.properties.Delegates
 
 
 //import android.content.Intent
@@ -56,11 +66,29 @@ class HomeFragment : Fragment() {
     private lateinit var cardList: ArrayList<Card>
     private lateinit var cardAdapter: CardAdapter
     private lateinit var cardStackView: CardStackView
+    private lateinit var pref_popup_card: MaterialCardView
     private lateinit var cardManager: CardStackLayoutManager
+    private lateinit var SettingsButton: AppCompatButton
+    private lateinit var SubmitButton: AppCompatButton
+    private lateinit var startTime: EditText
+    private lateinit var endTime: EditText
+//    private lateinit var priceRange: Int?
+//    private var distance: Float()
+    private lateinit var thrilling_type: CheckBox
+    private lateinit var no_alchol_type: CheckBox
+    private lateinit var eating_type: CheckBox
+    private lateinit var dancing_type: CheckBox
+    private lateinit var alcohol_type: CheckBox
+    private lateinit var animals_type: CheckBox
+    private lateinit var movies_type: CheckBox
+    private lateinit var outdoors_type: CheckBox
+    private lateinit var malls_type: CheckBox
+
+    private lateinit var price_slider: Slider
+    private lateinit var distance_slider: Slider
 //    private lateinit var binding: FragmentHomeBinding
 
     private var _binding: FragmentHomeBinding? = null
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -73,7 +101,31 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         cardStackView = binding.root.findViewById(R.id.card_stack)
+
         val localStore = LocalEventStore
+
+        price_slider = root.findViewById(R.id.layoutHorizontal1)
+        distance_slider = root.findViewById(R.id.distance)
+        // Preferences Panel Info
+        pref_popup_card = root.findViewById<MaterialCardView>(R.id.pref_popup_card)
+        SettingsButton = root.findViewById<AppCompatButton>(R.id.SettingsButton)
+        SettingsButton.setOnClickListener(settings_button_press)
+        SubmitButton = root.findViewById<AppCompatButton>(R.id.SubmitButton)
+        SubmitButton.setOnClickListener(submit_button_press)
+
+        startTime = root.findViewById<TextInputEditText>(R.id.startTime)
+        endTime = root.findViewById(R.id.endTime)
+
+        thrilling_type = root.findViewById<CheckBox>(R.id.type1)
+        no_alchol_type = root.findViewById<CheckBox>(R.id.type2)
+        eating_type = root.findViewById<CheckBox>(R.id.type3)
+        dancing_type = root.findViewById<CheckBox>(R.id.type4)
+        alcohol_type = root.findViewById<CheckBox>(R.id.type5)
+        animals_type = root.findViewById<CheckBox>(R.id.type6)
+        movies_type = root.findViewById<CheckBox>(R.id.type7)
+        outdoors_type = root.findViewById<CheckBox>(R.id.type8)
+        malls_type = root.findViewById<CheckBox>(R.id.type9)
+
         cardManager = CardStackLayoutManager(this.context, object : CardStackListener{
             override fun onCardDragging(direction: Direction?, ratio: Float) {
                 Log.d("Tag", "Dragged")
@@ -176,7 +228,78 @@ class HomeFragment : Fragment() {
             }
         })
 
+
+
+
+
         return root
+    }
+
+    val settings_button_press = View.OnClickListener { view ->
+        when (view.getId()) {
+            R.id.SettingsButton -> {
+                pref_popup_card.visibility = View.VISIBLE;
+            }
+        }
+    }
+
+    val submit_button_press = View.OnClickListener { view ->
+        when (view.getId()) {
+
+            R.id.SubmitButton -> {
+                val preferencesFormatted = ArrayList<String>()
+                val priceSliderValue = price_slider.value
+                val distanceSliderValue = distance_slider.value
+                Log.d("tag", priceSliderValue.toString())
+                Log.d("tag",distanceSliderValue.toString())
+                if (thrilling_type.isChecked){
+                    preferencesFormatted.add("amusement_park")
+                    preferencesFormatted.add("tourist_attraction")
+                    preferencesFormatted.add("art_gallery")
+                    preferencesFormatted.add("stadium")
+                    preferencesFormatted.add("museum")
+                    preferencesFormatted.add("bowling_alley")
+                    preferencesFormatted.add("casino")
+                }
+                if(eating_type.isChecked){
+                    preferencesFormatted.add("restaurant")
+                    preferencesFormatted.add("meal_takeaway")
+                    preferencesFormatted.add("cafe")
+                }
+                if(alcohol_type.isChecked){
+                    if(dancing_type.isChecked){
+                        preferencesFormatted.add("night_club")
+                    }
+                }
+                if(animals_type.isChecked){
+                    preferencesFormatted.add("pet_store")
+                    preferencesFormatted.add("zoo")
+                    preferencesFormatted.add("aquarium")
+                }
+                if(movies_type.isChecked){
+                    preferencesFormatted.add("movie_theater")
+                }
+                if(outdoors_type.isChecked){
+                    preferencesFormatted.add("park")
+                    preferencesFormatted.add("campground")
+                }
+                if(malls_type.isChecked){
+                    preferencesFormatted.add("bicycle_store")
+                    preferencesFormatted.add("book_store")
+                    preferencesFormatted.add("clothing_store")
+                    preferencesFormatted.add("convenience_store")
+                    preferencesFormatted.add("electronics_store")
+                    preferencesFormatted.add("shopping_mall")
+                    preferencesFormatted.add("shoe_store")
+                }
+
+                val thingsToQuery = arrayListOf<Any>(startTime.toString(), endTime.toString(), preferencesFormatted)
+
+                Log.d("tag",preferencesFormatted.size.toString())
+
+                pref_popup_card.visibility = View.GONE;
+            }
+        }
     }
 //
 //    private lateinit var homeViewModel: HomeViewModel
