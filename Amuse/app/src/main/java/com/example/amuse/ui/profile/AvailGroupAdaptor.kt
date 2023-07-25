@@ -1,7 +1,10 @@
 package com.example.amuse.ui.profile;
 
+import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View;
+import android.view.View.generateViewId
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
@@ -41,10 +44,39 @@ class AvailGroupAdapter(private val availGroupsList: ArrayList<AvailGroup>)
 //                holder.imageView3.setImageResource(availGroup.invited[2].imageId)
 //
 //        }
+        Log.e("Group Adaptor", "GroupAdaptor We got here")
         // Displaying the group name
         holder.nameTextView.text = availGroup.name
         holder.displayTimesTextView.text = availGroup.date
         holder.availSpotsLeftTextView.text = "Spots left: " + availGroup.availSpotsLeft
+        var new_id = generateViewId()
+        Log.e("new id", "${new_id}")
+        holder.joinButtonView.id = new_id
+        holder.joinButtonView.setOnClickListener{
+            // Log.e("Clicking", "The following button clicked")
+
+            // Access that databaseeee babyyyyyy
+
+
+            // Add currentUser's ID (email) to the members of this group!
+
+
+            // Access this group in DB
+
+
+            // Decrease available spots in DB
+
+
+            // Change availGroupList and show DECREASE avail spots by 1, show this on the UI
+
+
+            // Change button colour to black and text!
+            Log.e("Button Action", "Button is clicked! id: ${holder.joinButtonView}")
+            holder.joinButtonView.setBackgroundColor(Color.BLACK);
+            holder.joinButtonView.text = "JOINED"
+            holder.joinButtonView.textSize = 9F
+
+        }
         // Do something with button here?!?!?!
     }
 

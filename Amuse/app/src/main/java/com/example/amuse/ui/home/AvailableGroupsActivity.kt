@@ -99,7 +99,7 @@ class AvailableGroupsActivity : AppCompatActivity() {
     private lateinit var groupInfo_parsed: ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.e("Group matching", "page loaded")
+        Log.e("Group matching 1", "page loaded")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_available_groups)
 
@@ -107,8 +107,11 @@ class AvailableGroupsActivity : AppCompatActivity() {
         groupInfo_parsed = ArrayList()
 
         recyclerAvailGroupView = findViewById(R.id.recyclerAvailGroupsView)
+        Log.e("Group matching 2", "page loaded")
         recyclerAvailGroupView.setHasFixedSize(true)
+        Log.e("Group matching 3", "page loaded")
         recyclerAvailGroupView.layoutManager = LinearLayoutManager(this)
+        Log.e("Group matching 4", "page loaded")
 
         availGroupsList = ArrayList()
 
@@ -185,6 +188,7 @@ class AvailableGroupsActivity : AppCompatActivity() {
 //            for (friend in currentUserFriends) {
         // Grabbing each group that this friend is in
         // val friendsGroups = FirebaseUtils().fireStoreDatabase.collection("Users").document(friend).get("groups"); // syntax issues
+        Log.e("Test", "We got here")
 
         FirebaseUtils().fireStoreDatabase.collection("Users").document("denis@gmail.com").get()
             .addOnSuccessListener { documentSnapshot ->
@@ -253,7 +257,8 @@ class AvailableGroupsActivity : AppCompatActivity() {
                                                     group.get("startTime").toString(),
                                                     group.get("endTime").toString(),
                                                     date,
-                                                    group.get("availableSpots") as Long
+                                                    group.get("availableSpots") as Long,
+                                                    "joinButton${group.id}"
                                                 )
                                             )
 
@@ -318,28 +323,7 @@ class AvailableGroupsActivity : AppCompatActivity() {
 //                }
 //            }
 
-        val joinButtonClick = binding.root.findViewById<Button>(R.id.joinButton)
-        joinButtonClick.setOnClickListener {
-//            val intent = Intent(this, NewActivity::class.java)
-//            startActivity(intent)
 
-            // Add currentUser's ID (email) to the members of this group!
-
-
-            // Access this group in DB
-
-
-            // Decrease available spots in DB
-
-
-            // Change availGroupList and show DECREASE avail spots by 1, show this on the UI
-
-
-            // Change button colour to black!
-            joinButtonClick.setBackgroundColor(Color.BLACK);
-            joinButtonClick.text = "JOINED"
-
-        }
 
         // Creating a group flow/code
         create_group_button = findViewById<MaterialButton>(R.id.create_group_button)
