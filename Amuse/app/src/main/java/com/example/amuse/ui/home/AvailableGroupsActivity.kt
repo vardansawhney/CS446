@@ -70,11 +70,22 @@ class AvailableGroupsActivity : AppCompatActivity() {
 
         confirm_group_creation = findViewById<MaterialButton>(R.id.confirm_new_group_settings)
         confirm_group_creation.setOnClickListener(confirm_group_listener)
+
+
         val adapter: ArrayAdapter<String> =
             ArrayAdapter(this, android.R.layout.select_dialog_item, fruits)
         val actv = findViewById<View>(R.id.autoCompleteTextView) as AutoCompleteTextView
         actv.threshold = 1
         actv.setAdapter(adapter)
+
+        val available_group_info_id = intent.getStringExtra("Group-Info-ID")
+        val available_group_info_start_time = intent.getStringExtra("Group-Info-StartTime")
+        val available_group_info_end_time = intent.getStringExtra("Group-Info-Endtime")
+        if(available_group_info_end_time !=null && available_group_info_id != null && available_group_info_start_time != null){
+            Log.d("groupinfo", available_group_info_id)
+            Log.d("groupinfo", available_group_info_start_time)
+            Log.d("groupinfo", available_group_info_end_time)
+        }
     }
 
     private val create_button_listener = View.OnClickListener { view ->

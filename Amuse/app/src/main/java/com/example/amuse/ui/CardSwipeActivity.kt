@@ -24,13 +24,13 @@ class CardSwipeActivity : AppCompatActivity() {
         cardList = ArrayList()
 
         // Card 1
-        cardList.add(Card("Hiking", "Laurel Trail (2.1 km)", "★★★☆☆", "$", "2 groups", "100 interested", R.drawable.card1_media))
+        cardList.add(Card("Hiking", "Laurel Trail (2.1 km)", "★★★☆☆","", "$", "2 groups", "100 interested", R.drawable.card1_media))
 
         // Card 2
-        cardList.add(Card("Fancy Dinner", "Shinwa (1.8 km)", "★★★★★", "$$", "1 groups", "2 interested", R.drawable.card2_media))
+        cardList.add(Card("Fancy Dinner", "Shinwa (1.8 km)", "★★★★★", "","$$", "1 groups", "2 interested", R.drawable.card2_media))
 
         // Card 3
-        cardList.add(Card("Clubbing", "Allure (2 km)", "★☆☆☆☆", "$$$$", "0 groups", "0 interested", R.drawable.card3_media))
+        cardList.add(Card("Clubbing", "Allure (2 km)", "★☆☆☆☆","", "$$$$", "0 groups", "0 interested", R.drawable.card3_media))
 
         cardAdapter = CardAdapter(cardList)
         cardStackView.adapter = cardAdapter

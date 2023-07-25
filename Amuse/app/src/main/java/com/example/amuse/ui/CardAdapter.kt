@@ -21,8 +21,8 @@ class CardAdapter(private val cardsList: ArrayList<Card>) :
         val locationTextView : TextView = itemView.findViewById(R.id.card_location)
         val starsTextView : TextView = itemView.findViewById(R.id.card_stars)
         val priceTextView : TextView = itemView.findViewById(R.id.card_price)
-        val groupsTextView : TextView = itemView.findViewById(R.id.card_groups)
-        val likesTextView : TextView = itemView.findViewById(R.id.card_likes)
+        val descriptionTextView : TextView = itemView.findViewById(R.id.description_open)
+
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -32,13 +32,21 @@ class CardAdapter(private val cardsList: ArrayList<Card>) :
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val card = cardsList[position]
-        holder.imageView.setImageResource(card.imageId)
+        if(card.imageId != null){
+            holder.imageView.setImageResource(card.imageId!!)
+        }else{
+            holder.imageView.setImageResource(R.drawable.card1_media)
+        }
         holder.titleTextView.text = card.title
         holder.locationTextView.text = card.location
         holder.starsTextView.text = card.stars
         holder.priceTextView.text = card.price
-        holder.groupsTextView.text = card.groups
-        holder.likesTextView.text = card.likes
+        if(card.desc !=null){
+            holder.descriptionTextView.text = card.desc
+
+        }else{
+            holder.descriptionTextView.text = ""
+        }
 
         holder.itemView.setOnClickListener{
             if (onClickListener != null){
