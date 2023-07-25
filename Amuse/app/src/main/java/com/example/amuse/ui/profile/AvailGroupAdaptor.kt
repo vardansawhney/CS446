@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.amuse.FirebaseUtils
 import com.example.amuse.R
+import com.google.firebase.firestore.FieldValue
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.ArrayList;
 
@@ -53,31 +55,24 @@ class AvailGroupAdapter(private val availGroupsList: ArrayList<AvailGroup>)
         Log.e("new id", "${new_id}")
         holder.joinButtonView.id = new_id
         holder.joinButtonView.setOnClickListener{
-            // Log.e("Clicking", "The following button clicked")
-
-            // Access that databaseeee babyyyyyy
-
+            // Access that databaseeee babyyyyyy (accessing the same group and making edits to this group!)
+            Log.e("Group AQUIRED", "DYNAMIC NAME OBTAINED: ${availGroup.name}")
 
             // Add currentUser's ID (email) to the members of this group!
-
-
-            // Access this group in DB
-
+            // UPDATE WITH CURRENT USER INSTEAD OF DENIS@GMAIL.COM
+            FirebaseUtils().fireStoreDatabase.collection("Groups")
+                .document("${availGroup.name}")
+                .update("members", FieldValue.arrayUnion("denis@gmail.com"))
 
             // Decrease available spots in DB
+            holder.availSpotsLeftTextView.text = "Spots left: " + (availGroup.availSpotsLeft - 1)
 
-
-            // Change availGroupList and show DECREASE avail spots by 1, show this on the UI
-
-
-            // Change button colour to black and text!
+            // UI CHANGES! Change button colour to black and text!
             Log.e("Button Action", "Button is clicked! id: ${holder.joinButtonView}")
             holder.joinButtonView.setBackgroundColor(Color.BLACK);
             holder.joinButtonView.text = "JOINED"
             holder.joinButtonView.textSize = 9F
-
         }
-        // Do something with button here?!?!?!
     }
 
     override fun getItemCount(): Int {
