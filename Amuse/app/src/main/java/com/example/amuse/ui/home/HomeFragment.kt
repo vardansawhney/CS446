@@ -32,6 +32,7 @@ import com.example.amuse.RightSwipeAction
 import com.example.amuse.databinding.FragmentHomeBinding
 import com.example.amuse.queryEvents
 import com.example.amuse.ui.CardAdapter
+import com.example.amuse.ui.LoginActivity
 import com.yuyakaido.android.cardstackview.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -302,6 +303,10 @@ class HomeFragment : Fragment() {
                 Log.d("tag",preferencesFormatted.size.toString())
                 localStore.PullUntilFull(true)
                 pref_popup_card.visibility = View.GONE;
+
+//                localStore.preferredTypes = preferencesFormatted
+//                LoginActivity.apiPullDbPush()
+//                localStore.PullUntilFull(true)
             }
         }
     }

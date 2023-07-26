@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
     }
 }
-    private fun apiPullDbPush() {
+    public fun apiPullDbPush() {
         val apiKey: String = try {
             val ai = packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
             ai.metaData?.getString("com.google.android.geo.API_KEY")!!

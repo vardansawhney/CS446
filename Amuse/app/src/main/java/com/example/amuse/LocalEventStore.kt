@@ -21,6 +21,7 @@ object LocalEventStore {
     public var likedEvents: MutableList<Event> = mutableListOf()
     public var cardList: ArrayList<Card> = ArrayList()
     public var isRunning :Boolean = false
+    public var preferredTypes : MutableList<String> = mutableListOf()
     init{
         Log.d("tag", "YO")
         PullUntilFull()
@@ -54,6 +55,13 @@ object LocalEventStore {
         }
     }
     fun PullUntilFull(override: Boolean = false){
+        var preferencesList: List<String> = listOf()
+        if (preferredTypes.isEmpty()){
+            preferencesList = listOf("restaurant","tourist_attraction","night_club")
+        }else{
+            preferencesList = preferredTypes as List<String>
+        }
+
         if(currentAvailableEventsStack.size<5 || override){
             CoroutineScope(Dispatchers.IO).launch {
                 if(override){
