@@ -65,6 +65,11 @@ object LocalEventStore {
                         for (document in data) {
                             Log.d("tag", "${document.id} => price_level: ${document.data.get("price_level")}, types: ${document.data.get("types")}")
                             val types_list = document.data.get("types") as List<String>
+                            var price_level = 1
+                            if (document.data.get("price_level") != null){
+                                    price_level = document.data.get("price_level").toString().toInt()
+                            }
+
                             val event = Event(
                                 document.id,
                                 document.data.get("source-id").toString(),
@@ -75,7 +80,7 @@ object LocalEventStore {
                                 document.data.get("latest_time").toString(),
                                 document.data.get("address").toString(),
                                 document.data.get("city").toString(),
-                                document.data.get("price_level").toString().toInt(),
+                                price_level,
                                 document.data.get("rating").toString().toDouble(),
                                 types_list
                             )
