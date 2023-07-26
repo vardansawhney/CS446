@@ -26,7 +26,7 @@ import retrofit2.HttpException
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
-
+val localstore = LocalEventStore
     private lateinit var binding: ActivityMainBinding
     companion object {
         var myUser = User("","","","amuse_profile.png",arrayListOf<String>(), arrayListOf<String>(), arrayListOf<String>())
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        setContentView(R.layout.fragment_home)
-
+        localstore.doSomething()
         val navView: BottomNavigationView = binding.navView
 
         // API requests and DB updates
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_groups, R.id.navigation_notifications
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
     }

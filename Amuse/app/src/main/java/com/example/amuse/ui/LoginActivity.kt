@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.amuse.FirebaseUtils
+import com.example.amuse.LocalEventStore
 import com.example.amuse.MainActivity
 import com.example.amuse.MainActivity.Companion.myProfileImage
 import com.example.amuse.MainActivity.Companion.myUser
@@ -23,6 +24,7 @@ import java.io.File
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+    val localStore = LocalEventStore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -71,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-
+        localStore.doSomething()
         val registerButtonClick = findViewById<Button>(R.id.register_button)
         registerButtonClick.setOnClickListener {
             val intent = Intent(this, RegisterUserActivity::class.java)

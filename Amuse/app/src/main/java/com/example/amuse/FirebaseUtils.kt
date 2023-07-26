@@ -36,7 +36,8 @@ data class Event(
     val price_level: Int?,
     val rating: Double?,
     val types: List<String>?,
-    val reviews: Review
+    val reviews: Review? = null,
+    val imageURL: String? = null
 )
 
 data class Review(
@@ -60,8 +61,15 @@ public fun uploadData(event: Event) {
 }
 
 public suspend fun queryEvents(price_level: Int, types: List<String>) = callbackFlow<QuerySnapshot>{
+    var list:MutableList<Int?> = mutableListOf()
+    var i : Int = 1
+    while(i <= price_level){
+        list.add(i)
+        i++
+    }
+    list.add(null)
     FirebaseUtils().fireStoreDatabase.collection("Events")
-        .whereLessThanOrEqualTo("price_level", price_level)
+        .whereIn("price_level",list)
         .whereArrayContainsAny("types", types)
         .get()
         .addOnSuccessListener { documents ->

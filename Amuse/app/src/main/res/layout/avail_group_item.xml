@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:layout_margin="5dp">
@@ -20,16 +19,16 @@
                 android:id="@+id/group_pic3"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:alpha="0.7" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/group_pic2"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
                 android:alpha="0.7" />
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -42,35 +41,44 @@
         </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="183dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/eventName"
+                android:id="@+id/availGroupName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Event Name"
-                android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="90dp"
+                android:ellipsize="end"
                 android:maxLines="1"
-                android:ellipsize="end" />
+                android:text="Event Name"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/listMembers"
+                android:id="@+id/dateDisplay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="15dp"
-                android:text="Lilo, Nani, Angel"
-                android:maxLines="1"
-                android:ellipsize="end" />
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Display time here" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/joinButton"
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="5dp"
+            android:insetTop="15dp"
+            android:text="Join" />
 
     </LinearLayout>
 
@@ -80,8 +88,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:padding="5dp"
-        android:textSize="12sp"
-        android:text="Members: 1/3" />
+        android:text="Spots left: 3"
+        android:textSize="10sp" />
 
 
 </RelativeLayout>

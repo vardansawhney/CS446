@@ -1,11 +1,8 @@
 package com.example.amuse.ui.profile
 
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.amuse.R
@@ -21,7 +18,7 @@ class GroupAdapter(private val groupsList: ArrayList<Group>)
         val imageView3 : CircleImageView = itemView. findViewById(R.id.group_pic3)
         val nameTextView : TextView = itemView.findViewById(R.id.eventName)
         val membersTextView : TextView = itemView.findViewById(R.id.listMembers)
-        val groupsTextView : TextView = itemView.findViewById(R.id.numMembers)
+        val groupsTextView : TextView = itemView.findViewById(R.id.availSpotsLeft)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupViewHolder {
