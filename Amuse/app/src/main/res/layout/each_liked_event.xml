@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="430dp"
     android:background="#88CECECE"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -76,7 +76,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/priceLevel"
+                    android:id="@+id/description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -93,15 +93,6 @@
                     android:orientation="vertical"
                     android:visibility="gone">
 
-                    <TextView
-                        android:id="@+id/description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="18dp"
-                        android:layout_marginEnd="18dp"
-                        android:text="Small plates, salad and sandwiches an intimate setting with 12 indoor seats plus patio seating."
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        android:textColor="@color/black" />
 
                     <View
                         android:layout_width="match_parent"
@@ -157,18 +148,8 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/expandBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="55dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="8dp"
-
-                        android:text="EXPAND"
-                        android:textColor="#F9F8FA" />
-
-                    <Button
                         android:id="@+id/goToCal"
-                        android:layout_width="wrap_content"
+                        android:layout_width="383dp"
                         android:layout_height="55dp"
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="8dp"

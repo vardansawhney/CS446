@@ -31,14 +31,13 @@ class LikedEventAdaptor(private val availLikedEventsList: ArrayList<LikedEvent>)
         val nameTextView : TextView = itemView.findViewById(R.id.likedEventName)
         val descriptionTextView : TextView = itemView.findViewById(R.id.description)
         val addressTextView : TextView = itemView.findViewById(R.id.addy)
-        val priceLevelTextView : TextView = itemView.findViewById(R.id.priceLevel)
         val ratingTextView : TextView = itemView.findViewById(R.id.rating)
         val goToCalButtonView: Button = itemView.findViewById(R.id.goToCal)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LikedEventViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.avail_group_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.each_liked_event, parent, false)
         return LikedEventAdaptor.LikedEventViewHolder(view).apply {
             goToCalButtonView.setOnClickListener {
                 // Start the activity here
@@ -56,7 +55,6 @@ class LikedEventAdaptor(private val availLikedEventsList: ArrayList<LikedEvent>)
         holder.nameTextView.text = likedEvent.name
         holder.descriptionTextView.text = likedEvent.description
         holder.addressTextView.text = likedEvent.address
-        holder.priceLevelTextView.text = likedEvent.price_level.toString()
         holder.ratingTextView.text = likedEvent.rating.toString()
 
         var toCalId = View.generateViewId()

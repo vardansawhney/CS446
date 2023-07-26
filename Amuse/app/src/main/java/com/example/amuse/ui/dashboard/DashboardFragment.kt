@@ -84,17 +84,14 @@ Log.d("tag", getActivity().toString())
         Log.e("Group matching 4", "page loaded")
         availLikedEventsList = ArrayList()
 
-
-
         for (event in events) {
             Log.e("Group matching 4", "${event.name}")
             availLikedEventsList.add(
                 LikedEvent(
-                    event.name,
-                    event.description,
-                    event.address,
-                    event.price_level,
-                    event.rating,
+                    event.name!!,
+                    event.description!!,
+                    event.address!!,
+                    event.rating!!,
                 )
             )
 
