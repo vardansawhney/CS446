@@ -129,7 +129,7 @@ class RegisterUserActivity : AppCompatActivity(){
                 }
                 if(!block){
                     GlobalScope.launch(Dispatchers.IO) {
-                        val newUser = User(email.text.toString(), name.text.toString(), password.text.toString(), "${email.text}.jpg", ArrayList<String>(), ArrayList<String>(), ArrayList<String>())
+                        val newUser = User(email.text.toString(), name.text.toString(), password.text.toString(), R.drawable.amuse_profile.toString(), ArrayList<String>(), ArrayList<String>(), ArrayList<String>())
 
                         // add new user to database
                         createUser(newUser)

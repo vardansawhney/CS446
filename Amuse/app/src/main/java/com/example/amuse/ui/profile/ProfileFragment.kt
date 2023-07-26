@@ -33,6 +33,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.tasks.await
 import java.io.ByteArrayOutputStream
 import java.io.File
 
@@ -70,7 +71,7 @@ class ProfileFragment : Fragment() {
         profilePic = binding.constraintLayout.findViewById(R.id.profile_image)
 
         // Profile Picture
-        profilePic.setImageBitmap(myProfileImage)
+        profilePic.setImageResource(myUser.picture.toInt())
 
         editButton.setOnClickListener(){
         Log.d("Photo", "pick a photo")
@@ -138,6 +139,9 @@ class ProfileFragment : Fragment() {
                     myProfileImage = pickedBitMap
                 }
                 GlobalScope.launch(Dispatchers.IO) {
+                    val userDocument = FirebaseUtils().fireStoreDatabase.collection("Users").document(myUser.email)
+                    userDocument.update("picture", R.drawable.capture.toString()).await()
+                    myUser.picture = R.drawable.capture.toString()
                     val storageRef = FirebaseUtils().fireStoreStorage.reference
                     val baos = ByteArrayOutputStream()
                     pickedBitMap!!.compress(Bitmap.CompressFormat.JPEG, 100, baos)

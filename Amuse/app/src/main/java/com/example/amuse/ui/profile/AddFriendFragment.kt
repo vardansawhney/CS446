@@ -1,9 +1,8 @@
 package com.example.amuse.ui.profile
 
-import android.content.Intent
+import android.R.id.input
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,20 +10,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.findFragment
 import com.example.amuse.FirebaseUtils
-import com.example.amuse.MainActivity
 import com.example.amuse.MainActivity.Companion.myUser
 import com.example.amuse.R
-import com.example.amuse.User
-import com.example.amuse.createUser
 import com.google.firebase.firestore.FieldValue
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.tasks.await
+
 
 class AddFriendFragment : DialogFragment() {
     override fun onCreateView(
@@ -51,12 +43,36 @@ class AddFriendFragment : DialogFragment() {
                 emailText.requestFocusFromTouch()
             } else {
                 val userDocument = FirebaseUtils().fireStoreDatabase.collection("Users").document(email)
+                val myDocument = FirebaseUtils().fireStoreDatabase.collection("Users").document(myUser.email)
                 runBlocking {
                     val user = userDocument.get().await()
                     if (user.exists()) {
                         runBlocking {
                             Log.d("Add", " new friend $email")
-                            userDocument.update("pendingFriends", FieldValue.arrayUnion(myUser.email))
+                            userDocument.update("friends", FieldValue.arrayUnion(myUser.email))
+                            myDocument.update("friends", FieldValue.arrayUnion(email))
+//                            val fragment: FriendsFragment =
+//                                requireActivity().fragmentManager.findFragmentByTag("FriendsFragment") as FriendsFragment
+//                            // Add the new friend to the view
+//                            runBlocking {
+//                                val friendUserDocument =
+//                                    FirebaseUtils().fireStoreDatabase.collection("Users")
+//                                        .document(email)
+//                                val friendUser = friendUserDocument.get().await()
+//                                Log.d(
+//                                    "Hi",
+//                                    "Added document with ID ${
+//                                        friendUser.data?.get("email").toString()
+//                                    }"
+//                                )
+//                                fragment.friendList.add(
+//                                    Friend(
+//                                        friendUser.data?.get("name").toString(),
+//                                        friendUser.data?.get("email").toString(),
+//                                        friendUser.data?.get("picture") as Int
+//                                    )
+//                                )
+//                            }
                             dismiss()
                         }
 //                        friends = user.data?.get("friends") as List<String>
@@ -68,6 +84,25 @@ class AddFriendFragment : DialogFragment() {
                 }
             }
         }
-
     }
+//
+//    override fun onDismiss(dialog: DialogInterface) {
+//        super.getView()
+//        super.onDismiss(dialog)
+//    }
+//    interface MyInterface {
+//        fun onChoose()
+//    }
+//
+//    private var mListener: MyInterface? = null
+//
+//    override fun onAttach(activity: Activity) {
+//        mListener = activity as MyInterface
+//        super.onAttach(activity)
+//    }
+//
+//    override fun onDetach() {
+//        mListener = null
+//        super.onDetach()
+//    }
 }

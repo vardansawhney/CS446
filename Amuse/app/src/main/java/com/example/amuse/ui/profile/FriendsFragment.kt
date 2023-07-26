@@ -64,7 +64,7 @@ class FriendsFragment : Fragment() {
                 val friendUserDocument = FirebaseUtils().fireStoreDatabase.collection("Users").document(friend)
                 val friendUser = friendUserDocument.get().await()
                 Log.d("Hi", "Added document with ID ${friendUser.data?.get("email").toString()}")
-                friendList.add(Friend(friendUser.data?.get("name").toString(), friendUser.data?.get("email").toString(), R.drawable.lilo))
+                friendList.add(Friend(friendUser.data?.get("name").toString(), friendUser.data?.get("email").toString(), R.drawable.nani))
 //                runBlocking {
 //                    val storageRef = FirebaseUtils().fireStoreStorage.reference.child(
 //                        "${
