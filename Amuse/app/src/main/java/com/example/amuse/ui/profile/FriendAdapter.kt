@@ -1,24 +1,23 @@
 package com.example.amuse.ui.profile
 
-import android.app.Activity
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.amuse.R
 import de.hdodenhof.circleimageview.CircleImageView
+//import com.squareup.picasso.Picasso
 
-class FriendAdapter(private val friendList: ArrayList<Friend>)
+class FriendAdapter(private val context: Context, private val friendList: ArrayList<Friend>)
     : RecyclerView.Adapter<FriendAdapter.FriendViewHolder>(){
 
     class FriendViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
         val imageView : CircleImageView = itemView. findViewById(R.id.friend_profile_pic)
         val nameTextView : TextView = itemView.findViewById(R.id.friendName)
         val emailTextView : TextView = itemView.findViewById(R.id.email)
-        val groupsTextView : TextView = itemView.findViewById(R.id.numGroups)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendViewHolder {
@@ -31,7 +30,7 @@ class FriendAdapter(private val friendList: ArrayList<Friend>)
         holder.imageView.setImageResource(friend.imageId)
         holder.nameTextView.text = friend.name
         holder.emailTextView.text = friend.email
-        holder.groupsTextView.text = friend.groups.toString()
+//        Glide.with(context).load(friend.image).into(holder.imageView)
     }
 
     override fun getItemCount(): Int {

@@ -12,11 +12,11 @@ class VP2Adapter(activity: FragmentActivity?) : FragmentStateAdapter(activity!!)
     }
 
     override fun createFragment(position: Int): Fragment {
-        return if(position == 0)
-            FriendsFragment()
+        if(position == 0)
+            return FriendsFragment()
         else if(position == 1)
-            FriendsFragment()
+            return PendingFriendsFragment()
         else
-            FriendsFragment()
+            return SettingsFragment()
     }
 }
