@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.android.tools.build:gradle:8.0.2'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21'
         classpath 'com.google.gms:google-services:4.3.15'    // Firestore
 
@@ -19,6 +19,7 @@ buildscript {
 plugins {
     // ...
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin' version '2.0.1' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.20' apply false
 }
 
 task clean(type: Delete) {

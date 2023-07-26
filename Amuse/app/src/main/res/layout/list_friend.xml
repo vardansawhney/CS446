@@ -29,6 +29,8 @@
                 android:id="@+id/friendName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:text="Lilo"
                 android:textColor="@color/black"
                 android:textSize="26sp"
@@ -44,25 +46,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/groups"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:padding="15dp"
-        android:textSize="12sp"
-        android:text="Groups: " />
-
-    <TextView
-        android:id="@+id/numGroups"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:layout_marginRight="5dp"
-        android:layout_alignParentRight="true"
-        android:textSize="12sp"
-        android:text="1"/>
 
 </RelativeLayout>
