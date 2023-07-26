@@ -89,7 +89,7 @@ class DashboardFragment : Fragment() {
         toCal.setOnClickListener {
 //            val calendarUrl = "https://calendar.google.com"
 //            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(calendarUrl))
-//            Log.d("tag", "calendar button pressed")
+//            Log.d("tag", "cal.endar button pressed")
 //            startActivity(intent)
 //            val i = PackageManager.getLaunchIntentForPackage("com.google.calendar")
 ////            val i = PackageManager.
