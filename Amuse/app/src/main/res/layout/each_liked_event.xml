@@ -36,6 +36,7 @@
                     android:src="@drawable/ic_launcher_background" />
 
                 <TextView
+                    android:id="@+id/likedEventName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -52,6 +53,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -61,6 +63,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/addy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -73,6 +76,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/priceLevel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -90,6 +94,7 @@
                     android:visibility="gone">
 
                     <TextView
+                        android:id="@+id/description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="18dp"
@@ -106,15 +111,15 @@
                         android:layout_marginEnd="18dp"
                         android:background="#88888888" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="18dp"
-                        android:layout_marginTop="18dp"
-                        android:layout_marginEnd="18dp"
-                        android:text="Tonight's avaliability"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/black" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="18dp"-->
+<!--                        android:layout_marginTop="18dp"-->
+<!--                        android:layout_marginEnd="18dp"-->
+<!--                        android:text="Tonight's avaliability"-->
+<!--                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--                        android:textColor="@color/black" />-->
 
                     <!--                        <LinearLayout-->
                     <!--                            android:layout_width="match_parent"-->
