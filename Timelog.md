@@ -46,7 +46,7 @@ Timelog file for time tracking.
 |   07-23-2023   | Implemented full strategy pattern for card swiping + worked on event pulling     |    1   |        |          |  10      |     10    |        |
 |   07-24-2023   | Finalized structure, created dynamic UIs to populate from multiple APIs//dbs    |    1   |     1   |      1    |     15   |     15    |    1    |
 |   07-25-2023   | Finished Liked Events -> data passing to group page      |       |    15    |       8   |       |     8    |        |
-|      |       |       |        |          |        |         |        |
+|   07-25-2023   | Pushing event data to g cal     |       |    5    |       5   |       |     5    |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
