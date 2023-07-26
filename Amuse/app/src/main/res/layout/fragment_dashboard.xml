@@ -27,6 +27,7 @@
         android:id="@+id/recyclerLikedEventsView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="55dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -55,7 +56,6 @@
         android:elevation="8dp"
         android:focusable="true"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/create_group_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -164,7 +164,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/create_group_popup_card" />
         </LinearLayout>
-
 
     </com.google.android.material.card.MaterialCardView>
 
