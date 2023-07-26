@@ -88,7 +88,7 @@ object LocalEventStore {
                                 document.data.get("address").toString(),
                                 getRating(document.data.get("rating").toString().toDouble()),
                                 document.data.get("description").toString(),
-                                getPriceLevelDollarSigns(document.data.get("price_level").toString().toInt())))
+                                getPriceLevelDollarSigns(price_level)))
                             Log.d("tag", event.toString())
                             if(!currentAvailableEventsStack.contains(event)){
                                 currentAvailableEventsStack.add(event)
