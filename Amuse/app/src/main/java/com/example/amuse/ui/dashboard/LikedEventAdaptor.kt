@@ -22,6 +22,7 @@ import com.example.amuse.ui.profile.AvailGroupAdapter
 import com.google.api.Distribution.BucketOptions.Linear
 import com.google.firebase.firestore.FieldValue
 import java.util.ArrayList
+import java.util.*
 
 class LikedEventAdaptor(private val availLikedEventsList: ArrayList<LikedEvent>)
     : RecyclerView.Adapter<LikedEventAdaptor.LikedEventViewHolder>(){
@@ -40,9 +41,8 @@ class LikedEventAdaptor(private val availLikedEventsList: ArrayList<LikedEvent>)
             LayoutInflater.from(parent.context).inflate(R.layout.each_liked_event, parent, false)
         return LikedEventAdaptor.LikedEventViewHolder(view).apply {
             goToCalButtonView.setOnClickListener {
-                // Start the activity here
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.google.android.calendar"))
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                val intent = Intent(Intent.ACTION_MAIN)
+                intent.addCategory(Intent.CATEGORY_APP_CALENDAR)
                 parent.context.startActivity(intent)
             }
         }
