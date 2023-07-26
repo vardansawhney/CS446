@@ -53,15 +53,24 @@ object LocalEventStore {
             return "$$$$$"
         }
     }
-    fun PullUntilFull(override: Boolean = false){
+    fun PullUntilFull(override: Boolean = false, preferencesFormatter: ArrayList<String>? = null){
         if(currentAvailableEventsStack.size<5 || override){
             CoroutineScope(Dispatchers.IO).launch {
                 if(override){
                     currentAvailableEventsStack.clear()
                     cardList.clear()
                 }
+                var preferencesFormattertemp: ArrayList<String> = ArrayList()
+                if(preferencesFormatter == null){
+                    preferencesFormattertemp.add("store")
+                } else {
+                    for (thing in preferencesFormatter) {
+                        preferencesFormattertemp.add(thing)
+                    }
+                }
                 while (currentAvailableEventsStack.size<10) {
-                    queryEvents(3, listOf("restaurant","tourist_attraction","night_club")).collect { data->
+                    Log.d("tag", "currentAvailableEventsStack is less than 10")
+                    queryEvents(3, preferencesFormattertemp).collect { data->
                         for (document in data) {
                             Log.d("tag", "${document.id} => price_level: ${document.data.get("price_level")}, types: ${document.data.get("types")}")
                             val types_list = document.data.get("types") as List<String>
@@ -84,12 +93,13 @@ object LocalEventStore {
                                 document.data.get("rating").toString().toDouble(),
                                 types_list
                             )
+                            Log.d("tag1", event.name.toString())
                             cardList.add(Card(document.data.get("name").toString(),
                                 document.data.get("address").toString(),
                                 getRating(document.data.get("rating").toString().toDouble()),
                                 document.data.get("description").toString(),
-                                getPriceLevelDollarSigns(document.data.get("price_level").toString().toInt())))
-                            Log.d("tag", event.toString())
+                                getPriceLevelDollarSigns(price_level)))
+                            Log.d("tag", event.name.toString())
                             if(!currentAvailableEventsStack.contains(event)){
                                 currentAvailableEventsStack.add(event)
                             }
