@@ -45,9 +45,13 @@ Timelog file for time tracking.
 |  07-22-2023    | Extending architecture and connecting to db, updating design patterns     |       |        |          |    12    |   12      |        |
 |   07-23-2023   | Implemented full strategy pattern for card swiping + worked on event pulling     |    1   |        |          |  10      |     10    |        |
 |   07-24-2023   | Finalized structure, created dynamic UIs to populate from multiple APIs//dbs    |    1   |     1   |      1    |     15   |     15    |    1    |
-|   07-25-2023   | Finished Liked Events -> data passing to group page      |       |    15    |       8   |       |     8    |        |
+|   07-24-2023   | Create liked events to dynamically show   |       |    5   |         |       |        |    2   |
+|   07-24-2023   | updating liked events to db   |   2    |    6   |         |       |        |       |
+|   07-25-2023   | Finished Liked Events -> data passing to group page      |       |    17    |       8   |       |     8    |        |
+|   07-25-2023   | Finished Liked Events -> data passing to group page      |       |    17    |       8   |       |     8    |        |
 |   07-25-2023   | Pushing event data to g cal     |       |    5    |       5   |       |     5    |        |
-|      |       |       |        |          |        |         |        |
+|   07-26-2023   | Deliverable 6 Presentation    |   3    |    3    |    3      |   3    |  3       |   3     |
+|   07-27-2023   | Deliverable 6 Report   |       |    6    |          |       |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
