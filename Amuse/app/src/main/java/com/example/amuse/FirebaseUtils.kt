@@ -3,24 +3,15 @@ package com.example.amuse
 //import android.content.ContentValues.TAG
 import android.util.Log
 import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
-import com.google.firebase.firestore.ktx.toObject
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 
 const val TAG = "FIRESTORE"
 
 class FirebaseUtils {
     val fireStoreDatabase = FirebaseFirestore.getInstance()
-    val fireStoreStorage = FirebaseStorage.getInstance()
 }
 
 data class Event(
@@ -83,7 +74,6 @@ public suspend fun queryEvents(price_level: Int, types: List<String>) = callback
         Log.d(TAG, "Await channel closed")
         channel.close()
     }
-
 }
 
 data class Group(
@@ -179,3 +169,4 @@ public fun getClosedGroups(email: String){
 public fun deleteGroup(groupID: String, email: String){}
 
 public fun removeFromJoinedGroup(groupID: String, email: String){}
+
