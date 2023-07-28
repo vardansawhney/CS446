@@ -28,25 +28,30 @@ Timelog file for time tracking.
 | 05-29-2023  | Edit Proposal |   | |  | 0.5 |  | | 
 | 05-29-2023  | Proposal discussion meeting #3 | 2.0  | 2.0 |  2.0 | 2.0  | 2.0  | 2.0 |
 | 05-29-2023  | Prepare slide deck template |       |        | 2.5 |        |         |        |
-| 05-30-2023  | Prepare slides for pitch |       |        | 2.5 |        |         |        |
+| 05-30-2023  | Prepare slides for pitch |       |        | 2.5 |        |         |    0.5    |
 | 05-30-2023  | Designed logo for app |  | 1.0 |  |  |  |  |
 | 05-31-2023  | Brainstorming 'friends' aspect of application, how to make it more difficult to build |  | 2.5 |  | 2.5  |  |  |
 | 06-01-2023 | Making new mocks to represent latest vision of product, reflecting changes discussed with prof to increase difficulty |       |0.5|          | 1 |         |        |
 | 06-02-2023 | Finishing mocks to represent latest vision of product, reflecting changes discussed with prof to increase difficulty |       |        |          | 1 |         |        |
-| 06-02-2023  | Editing proposal document |  | 1.0 |  |  |  |  |
+| 06-02-2023  | Editing proposal document |  | 1.0 |  |  |  | 2.0 |
 | 06-02-2023  | Finalizing Idea, Mocks, and Architectural Views |  |  |  | 4 |  |  |
 | 06-02-2023  | Final Edits on Proposal Doc + Design Discussions    |    3   |  2      |          |   2     |    3     |    1.5    |
 | 06-13-2023  | Buddy Team Evaluation    |   |   3.5   |     2     |   1     |    2    |      |
+|  06-25-2023    |   Building UI for Demo App / Learning Android studio    |      |       |         |        |        |    5    |
+|  06-26-2023    |   Building UI for Demo App / Learning Android studio    |      |       |         |        |        |    8    |
 |  06-27-2023    |   Building App Demo + Fighting with Android studio    |  19     |   14     |    15      |  17      |    15     |   22     |
-|   07-07-2023   |  D4,D5 work     |       |        |          |   3     |    3     |        |
+|   07-07-2023   |  D4,D5 work     |       |        |          |   3     |    3     |    3    |
 |   07-12-2023   |   Working on Recommendation Engine and surrounding Event related components    |       |        |          |    10    |    10    |        |
 |   07-12-2023   |   Designing class level architecture and relevant design patterns for Recommendation engine and event related components    |       |        |          |      3  |      3   |        |
 |   07-17-2023   | Brainstorming social aspect of Amuse     |       |    4    |          |   0     |    0     |     4   |
+|  07-22-2023    | Work on UI changes for profile page & trying to set up dynamodb     |       |        |          |        |         |    5    |
 |  07-22-2023    | Extending architecture and connecting to db, updating design patterns     |       |        |          |    12    |   12      |        |
 |   07-23-2023   | Implemented full strategy pattern for card swiping + worked on event pulling     |    1   |        |          |  10      |     10    |        |
+|   07-23-2023   | Implemented creation and update of users, friends, and groups (Social Network aspect)   |       |        |          |        |        |    12    |
 |   07-24-2023   | Finalized structure, created dynamic UIs to populate from multiple APIs//dbs    |    1   |     1   |      1    |     15   |     15    |    1    |
 |   07-25-2023   | Finished Liked Events -> data passing to group page      |       |    15    |       8   |       |     8    |        |
 |   07-25-2023   | Pushing event data to g cal     |       |    5    |       5   |       |     5    |        |
+|   07-26-2023   | Final debug session & recording video     |    7   |    7    |      7   |   7    |     7    |    7    |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
