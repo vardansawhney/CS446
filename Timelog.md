@@ -46,22 +46,29 @@ Timelog file for time tracking.
 |  06-26-2023    |   Building UI for Demo App / Learning Android studio    |      |       |         |        |        |    8    |
 |  06-27-2023    |   Building App Demo + Fighting with Android studio    |  19     |   14     |    15      |  17      |    15     |   22     |
 | 07-03-2023 | Plan out workload for D4/D5 and draft what points of communication |  4     |4 |   4       | 4 |   4      |   4     |
-|   07-07-2023   |  D4,D5 work     |       |        |          |   3     |    3     |    3    |
+|   07-07-2023   |  D4,D5 work     |   3    |    3    |     3     |   3     |    3     |    3    |
 |  07-11-2023    | Discussing the kinds of pivots that we need to make     |  4     |  4      |      4    |    4   |   4      |   4     |
 |   07-12-2023   |   Working on Recommendation Engine and surrounding Event related components    |       |        |          |    10    |    10    |        |
 |   07-12-2023   |   Designing class level architecture and relevant design patterns for Recommendation engine and event related components    |       |        |          |      3  |      3   |        |
 |   07-15-2023   |   Further discussion of implementation of design patterns to be used for related components of recommendation engin    |       |        |          |      3  |      3   |        |
 |   07-17-2023   | Brainstorming social aspect of Amuse     |       |    4    |          |        |         |     4   |
+|   07-17-2023   |  Brainstormed API and Firebase architecture and design patterns     |   5    |        |     1     |        |         |        |
+|   07-18-2023   | Researched and Tested Google Maps APIs on Postman before Integrating     |    5   |        |          |        |         |        |
 |   07-18-2023   | Register new user login UI   |       |        |          |        |     4   |        |
 |  07-19-2023    |   Setup Firebase   |       |        |    2     |        |         |        |
+|  07-19-2023    |   Implement Firebase Functions Part 1   |   14    |        |         |        |         |        |
 |  07-20-2023    |   Implement API and data classes (1/2)   |       |        |    13     |        |         |        |
+|  07-20-2023    |   Implement Firebase Functions Part 2   |   13    |        |         |        |         |        |
 |  07-21-2023    |   Implement API package and data classes (2/2)  |       |        |    12     |        |         |        |
 |  07-22-2023    |   Develop API client   |       |        |    15     |        |         |        |
 |  07-22-2023    | Work on UI changes for profile page & trying to set up dynamodb     |       |        |          |        |         |    5    |
-|  07-22-2023    | Extending architecture and connecting to db, updating design patterns     |       |        |          |    12    |   12      |        |
-|  07-23-2023    |   populate firestore functionality and fix DB schema  |       |        |    7     |        |         |        |
-|   07-23-2023   | Implemented full strategy pattern for card swiping + worked on event pulling     |    1   |        |          |  10      |     10    |        |
+|  07-22-2023    | Extending architecture and connecting to db, updating design patterns     |    2   |        |          |    12    |   12      |        |
+|  07-22-2023    |   Debugged issues with DB   |   4    |    2    |         |        |         |        |
+|  07-23-2023    |   populate firestore functionality and fix DB schema  |   3    |        |    7     |        |         |        |
+|   07-23-2023   | Implemented full strategy pattern for card swiping + worked on event pulling     |    3   |        |          |  10      |     10    |        |
+|  07-23-2023    |   Debugged issues with querying functions   |   5    |        |         |        |         |        |
 |   07-23-2023   | Implemented creation and update of users, friends, and groups (Social Network aspect)   |       |        |          |        |        |    12    |
+|  07-23-2023    |   Attempted integration of Photos API with application |   6    |        |         |        |     5    |        |
 |   07-24-2023   | Finalized structure, created dynamic UIs to populate from multiple APIs//dbs    |    1   |     1   |      1    |     15   |     15    |    1    |
 |   07-24-2023   | Create liked events to dynamically show   |       |    5   |         |       |        |    2   |
 |   07-24-2023   | updating liked events to db   |   2    |    6   |         |       |        |       |
