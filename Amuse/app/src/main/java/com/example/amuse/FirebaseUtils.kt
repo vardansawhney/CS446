@@ -86,6 +86,26 @@ public suspend fun queryEvents(price_level: Int, types: List<String>) = callback
 
 }
 
+data class Group(
+    val groupID: String,
+    val availableSpots: Int,
+    var creatorID: String,
+    var startTime: String,
+    var endTime: String,
+    var members: ArrayList<String>
+)
+
+public fun createGroup(group: Group) {
+    FirebaseUtils().fireStoreDatabase.collection("Groups").document(group.groupID)
+        .set(group)
+        .addOnSuccessListener {
+            Log.d(TAG, "Added document with ID ${group.groupID}")
+        }
+        .addOnFailureListener { exception ->
+            Log.w(TAG, "Error adding document $exception")
+        }
+}
+
 data class User(
     val email: String,
     var name: String,

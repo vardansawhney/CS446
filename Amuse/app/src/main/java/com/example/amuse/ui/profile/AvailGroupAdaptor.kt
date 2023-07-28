@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.amuse.FirebaseUtils
+import com.example.amuse.MainActivity.Companion.myUser
 import com.example.amuse.R
 import com.google.firebase.firestore.FieldValue
 import de.hdodenhof.circleimageview.CircleImageView
@@ -62,7 +63,7 @@ class AvailGroupAdapter(private val availGroupsList: ArrayList<AvailGroup>)
             // UPDATE WITH CURRENT USER INSTEAD OF DENIS@GMAIL.COM
             FirebaseUtils().fireStoreDatabase.collection("Groups")
                 .document("${availGroup.name}")
-                .update("members", FieldValue.arrayUnion("denis@gmail.com"))
+                .update("members", FieldValue.arrayUnion(myUser.email))
 
             // Decrease available spots in DB
             holder.availSpotsLeftTextView.text = "Spots left: " + (availGroup.availSpotsLeft - 1)

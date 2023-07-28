@@ -61,19 +61,18 @@ class GroupPageFragment : Fragment() {
         // Group 1
         invitedList1 = ArrayList()
         invitedList1.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo))
-        invitedList1.add(Friend("Angel", "angelxoxo@gmail.com", R.drawable.angel))
         invitedList1.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani))
         acceptedList1 = ArrayList()
         acceptedList1.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo))
-        groupsList.add(Group("Ohana Outing", 3, 3, false, invitedList1, acceptedList1))
+        groupsList.add(Group("Dinner with Friends", 3, 3, false, invitedList1, acceptedList1))
 
-        // Group 2
-        invitedList2 = ArrayList()
-        invitedList2.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani))
-        invitedList2.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo))
-        acceptedList2 = ArrayList()
-        acceptedList2.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani))
-        groupsList.add(Group("Picniiiic", 1, 2, false, invitedList2, acceptedList2))
+//        // Group 2
+//        invitedList2 = ArrayList()
+//        invitedList2.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani))
+//        invitedList2.add(Friend("Lilo", "lilolovesdancing@gmail.com", R.drawable.lilo))
+//        acceptedList2 = ArrayList()
+//        acceptedList2.add(Friend("Nani", "bigsisnani@gmail.com", R.drawable.nani))
+//        groupsList.add(Group("Picniiiic", 1, 2, false, invitedList2, acceptedList2))
 
         // New Group
         val groupInfo = activity?.intent?.extras?.getStringArray("groupInfo")

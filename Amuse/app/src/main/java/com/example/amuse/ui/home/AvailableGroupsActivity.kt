@@ -1,6 +1,8 @@
 package com.example.amuse.ui.home
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -15,8 +17,13 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.amuse.FirebaseUtils
+import com.example.amuse.Group
 import com.example.amuse.MainActivity
+import com.example.amuse.MainActivity.Companion.myUser
 import com.example.amuse.R
+import com.example.amuse.User
+import com.example.amuse.createGroup
+import com.example.amuse.createUser
 import com.example.amuse.databinding.FragmentGroupPageBinding
 import com.example.amuse.ui.profile.AvailGroup
 import com.example.amuse.ui.profile.AvailGroupAdapter
@@ -25,6 +32,12 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import java.io.ByteArrayOutputStream
+import java.sql.Time
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -32,6 +45,9 @@ import java.util.Locale
 
 
 class AvailableGroupsActivity : AppCompatActivity() {
+    lateinit var available_group_info_id: String
+    lateinit var available_group_info_start_time: String
+    lateinit var available_group_info_end_time: String
     lateinit var create_group_button: MaterialButton
     lateinit var create_group_popup_card: MaterialCardView
     lateinit var checkbox_solo_Adventure: CheckBox
@@ -190,7 +206,7 @@ class AvailableGroupsActivity : AppCompatActivity() {
         // val friendsGroups = FirebaseUtils().fireStoreDatabase.collection("Users").document(friend).get("groups"); // syntax issues
         Log.e("Test", "We got here")
 
-        FirebaseUtils().fireStoreDatabase.collection("Users").document("denis@gmail.com").get()
+        FirebaseUtils().fireStoreDatabase.collection("Users").document(myUser.email).get()
             .addOnSuccessListener { documentSnapshot ->
                 if (documentSnapshot.exists()) {
                     Log.e("Group matching", "snapshot obtained: $documentSnapshot")
@@ -358,18 +374,18 @@ class AvailableGroupsActivity : AppCompatActivity() {
         actv.threshold = 1
         actv.setAdapter(adapter)
 
-        val available_group_info_id = intent.getStringExtra("Group-Info-ID")
-        val available_group_info_start_time = intent.getStringExtra("Group-Info-StartTime")
-        val available_group_info_end_time = intent.getStringExtra("Group-Info-Endtime")
+        available_group_info_id = intent.getStringExtra("Group-Info-ID").toString()
+        available_group_info_start_time = intent.getStringExtra("Group-Info-StartTime").toString()
+        available_group_info_end_time = intent.getStringExtra("Group-Info-Endtime").toString()
         if(available_group_info_end_time !=null && available_group_info_id != null && available_group_info_start_time != null){
-            Log.d("groupinfo", available_group_info_id)
-            Log.d("groupinfo", available_group_info_start_time)
-            Log.d("groupinfo", available_group_info_end_time)
+            Log.d("groupinfo", available_group_info_id!!)
+            Log.d("groupinfo", available_group_info_start_time!!)
+            Log.d("groupinfo", available_group_info_end_time!!)
         }
     }
 
     private fun getDateTime(s: String): String? {
-        Log.e("Group matcing", "Your string is!!!!: $s")
+        Log.e("Group matching", "Your string is!!!!: $s")
         try {
             val sdf = SimpleDateFormat("MM/dd/yyyy")
 //                        val netDate = Date(Long.parseLong(s) * 1000)
@@ -414,6 +430,18 @@ class AvailableGroupsActivity : AppCompatActivity() {
                     checkbox_solo_Adventure.isChecked.toString(),
                     friends_text.text.toString()
                 )
+//
+//                val newGroup = Group(
+//                    event_title_text.text.toString(),
+//                    max_ppl_text.text as Int,
+//                    myUser.email,
+//                    "1:00pm",
+//                    "3:00pm",
+//                    ArrayList<String>()
+//                )
+//                Log.e("TEST", "create a group")
+//                createGroup(newGroup)
+
                 val intent = Intent(this, MainActivity::class.java);
 //                setContentView(R.layout.fragment_group_page)
                 startActivity(intent.putExtra("groupInfo", group_to_add));
