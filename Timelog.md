@@ -32,18 +32,27 @@ Timelog file for time tracking.
 | 05-30-2023  | Designed logo for app |  | 1.0 |  |  |  |  |
 | 05-31-2023  | Brainstorming 'friends' aspect of application, how to make it more difficult to build |  | 2.5 |  | 2.5  |  |  |
 | 06-01-2023 | Making new mocks to represent latest vision of product, reflecting changes discussed with prof to increase difficulty |       |0.5|          | 1 |         |        |
+| 06-01-2023 | Meeting to discuss changes to be made |  2     |2 |   2       | 2 |   2      |   2     |
 | 06-02-2023 | Finishing mocks to represent latest vision of product, reflecting changes discussed with prof to increase difficulty |       |        |          | 1 |         |        |
 | 06-02-2023  | Editing proposal document |  | 1.0 |  |  |  | 2.0 |
 | 06-02-2023  | Finalizing Idea, Mocks, and Architectural Views |  |  |  | 4 |  |  |
 | 06-02-2023  | Final Edits on Proposal Doc + Design Discussions    |    3   |  2      |          |   2     |    3     |    1.5    |
-| 06-13-2023  | Buddy Team Evaluation    |   |   3.5   |     2     |   1     |    2    |      |
-|  06-25-2023    |   Building UI for Demo App / Learning Android studio    |      |       |         |        |        |    5    |
+| 06-05-2023 | Meeting to talk about workload, proposal doc, design discussions |  2     |2 |   2       | 2 |   2      |   2     |
+| 06-12-2023 | Talk about buddy team evaluations |  2     |2 |   2       | 2 |   2      |   2     |
+| 06-13-2023  | Buddy Team Evaluation    | 4  |   3.5   |     2     |   1     |    2    |      |
+| 06-20-2023 | Plan and beging implementing what we wnat to get done for Demo | 6     |6 |   6       | 6 |   6      |   6    |
+|  06-21-2023    |   Debugging android studio issues    |  1     |   1     |    1      |  6      |    1     |   1     |
+|  06-25-2023    |   Building UI for Demo App / Learning Android studio    |      |       |         |    1    |        |    5    |
 |  06-26-2023    |   Building UI for Demo App / Learning Android studio    |      |       |         |        |        |    8    |
 |  06-27-2023    |   Building App Demo + Fighting with Android studio    |  19     |   14     |    15      |  17      |    15     |   22     |
+| 07-03-2023 | Plan out workload for D4/D5 and draft what points of communication |  4     |4 |   4       | 4 |   4      |   4     |
 |   07-07-2023   |  D4,D5 work     |       |        |          |   3     |    3     |    3    |
+|  07-11-2023    | Discussing the kinds of pivots that we need to make     |  4     |  4      |      4    |    4   |   4      |   4     |
 |   07-12-2023   |   Working on Recommendation Engine and surrounding Event related components    |       |        |          |    10    |    10    |        |
 |   07-12-2023   |   Designing class level architecture and relevant design patterns for Recommendation engine and event related components    |       |        |          |      3  |      3   |        |
-|   07-17-2023   | Brainstorming social aspect of Amuse     |       |    4    |          |   0     |    0     |     4   |
+|   07-15-2023   |   Further discussion of implementation of design patterns to be used for related components of recommendation engin    |       |        |          |      3  |      3   |        |
+|   07-17-2023   | Brainstorming social aspect of Amuse     |       |    4    |          |        |         |     4   |
+|   07-18-2023   | Register new user login UI   |       |        |          |        |     4   |        |
 |  07-22-2023    | Work on UI changes for profile page & trying to set up dynamodb     |       |        |          |        |         |    5    |
 |  07-22-2023    | Extending architecture and connecting to db, updating design patterns     |       |        |          |    12    |   12      |        |
 |   07-23-2023   | Implemented full strategy pattern for card swiping + worked on event pulling     |    1   |        |          |  10      |     10    |        |
@@ -54,9 +63,11 @@ Timelog file for time tracking.
 |   07-25-2023   | Finished Liked Events -> data passing to group page      |       |    17    |       8   |       |     8    |        |
 |   07-25-2023   | Finished Liked Events -> data passing to group page      |       |    17    |       8   |       |     8    |        |
 |   07-25-2023   | Pushing event data to g cal     |       |    5    |       5   |       |     5    |        |
-|   07-27-2023   | Deliverable 6 Report   |       |    6    |          |       |         |        |
 |   07-26-2023   | Final debug session & recording video     |    7   |    7    |      7   |   7    |     7    |    7    |
+|   07-27-2023   | Deliverable 6 Report   |       |    6    |          |       |         |        |
+
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
 |      |       |       |        |          |        |         |        |
+
