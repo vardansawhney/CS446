@@ -53,8 +53,13 @@ Timelog file for time tracking.
 |   07-15-2023   |   Further discussion of implementation of design patterns to be used for related components of recommendation engin    |       |        |          |      3  |      3   |        |
 |   07-17-2023   | Brainstorming social aspect of Amuse     |       |    4    |          |        |         |     4   |
 |   07-18-2023   | Register new user login UI   |       |        |          |        |     4   |        |
+|  07-19-2023    |   Setup Firebase   |       |        |    2     |        |         |        |
+|  07-20-2023    |   Implement API and data classes (1/2)   |       |        |    13     |        |         |        |
+|  07-21-2023    |   Implement API package and data classes (2/2)  |       |        |    12     |        |         |        |
+|  07-22-2023    |   Develop API client   |       |        |    15     |        |         |        |
 |  07-22-2023    | Work on UI changes for profile page & trying to set up dynamodb     |       |        |          |        |         |    5    |
 |  07-22-2023    | Extending architecture and connecting to db, updating design patterns     |       |        |          |    12    |   12      |        |
+|  07-23-2023    |   populate firestore functionality and fix DB schema  |       |        |    7     |        |         |        |
 |   07-23-2023   | Implemented full strategy pattern for card swiping + worked on event pulling     |    1   |        |          |  10      |     10    |        |
 |   07-23-2023   | Implemented creation and update of users, friends, and groups (Social Network aspect)   |       |        |          |        |        |    12    |
 |   07-24-2023   | Finalized structure, created dynamic UIs to populate from multiple APIs//dbs    |    1   |     1   |      1    |     15   |     15    |    1    |
